@@ -10,24 +10,14 @@ using System.Windows.Forms;
 
 namespace CSharp_QuanLiBanSanGo
 {
-    public partial class DanhMucHangHoa : Form
+    public partial class frmDangNhap : Form
     {
-        public DanhMucHangHoa()
+        public frmDangNhap()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
 
         }

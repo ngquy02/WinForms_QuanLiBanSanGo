@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CSharp_QuanLiBanSanGo
 {
-    public partial class frmDangNhap : Form
+    public partial class frmDMHangHoa : Form
     {
-        public frmDangNhap()
+        public frmDMHangHoa()
         {
             InitializeComponent();
         }
