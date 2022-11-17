@@ -114,5 +114,41 @@ namespace CSharp_QuanLiBanSanGo
         {
             Application.Exit();
         }
+
+        private void devSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSQL frmSQL = new frmSQL();
+            frmSQL.ShowDialog();
+        }
+
+        private void danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport1 report1 = new frmReport1();
+            report1.ShowDialog();
+        }
+
+        private void danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport2 report2 = new frmReport2();
+            report2.ShowDialog();
+        }
+
+        private void danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport3 report3 = new frmReport3();
+            report3.ShowDialog();
+        }
+
+        private void danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReport4 report4 = new frmReport4();
+            report4.ShowDialog();
+        }
+
+        private void vềToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
     }
 }

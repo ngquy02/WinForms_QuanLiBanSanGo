@@ -67,6 +67,14 @@ namespace CSharp_QuanLiBanSanGo
             txtDienThoai.Text = "";
         }
 
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             DataTable dtKhachHang = dtBase.table(queryLoad);
@@ -112,7 +120,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                DataTable dtKhachHang = dtBase.table("SELECT * FROM tKhachHang WHERE" + " MaKhach ='" + (txtMaKhach.Text).Trim() + "'");
+                DataTable dtKhachHang = dtBase.table($"SELECT * FROM tKhachHang WHERE MaKhach ='{txtMaKhach.Text}'");
                 if (dtKhachHang.Rows.Count > 0)
                 {
                     MessageBox.Show("Mã khách này đã có, hãy nhập mã khách hàng khác");
@@ -120,21 +128,14 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    try
+                    if (MessageBox.Show("Bạn có muốn thêm khách hàng này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("Bạn có muốn thêm khách hàng này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            dtBase.Excute($"INSERT INTO tKhachHang VALUES(N'" + txtMaKhach.Text + "', N'" + txtTenKhach.Text + "', N'" + txtDiaChi.Text + "', N'" + txtDienThoai.Text + "')");
-                            MessageBox.Show("Bạn đã thêm khách hàng thành công");
+                        dtBase.Excute($"INSERT INTO tKhachHang(MaKhach, TenKhach, DiaChi, DienThoai) VALUES(N'{txtMaKhach.Text}', N'{txtTenKhach.Text}', N'{txtDiaChi.Text}', N'{txtDienThoai.Text}')");
+                        MessageBox.Show("Bạn đã thêm khách hàng thành công");
 
-                            dgvKhachHang.DataSource = dtBase.table(queryLoad);
+                        dgvKhachHang.DataSource = dtBase.table(queryLoad);
 
-                            CleanInput();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        CleanInput();
                     }
                 }
             }
@@ -144,25 +145,17 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                try
+                if (MessageBox.Show("Bạn có sửa thông tin nhà khách hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn có sửa thông tin nhà khách hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        dtBase.Excute($"UPDATE tKhachHang SET TenKhach = N'" + txtTenKhach.Text + "' WHERE MaNCC = '" + txtMaKhach.Text + "'");
-                        dtBase.Excute($"UPDATE tKhachHang SET DiaChi = N'" + txtDiaChi.Text + "' WHERE MaNCC = '" + txtMaKhach.Text + "'");
-                        dtBase.Excute($"UPDATE tKhachHang SET DienThoai = N'" + txtDienThoai.Text + "' WHERE MaNCC = '" + txtMaKhach.Text + "'");
+                    dtBase.Excute($"UPDATE tKhachHang SET TenKhach = N'{txtTenKhach.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                    dtBase.Excute($"UPDATE tKhachHang SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                    dtBase.Excute($"UPDATE tKhachHang SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
 
-                        CleanInput();
+                    CleanInput();
 
-                        dgvKhachHang.DataSource = dtBase.table(queryLoad);
-                        MessageBox.Show("Bạn đã sửa thông tin thành công");
-                        txtMaKhach.Enabled = true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    dgvKhachHang.DataSource = dtBase.table(queryLoad);
+                    MessageBox.Show("Bạn đã sửa thông tin thành công");
+                    txtMaKhach.Enabled = true;
                 }
             }
         }
@@ -184,22 +177,22 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtMaKhach.Text.Trim() != "")
             {
-                dk += " AND MaKhach LIKE N'%" + txtMaKhach.Text + "%'";
+                dk += $" AND MaKhach LIKE N'%{txtMaKhach.Text}%'";
             }
 
             if (txtTenKhach.Text.Trim() != "")
             {
-                dk += " AND TenKhach LIKE N'%" + txtTenKhach.Text + "%'";
+                dk += $" AND TenKhach LIKE N'%{txtTenKhach.Text}%'";
             }
 
             if (txtDiaChi.Text.Trim() != "")
             {
-                dk += " AND DiaChi LIKE N'%" + txtDiaChi.Text + "%'";
+                dk += $" AND DiaChi LIKE N'%{txtDiaChi.Text}%'";
             }
 
             if (txtDienThoai.Text.Trim() != "")
             {
-                dk += " AND DienThoai LIKE N'%" + txtDienThoai.Text + "%'";
+                dk += $" AND DienThoai LIKE N'%{txtDienThoai.Text}%'";
             }
 
             if (dk != "")

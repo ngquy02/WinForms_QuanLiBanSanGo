@@ -15,7 +15,7 @@ namespace CSharp_QuanLiBanSanGo
     public partial class frmHoaDonNhap : Form
     {
         DBconfig dtBase = new DBconfig();
-        string queryLoad = "SELECT SoHDN, TenNV, NgayNhap, TenNCC, TongTien FROM tHoaDonNhap JOIN tNhanVien ON tHoaDonNhap.MaNV = tNhanVien.MaNV JOIN tNhaCungCap ON tHoaDonNhap.MaNCC = tNhaCungCap.MaNCC";
+        string queryLoad = "SELECT * FROM View_HoaDonNhap";
 
         public frmHoaDonNhap()
         {
@@ -84,11 +84,11 @@ namespace CSharp_QuanLiBanSanGo
             dgvHoaDonNhap.Columns[3].HeaderText = "Nhà cung cấp";
             dgvHoaDonNhap.Columns[4].HeaderText = "Tổng tiền";
 
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-
             load_NhanVien();
             load_NCC();
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
             CleanInput();
         }
@@ -108,6 +108,15 @@ namespace CSharp_QuanLiBanSanGo
             btnTimKiem.Enabled = false;
         }
 
+        private void dgvHoaDonNhap_DoubleClick(object sender, EventArgs e)
+        {
+            string soHDN = dgvHoaDonNhap.CurrentRow.Cells[0].Value.ToString();
+            string query = "SELECT tChiTietHoaDonNhap.SoHDN, TenHangHoa, tChiTietHoaDonNhap.SoLuong, DonGia, GiamGia, ThanhTien FROM tChiTietHoaDonNhap JOIN tHoaDonNhap ON tChiTietHoaDonNhap.SoHDN = tHoaDonNhap.SoHDN JOIN tDMHangHoa ON tChiTietHoaDonNhap.MaHang = tDMHangHoa.MaHang WHERE tChiTietHoaDonNhap.SoHDN = N'" + txtSoHDN.Text + "'";
+
+            frmChiTietHDN chiTietHDB = new frmChiTietHDN(soHDN, query);
+            chiTietHDB.ShowDialog();
+        }
+
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             CleanInput();
@@ -123,7 +132,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                DataTable dtHDN = dtBase.table("SELECT * FROM tHoaDonNhap WHERE" + " SoHDN ='" + (txtSoHDN.Text).Trim() + "'");
+                DataTable dtHDN = dtBase.table($"SELECT * FROM tHoaDonNhap WHERE SoHDN ='{txtSoHDN.Text}'");
 
                 if (dtHDN.Rows.Count > 0)
                 {
@@ -132,21 +141,14 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    try
+                    if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            dtBase.Excute($"INSERT INTO tHoaDonNhap VALUES(N'" + txtSoHDN.Text + "', N'" + cboNhanVien.SelectedValue.ToString() + "', N'" + dtpNgayNhap.Text + "', N'" + cboNCC.SelectedValue.ToString() + "')");
-                            MessageBox.Show("Bạn đã thêm hoá đơn thành công");
+                        dtBase.Excute($"INSERT INTO tHoaDonNhap(SoHDN, MaNV, NgayNhap, MaNCC) VALUES(N'{txtSoHDN.Text}', N'{cboNhanVien.SelectedValue.ToString()}', N'{dtpNgayNhap.Text}', N'{cboNCC.SelectedValue.ToString()}')");
+                        MessageBox.Show("Bạn đã thêm hoá đơn thành công");
 
-                            dgvHoaDonNhap.DataSource = dtBase.table(queryLoad);
+                        dgvHoaDonNhap.DataSource = dtBase.table(queryLoad);
 
-                            CleanInput();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        CleanInput();
                     }
                 }
             }
@@ -156,25 +158,17 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                try
+                if (MessageBox.Show("Bạn có sửa thông tin hoá đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn có sửa thông tin hoá đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        dtBase.Excute($"UPDATE tHoaDonNhap SET MaNV = N'" + cboNhanVien.SelectedValue.ToString() + "' WHERE SoHDN = '" + txtSoHDN.Text + "'");
-                        dtBase.Excute($"UPDATE tHoaDonNhap SET NgayBan = N'" + dtpNgayNhap.Text + "' WHERE SoHDN = '" + txtSoHDN.Text + "'");
-                        dtBase.Excute($"UPDATE tHoaDonNhap SET NgaySinh = N'" + cboNCC.SelectedValue.ToString() + "' WHERE SoHDN = '" + txtSoHDN.Text + "'");
+                    dtBase.Excute($"UPDATE tHoaDonNhap SET MaNV = N'{cboNhanVien.SelectedValue.ToString()}' WHERE SoHDN = '{txtSoHDN.Text}'");
+                    dtBase.Excute($"UPDATE tHoaDonNhap SET NgayNhap = N'{dtpNgayNhap.Text}' WHERE SoHDN = '{txtSoHDN.Text}'");
+                    dtBase.Excute($"UPDATE tHoaDonNhap SET MaNCC = N'{cboNCC.SelectedValue.ToString()}' WHERE SoHDN = '{txtSoHDN.Text}'");
 
-                        CleanInput();
+                    CleanInput();
 
-                        dgvHoaDonNhap.DataSource = dtBase.table(queryLoad);
-                        MessageBox.Show("Bạn đã sửa thông tin thành công");
-                        txtSoHDN.Enabled = true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    dgvHoaDonNhap.DataSource = dtBase.table(queryLoad);
+                    MessageBox.Show("Bạn đã sửa thông tin thành công");
+                    txtSoHDN.Enabled = true;
                 }
             }
         }
@@ -183,7 +177,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa hoá đơn có mã là: " + txtSoHDN.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tHoaDonNhap WHERE SoHDN ='" + txtSoHDN.Text + "'");
+                dtBase.Excute($"DELETE tHoaDonNhap WHERE SoHDN ='{txtSoHDN.Text}'");
                 dgvHoaDonNhap.DataSource = dtBase.table(queryLoad);
 
                 CleanInput();
@@ -196,12 +190,12 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtSoHDN.Text.Trim() != "")
             {
-                dk += " AND SoHDB LIKE N'%" + txtSoHDN.Text + "%'";
+                dk += $" AND SoHDB LIKE N'{txtSoHDN.Text}%'";
             }
 
             if (cboNCC.Text.Trim() != "")
             {
-                dk += " AND TenKhach LIKE N'%" + cboNCC.Text + "%'";
+                dk += $" AND SoHDB LIKE N'{cboNCC.Text}%'";
             }
 
             if (dk != "")

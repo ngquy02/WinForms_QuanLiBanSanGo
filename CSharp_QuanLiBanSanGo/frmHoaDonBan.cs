@@ -16,7 +16,7 @@ namespace CSharp_QuanLiBanSanGo
     public partial class frmHoaDonBan : Form
     {
         DBconfig dtBase = new DBconfig();
-        string queryLoad = "SELECT SoHDB, TenNV, NgayBan, TenKhach, TongTien FROM tHoaDonBan JOIN tNhanVien ON tHoaDonBan.MaNV = tNhanVien.MaNV JOIN tKhachHang ON tHoaDonBan.MaKhach = tKhachHang.MaKhach";
+        string queryLoad = "SELECT * FROM View_HoaDonBan";
 
         public frmHoaDonBan()
         {
@@ -86,11 +86,11 @@ namespace CSharp_QuanLiBanSanGo
             dgvHoaDonBan.Columns[3].HeaderText = "Khách hàng";
             dgvHoaDonBan.Columns[4].HeaderText = "Tổng tiền";
 
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-
             load_NhanVien();
             load_KhachHang();
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
             CleanInput();
         }
@@ -110,6 +110,15 @@ namespace CSharp_QuanLiBanSanGo
             btnTimKiem.Enabled = false;
         }
 
+        private void dgvHoaDonBan_DoubleClick(object sender, EventArgs e)
+        {
+            string soHDB = dgvHoaDonBan.CurrentRow.Cells[0].Value.ToString();
+            string query = "SELECT tChiTietHoaDonBan.SoHDB, TenHangHoa, tChiTietHoaDonBan.SoLuong, GiamGia, ThanhTien FROM tChiTietHoaDonBan JOIN tHoaDonBan ON tChiTietHoaDonBan.SoHDB = tHoaDonBan.SoHDB JOIN tDMHangHoa ON tChiTietHoaDonBan.MaHang = tDMHangHoa.MaHang WHERE tChiTietHoaDonBan.SoHDB = N'" + txtSoHDB.Text + "'";
+
+            frmChiTietHDB chiTietHDB = new frmChiTietHDB(soHDB, query);
+            chiTietHDB.ShowDialog();
+        }
+
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             CleanInput();
@@ -125,7 +134,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                DataTable dtNhanVien = dtBase.table("SELECT * FROM tHoaDonBan WHERE" + " SoHDB ='" + (txtSoHDB.Text).Trim() + "'");
+                DataTable dtNhanVien = dtBase.table($"SELECT * FROM tHoaDonBan WHERE SoHDB = N'{txtSoHDB.Text}'");
 
                 if (dtNhanVien.Rows.Count > 0)
                 {
@@ -138,7 +147,7 @@ namespace CSharp_QuanLiBanSanGo
                     {
                         if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
-                            dtBase.Excute($"INSERT INTO tHoaDonBan VALUES(N'" + txtSoHDB.Text + "', N'" + cboNhanVien.SelectedValue.ToString() + "', N'" + dtpNgayBan.Text + "', N'" + cboKhachHang.SelectedValue.ToString() + "', NULL)");
+                            dtBase.Excute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Text} ', N'{cboKhachHang.SelectedValue}')");
                             MessageBox.Show("Bạn đã thêm hoá đơn thành công");
 
                             dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
@@ -162,9 +171,9 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     if (MessageBox.Show("Bạn có sửa thông tin hoá đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        dtBase.Excute($"UPDATE tHoaDonBan SET MaNV = N'" + cboNhanVien.SelectedValue.ToString() + "' WHERE SoHDB = '" + txtSoHDB.Text + "'");
-                        dtBase.Excute($"UPDATE tHoaDonBan SET NgayBan = N'" + dtpNgayBan.Text + "' WHERE SoHDB = '" + txtSoHDB.Text + "'");
-                        dtBase.Excute($"UPDATE tHoaDonBan SET NgaySinh = N'" + cboKhachHang.SelectedValue.ToString() + "' WHERE SoHDB = '" + txtSoHDB.Text + "'");
+                        dtBase.Excute($"UPDATE tHoaDonBan SET MaNV = N'{cboNhanVien.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.Excute($"UPDATE tHoaDonBan SET NgayBan = N'{dtpNgayBan.Text}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.Excute($"UPDATE tHoaDonBan SET MaKhach = N'{cboKhachHang.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
 
                         CleanInput();
 
@@ -185,7 +194,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa hoá đơn mã là: " + txtSoHDB.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tHoaDonBan WHERE SoHDB ='" + txtSoHDB.Text + "'");
+                dtBase.Excute($"DELETE tHoaDonBan WHERE SoHDB ='{txtSoHDB.Text}'");
                 dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
 
                 CleanInput();
@@ -198,12 +207,12 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtSoHDB.Text.Trim() != "")
             {
-                dk += " AND SoHDB LIKE N'%" + txtSoHDB.Text + "%'";
+                dk += $" AND SoHDB LIKE N'{txtSoHDB.Text}%'";
             }
 
             if (cboKhachHang.Text.Trim() != "")
             {
-                dk += " AND TenKhach LIKE N'%" + cboKhachHang.Text + "%'";
+                dk += $" AND TenKhach LIKE N'%{cboKhachHang.Text}%'";
             }
 
             if (dk != "")
@@ -215,45 +224,46 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog excelFile = new SaveFileDialog();
+            excelFile.Title = "Lưu Excel";
+            excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
+            excelFile.FileName = "DanhSachHDB";
+
+            if(excelFile.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-                exSheet.get_Range("B2").Font.Bold = true;
-                exSheet.get_Range("B2").Value = "Danh sách sản phẩm";
-                exSheet.get_Range("A3").Value = "Số thứ tự";
-                exSheet.get_Range("B3").Value = "Số hoá đơn bán";
-                exSheet.get_Range("C3").Value = "Nhân viên";
-                exSheet.get_Range("D3").Value = "Ngày bán";
-                exSheet.get_Range("E3").Value = "Khách hàng";
-                exSheet.get_Range("F3").Value = "Tổng tiền";
-
-                int n = dgvHoaDonBan.Rows.Count;
-
-                for (int i = 0; i < n - 1; i++)
+                try
                 {
-                    exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
-                    exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[0].Value;
-                    exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[1].Value;
-                    exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[2].Value;
-                    exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[3].Value;
-                    exSheet.get_Range("F" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[4].Value;
+                    Excel.Application exApp = new Excel.Application();
+                    Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+                    exSheet.get_Range("B2").Font.Bold = true;
+                    exSheet.get_Range("B2").Value = "Danh sách sản phẩm";
+                    exSheet.get_Range("A3").Value = "Số thứ tự";
+                    exSheet.get_Range("B3").Value = "Số hoá đơn bán";
+                    exSheet.get_Range("C3").Value = "Nhân viên";
+                    exSheet.get_Range("D3").Value = "Ngày bán";
+                    exSheet.get_Range("E3").Value = "Khách hàng";
+                    exSheet.get_Range("F3").Value = "Tổng tiền";
+
+                    for (int i = 0; i < dgvHoaDonBan.Rows.Count; i++)
+                    {
+                        exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
+                        exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[0].Value;
+                        exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[1].Value;
+                        exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[2].Value;
+                        exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[3].Value;
+                        exSheet.get_Range("F" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[4].Value;
+                    }
+
+                    exSheet.Columns.AutoFit();
+                    exBook.SaveAs(excelFile.FileName.ToString());
+                    exApp.ActiveWorkbook.Saved = true;
+                    MessageBox.Show("Đã xuất Excel thành công");
                 }
+                catch
+                {
 
-                exSheet.Columns.AutoFit();
-                SaveFileDialog excelFile = new SaveFileDialog();
-                excelFile.Title = "Lưu Excel";
-                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-                excelFile.FileName = "DanhSachHDB";
-                excelFile.ShowDialog();
-                exBook.SaveAs(excelFile.FileName.ToString());
-
-                MessageBox.Show("Đã xuất Excel thành công");
-            }
-            catch
-            {
-
+                }
             }
         }
     }

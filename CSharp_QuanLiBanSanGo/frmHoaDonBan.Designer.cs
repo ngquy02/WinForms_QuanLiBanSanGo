@@ -90,6 +90,7 @@
             // 
             // txtTongTien
             // 
+            this.txtTongTien.Enabled = false;
             this.txtTongTien.Location = new System.Drawing.Point(129, 158);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(178, 20);
@@ -258,6 +259,7 @@
             this.dgvHoaDonBan.Size = new System.Drawing.Size(1000, 320);
             this.dgvHoaDonBan.TabIndex = 0;
             this.dgvHoaDonBan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonBan_CellClick);
+            this.dgvHoaDonBan.DoubleClick += new System.EventHandler(this.dgvHoaDonBan_DoubleClick);
             // 
             // frmHoaDonBan
             // 

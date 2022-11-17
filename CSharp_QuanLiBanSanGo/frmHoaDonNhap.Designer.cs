@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboNCC = new System.Windows.Forms.ComboBox();
+            this.cboNhanVien = new System.Windows.Forms.ComboBox();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.txtSoHDN = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvHoaDonNhap = new System.Windows.Forms.DataGridView();
-            this.cboNhanVien = new System.Windows.Forms.ComboBox();
-            this.cboNCC = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -72,11 +72,27 @@
             this.panel1.Size = new System.Drawing.Size(1000, 225);
             this.panel1.TabIndex = 0;
             // 
+            // cboNCC
+            // 
+            this.cboNCC.FormattingEnabled = true;
+            this.cboNCC.Location = new System.Drawing.Point(129, 125);
+            this.cboNCC.Name = "cboNCC";
+            this.cboNCC.Size = new System.Drawing.Size(178, 21);
+            this.cboNCC.TabIndex = 21;
+            // 
+            // cboNhanVien
+            // 
+            this.cboNhanVien.FormattingEnabled = true;
+            this.cboNhanVien.Location = new System.Drawing.Point(129, 59);
+            this.cboNhanVien.Name = "cboNhanVien";
+            this.cboNhanVien.Size = new System.Drawing.Size(178, 21);
+            this.cboNhanVien.TabIndex = 20;
+            // 
             // txtTongTien
             // 
             this.txtTongTien.Location = new System.Drawing.Point(129, 158);
             this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.Size = new System.Drawing.Size(132, 20);
+            this.txtTongTien.Size = new System.Drawing.Size(178, 20);
             this.txtTongTien.TabIndex = 19;
             // 
             // dtpNgayNhap
@@ -84,14 +100,14 @@
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayNhap.Location = new System.Drawing.Point(129, 92);
             this.dtpNgayNhap.Name = "dtpNgayNhap";
-            this.dtpNgayNhap.Size = new System.Drawing.Size(132, 20);
+            this.dtpNgayNhap.Size = new System.Drawing.Size(178, 20);
             this.dtpNgayNhap.TabIndex = 17;
             // 
             // txtSoHDN
             // 
             this.txtSoHDN.Location = new System.Drawing.Point(129, 26);
             this.txtSoHDN.Name = "txtSoHDN";
-            this.txtSoHDN.Size = new System.Drawing.Size(132, 20);
+            this.txtSoHDN.Size = new System.Drawing.Size(178, 20);
             this.txtSoHDN.TabIndex = 15;
             // 
             // label5
@@ -243,22 +259,7 @@
             this.dgvHoaDonNhap.Size = new System.Drawing.Size(1000, 320);
             this.dgvHoaDonNhap.TabIndex = 0;
             this.dgvHoaDonNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonNhap_CellClick);
-            // 
-            // cboNhanVien
-            // 
-            this.cboNhanVien.FormattingEnabled = true;
-            this.cboNhanVien.Location = new System.Drawing.Point(129, 59);
-            this.cboNhanVien.Name = "cboNhanVien";
-            this.cboNhanVien.Size = new System.Drawing.Size(132, 21);
-            this.cboNhanVien.TabIndex = 20;
-            // 
-            // cboNCC
-            // 
-            this.cboNCC.FormattingEnabled = true;
-            this.cboNCC.Location = new System.Drawing.Point(129, 125);
-            this.cboNCC.Name = "cboNCC";
-            this.cboNCC.Size = new System.Drawing.Size(132, 21);
-            this.cboNCC.TabIndex = 21;
+            this.dgvHoaDonNhap.DoubleClick += new System.EventHandler(this.dgvHoaDonNhap_DoubleClick);
             // 
             // frmHoaDonNhap
             // 

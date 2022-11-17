@@ -68,6 +68,14 @@ namespace CSharp_QuanLiBanSanGo
             txtDienThoai.Text = "";
         }
 
+        private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void frmNCC_Load(object sender, EventArgs e)
         {
             DataTable dtNCC = dtBase.table(queryLoad);
@@ -113,7 +121,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                DataTable dtNCC = dtBase.table("SELECT * FROM tNhaCungCap WHERE" + " MaNCC ='" + (txtMaNCC.Text).Trim() + "'");
+                DataTable dtNCC = dtBase.table($"SELECT * FROM tNhaCungCap WHERE MaNCC = '{txtMaNCC.Text}'");
                 if (dtNCC.Rows.Count > 0)
                 {
                     MessageBox.Show("Mã số ngày đã có, hãy nhập mã số khác");
@@ -121,21 +129,14 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    try
+                    if (MessageBox.Show("Bạn có muốn thêm nhà cung cấp vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("Bạn có muốn thêm nhà cung cấp vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            dtBase.Excute($"INSERT INTO tNhaCungCap VALUES(N'" + txtMaNCC.Text + "', N'" + txtTenNCC.Text + "', N'" + txtDiaChi.Text + "', N'" + txtDienThoai.Text + "')");
-                            MessageBox.Show("Bạn đã thêm sản phẩm thành công");
+                        dtBase.Excute($"INSERT INTO tNhaCungCap(MaNCC, TenNCC, DiaChi, DienThoai) VALUES(N'{txtMaNCC.Text}', N'{txtTenNCC.Text}', N'{txtDiaChi.Text}', N'{txtDienThoai.Text}')");
+                        MessageBox.Show("Bạn đã thêm sản phẩm thành công");
 
-                            dgvNCC.DataSource = dtBase.table(queryLoad);
+                        dgvNCC.DataSource = dtBase.table(queryLoad);
 
-                            CleanInput();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        CleanInput();
                     }
                 }
             }
@@ -145,25 +146,17 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (isCheck())
             {
-                try
+                if (MessageBox.Show("Bạn có sửa thông tin nhà cung cấp không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn có sửa thông tin nhà cung cấp không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        dtBase.Excute($"UPDATE tNhaCungCap SET TenNCC = N'" + txtTenNCC.Text + "' WHERE MaNCC = '" + txtMaNCC.Text + "'");
-                        dtBase.Excute($"UPDATE tNhaCungCap SET DiaChi = N'" + txtDiaChi.Text + "' WHERE MaNCC = '" + txtMaNCC.Text + "'");
-                        dtBase.Excute($"UPDATE tNhaCungCap SET DienThoai = N'" + txtDienThoai.Text + "' WHERE MaNCC = '" + txtMaNCC.Text + "'");
+                    dtBase.Excute($"UPDATE tNhaCungCap SET TenNCC = N'{txtTenNCC.Text}' WHERE MaNCC = N'{txtMaNCC.Text}'");
+                    dtBase.Excute($"UPDATE tNhaCungCap SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNCC = N'{txtMaNCC.Text}'");
+                    dtBase.Excute($"UPDATE tNhaCungCap SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNCC = N'{txtMaNCC.Text}'");
 
-                        CleanInput();
+                    CleanInput();
 
-                        dgvNCC.DataSource = dtBase.table(queryLoad);
-                        MessageBox.Show("Bạn đã sửa thông tin thành công");
-                        txtMaNCC.Enabled = true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    dgvNCC.DataSource = dtBase.table(queryLoad);
+                    MessageBox.Show("Bạn đã sửa thông tin thành công");
+                    txtMaNCC.Enabled = true;
                 }
             }
         }
@@ -172,7 +165,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa nhà cung cấp có mã là: " + txtMaNCC.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tNhaCungCap WHERE MaNCC ='" + txtMaNCC.Text + "'");
+                dtBase.Excute($"DELETE tNhaCungCap WHERE MaNCC = N'{txtMaNCC.Text}'");
                 dgvNCC.DataSource = dtBase.table(queryLoad);
 
                 CleanInput();
@@ -185,22 +178,22 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtMaNCC.Text.Trim() != "")
             {
-                dk += " AND MaNCC LIKE N'%" + txtMaNCC.Text + "%'";
+                dk += $" AND MaNCC LIKE N'%{txtMaNCC.Text}%'";
             }
 
             if (txtTenNCC.Text.Trim() != "")
             {
-                dk += " AND TenNCC LIKE N'%" + txtTenNCC.Text + "%'";
+                dk += $" AND TenNCC LIKE N'%{txtTenNCC.Text}%'";
             }
 
             if (txtDiaChi.Text.Trim() != "")
             {
-                dk += " AND DiaChi LIKE N'%" + txtDiaChi.Text + "%'";
+                dk += $" AND DiaChi LIKE N'%{txtDiaChi.Text}%'";
             }
 
             if (txtDienThoai.Text.Trim() != "")
             {
-                dk += " AND DienThoai LIKE N'%" + txtDienThoai.Text + "%'";
+                dk += $" AND DienThoai LIKE N'%{txtDienThoai.Text}%'";
             }
 
             if (dk != "")

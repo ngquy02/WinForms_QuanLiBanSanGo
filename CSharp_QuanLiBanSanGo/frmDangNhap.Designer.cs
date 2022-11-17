@@ -69,7 +69,7 @@
             this.btnDangNhap.Location = new System.Drawing.Point(80, 15);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(117, 40);
-            this.btnDangNhap.TabIndex = 5;
+            this.btnDangNhap.TabIndex = 0;
             this.btnDangNhap.Text = "Đăng &nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -79,7 +79,7 @@
             this.btnDangKi.Location = new System.Drawing.Point(221, 15);
             this.btnDangKi.Name = "btnDangKi";
             this.btnDangKi.Size = new System.Drawing.Size(117, 40);
-            this.btnDangKi.TabIndex = 5;
+            this.btnDangKi.TabIndex = 1;
             this.btnDangKi.Text = "Đăng &kí";
             this.btnDangKi.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +91,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 267);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(419, 70);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
@@ -104,7 +104,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 52);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(419, 215);
-            this.panel3.TabIndex = 7;
+            this.panel3.TabIndex = 1;
             // 
             // llbQuenMatKhau
             // 
@@ -112,7 +112,7 @@
             this.llbQuenMatKhau.Location = new System.Drawing.Point(68, 140);
             this.llbQuenMatKhau.Name = "llbQuenMatKhau";
             this.llbQuenMatKhau.Size = new System.Drawing.Size(80, 13);
-            this.llbQuenMatKhau.TabIndex = 9;
+            this.llbQuenMatKhau.TabIndex = 4;
             this.llbQuenMatKhau.TabStop = true;
             this.llbQuenMatKhau.Text = "Quên mật khẩu";
             // 
@@ -121,14 +121,14 @@
             this.txtMatKhau.Location = new System.Drawing.Point(175, 103);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(175, 20);
-            this.txtMatKhau.TabIndex = 8;
+            this.txtMatKhau.TabIndex = 3;
             // 
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Location = new System.Drawing.Point(175, 66);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(175, 20);
-            this.txtTenDangNhap.TabIndex = 7;
+            this.txtTenDangNhap.TabIndex = 1;
             // 
             // label3
             // 
@@ -136,7 +136,7 @@
             this.label3.Location = new System.Drawing.Point(68, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Mật khẩu";
             // 
             // label2
@@ -145,7 +145,7 @@
             this.label2.Location = new System.Drawing.Point(68, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Tên đăng nhập";
             // 
             // frmDangNhap

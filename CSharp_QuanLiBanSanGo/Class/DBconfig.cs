@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_QuanLiBanSanGo.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -23,7 +24,16 @@ namespace CSharp_QuanLiBanSanGo.Class
             {
                 sqlConnection.Open();
                 sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
-                sqlDataAdapter.Fill(dataTable);
+                
+                try
+                {
+                    sqlDataAdapter.Fill(dataTable);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
                 sqlConnection.Close();
             }
 
@@ -36,7 +46,40 @@ namespace CSharp_QuanLiBanSanGo.Class
             {
                 sqlConnection.Open();
                 sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.ExecuteNonQuery();
+
+                try
+                {
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                sqlConnection.Close();
+            }
+        }
+
+        public void Command(HangHoa hangHoa, string query)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(STRING_CONNECT))
+            {
+                sqlConnection.Open();
+                sqlCommand= new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.Add("@MaHang", hangHoa.MaHang);
+                sqlCommand.Parameters.Add("@TenHang", hangHoa.TenHang);
+                sqlCommand.Parameters.Add("@MaLoaiGo", hangHoa.MaLoaiGo);
+                sqlCommand.Parameters.Add("@MaKichThuoc", hangHoa.MaKichThuoc);
+                sqlCommand.Parameters.Add("@MaDacDiem", hangHoa.MaDacDiem);
+                sqlCommand.Parameters.Add("@MaCongDung", hangHoa.MaCongDung);
+                sqlCommand.Parameters.Add("@MaMau", hangHoa.MaMau);
+                sqlCommand.Parameters.Add("@MaNuocSX", hangHoa.MaNuocSX);
+                sqlCommand.Parameters.Add("@SoLuong", hangHoa.SoLuong);
+                sqlCommand.Parameters.Add("@DonGiaNhap", hangHoa.DonGiaNhap);
+                sqlCommand.Parameters.Add("@ThoiGianBaoHanh", hangHoa.ThoiGianBaoHanh);
+                sqlCommand.Parameters.Add("@Anh", hangHoa.Anh);
+                sqlCommand.Parameters.Add("@GhiChu", hangHoa.GhiChu);
+                
                 try
                 {
                     sqlCommand.ExecuteNonQuery();

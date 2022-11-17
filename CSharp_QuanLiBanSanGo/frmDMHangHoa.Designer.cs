@@ -122,9 +122,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.AutoSize = true;
             this.groupBox3.Controls.Add(this.btnNhapAnh);
             this.groupBox3.Controls.Add(this.ptbAnh);
@@ -158,9 +155,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.cboCongDung);
             this.groupBox2.Controls.Add(this.cboMauSac);
             this.groupBox2.Controls.Add(this.label3);
@@ -284,9 +278,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
@@ -541,10 +532,12 @@
             this.dgvDMHangHoa.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDMHangHoa.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvDMHangHoa.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDMHangHoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDMHangHoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDMHangHoa.Location = new System.Drawing.Point(0, 0);
             this.dgvDMHangHoa.Name = "dgvDMHangHoa";
             this.dgvDMHangHoa.ReadOnly = true;
+            this.dgvDMHangHoa.RowTemplate.Height = 70;
             this.dgvDMHangHoa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDMHangHoa.Size = new System.Drawing.Size(1000, 320);
             this.dgvDMHangHoa.TabIndex = 0;

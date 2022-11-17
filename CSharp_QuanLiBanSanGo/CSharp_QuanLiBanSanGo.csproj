@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,8 +48,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
@@ -67,13 +82,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHDB.cs">
+    <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietHDB.Designer.cs">
-      <DependentUpon>ChiTietHDB.cs</DependentUpon>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietHDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietHDB.Designer.cs">
+      <DependentUpon>frmChiTietHDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\DBconfig.cs" />
+    <Compile Include="frmChiTietHDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietHDN.Designer.cs">
+      <DependentUpon>frmChiTietHDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,10 +149,68 @@
     <Compile Include="frmQuanLiBanSanGo.Designer.cs">
       <DependentUpon>frmQuanLiBanSanGo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReport1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport1.Designer.cs">
+      <DependentUpon>frmReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport2.Designer.cs">
+      <DependentUpon>frmReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport3.Designer.cs">
+      <DependentUpon>frmReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport4.Designer.cs">
+      <DependentUpon>frmReport4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSQL.Designer.cs">
+      <DependentUpon>frmSQL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HangHoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ChiTietHDB.resx">
-      <DependentUpon>ChiTietHDB.cs</DependentUpon>
+    <Compile Include="QuanLiBanSanGoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiBanSanGoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiBanSanGoDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLiBanSanGoDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietHDB.resx">
+      <DependentUpon>frmChiTietHDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietHDN.resx">
+      <DependentUpon>frmChiTietHDN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
@@ -148,6 +233,21 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReport1.resx">
+      <DependentUpon>frmReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport2.resx">
+      <DependentUpon>frmReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport3.resx">
+      <DependentUpon>frmReport3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport4.resx">
+      <DependentUpon>frmReport4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSQL.resx">
+      <DependentUpon>frmSQL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -160,6 +260,10 @@
     <EmbeddedResource Include="frmQuanLiBanSanGo.resx">
       <DependentUpon>frmQuanLiBanSanGo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report4.rdlc" />
+    <EmbeddedResource Include="Reports\Report3.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -170,6 +274,50 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QuanLiBanSanGoDataSet.xsc">
+      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLiBanSanGoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet.xss">
+      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet1.xsc">
+      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLiBanSanGoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet1.xss">
+      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet2.xsc">
+      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLiBanSanGoDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet2.xss">
+      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet3.xsc">
+      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLiBanSanGoDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLiBanSanGoDataSet3.xss">
+      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -215,8 +363,23 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Reports\" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SQL_File\ChucNang.sql" />
+    <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

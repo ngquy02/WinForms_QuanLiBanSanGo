@@ -70,21 +70,22 @@
             // 
             // txtDienThoai
             // 
-            this.txtDienThoai.Location = new System.Drawing.Point(129, 154);
+            this.txtDienThoai.Location = new System.Drawing.Point(129, 125);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(155, 20);
             this.txtDienThoai.TabIndex = 22;
+            this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(129, 109);
+            this.txtDiaChi.Location = new System.Drawing.Point(129, 92);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 20);
             this.txtDiaChi.TabIndex = 19;
             // 
             // txtTenKhach
             // 
-            this.txtTenKhach.Location = new System.Drawing.Point(129, 66);
+            this.txtTenKhach.Location = new System.Drawing.Point(129, 59);
             this.txtTenKhach.Name = "txtTenKhach";
             this.txtTenKhach.Size = new System.Drawing.Size(155, 20);
             this.txtTenKhach.TabIndex = 19;
@@ -99,7 +100,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 116);
+            this.label6.Location = new System.Drawing.Point(24, 95);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 18;
@@ -108,7 +109,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 157);
+            this.label5.Location = new System.Drawing.Point(24, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 17;
@@ -117,7 +118,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 69);
+            this.label2.Location = new System.Drawing.Point(24, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 14;

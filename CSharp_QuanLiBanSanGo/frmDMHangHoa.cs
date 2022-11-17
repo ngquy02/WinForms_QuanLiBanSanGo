@@ -1,4 +1,5 @@
 ﻿using CSharp_QuanLiBanSanGo.Class;
+using CSharp_QuanLiBanSanGo.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace CSharp_QuanLiBanSanGo
 {
     public partial class frmDMHangHoa : Form
     {
+        HangHoa hangHoa;
         DBconfig dtBase = new DBconfig();
-
-        string queryLoad = "SELECT MaHang, TenHangHoa, TenLoaiGo, TenKichThuoc, TenDacDiem, TenCongDung, TenMau, TenNuocSX, SoLuong, DonGiaNhap, DonGiaBan, ThoiGianBaoHanh, Anh, GhiChu FROM tDMHangHoa JOIN tLoaiGo ON tDMHangHoa.MaLoaiGo = tLoaiGo.MaLoaiGo JOIN tKichThuoc ON tDMHangHoa.MaKichThuoc = tKichThuoc.MaKichThuoc JOIN tDacDiem ON tDMHangHoa.MaDacDiem =  tDacDiem.MaDacDiem JOIN tCongDung ON tDMHangHoa.MaCongDung = tCongDung.MaCongDung JOIN tMauSac ON tDMHangHoa.MaMau = tMauSac.MaMau JOIN tNuocSanXuat ON tDMHangHoa.MaNuocSX = tNuocSanXuat.MaNuocSX";
+        string queryLoad = "SELECT * FROM View_DMHangHoa";
 
         public frmDMHangHoa()
         {
@@ -107,13 +108,13 @@ namespace CSharp_QuanLiBanSanGo
                 return false;
             }
 
-            if (ptbAnh.Image == null)
+            if(ptbAnh.Image == null)
             {
                 MessageBox.Show("Hãy chọn ảnh");
                 ptbAnh.Focus();
 
                 return false;
-            }
+            }    
 
             return true;
         }
@@ -178,6 +179,33 @@ namespace CSharp_QuanLiBanSanGo
             cboXuatXu.DisplayMember = "TenNuocSX";
         }
 
+        private void GetValues()
+        {
+            string maHang = txtMaHang.Text;
+            string tenHang = txtTenHang.Text;
+            string maLoaiGo = cboLoaiGo.SelectedValue.ToString();
+            string maKichThuoc = cboKichThuoc.SelectedValue.ToString();
+            string maDacDiem = cboDacDiem.SelectedValue.ToString();
+            string maCongDung = cboCongDung.SelectedValue.ToString();
+            string maMau = cboMauSac.SelectedValue.ToString();
+            string maNuocSX = cboXuatXu.SelectedValue.ToString();
+            string soLuong = txtSoLuong.Text;
+            string donGiaNhap = txtDonGiaNhap.Text;
+            string thoiGianBaoHanh = txtThoiGianBaoHanh.Text;
+            byte[] anh = ImageToByteArray(ptbAnh);
+            string ghiChu = rtbGhiChu.Text;
+
+            hangHoa = new HangHoa(maHang, tenHang, maLoaiGo, maKichThuoc, maDacDiem, maCongDung, maMau, maNuocSX, soLuong, donGiaNhap, thoiGianBaoHanh, anh, ghiChu);
+        }
+
+        private byte[] ImageToByteArray(PictureBox pictureBox)
+        {
+            MemoryStream memoryStream = new MemoryStream();
+            pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
+
+            return memoryStream.ToArray();
+        }
+
         private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -222,8 +250,9 @@ namespace CSharp_QuanLiBanSanGo
             dgvDMHangHoa.Columns[12].HeaderText = "Ảnh";
             dgvDMHangHoa.Columns[13].HeaderText = "Ghi chú";
 
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
+            DataGridViewImageColumn dataGridViewImageColumn = new DataGridViewImageColumn();
+            dataGridViewImageColumn = (DataGridViewImageColumn)dgvDMHangHoa.Columns[12];
+            dataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
 
             load_LoaiGo();
             load_KichThuoc();
@@ -231,6 +260,9 @@ namespace CSharp_QuanLiBanSanGo
             load_CongDung();
             load_MauSac();
             load_NuocSanXuat();
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
 
             CleanInput();
         }
@@ -247,21 +279,21 @@ namespace CSharp_QuanLiBanSanGo
             cboXuatXu.Text = dgvDMHangHoa.CurrentRow.Cells[7].Value.ToString();
             txtSoLuong.Text = dgvDMHangHoa.CurrentRow.Cells[8].Value.ToString();
 
-            string[] arrDonGia = dgvDMHangHoa.CurrentRow.Cells[9].Value.ToString().Split(',');
-            txtDonGiaNhap.Text = arrDonGia[0];
+            string[] arrDonGiaNhap = dgvDMHangHoa.CurrentRow.Cells[9].Value.ToString().Split(',');
+            string[] arrDonGiaBan = dgvDMHangHoa.CurrentRow.Cells[10].Value.ToString().Split(',');
 
-            txtDonGiaBan.Text = dgvDMHangHoa.CurrentRow.Cells[10].Value.ToString();
+            txtDonGiaNhap.Text = arrDonGiaNhap[0];
+            txtDonGiaBan.Text = arrDonGiaBan[0];
             txtThoiGianBaoHanh.Text = dgvDMHangHoa.CurrentRow.Cells[11].Value.ToString();
 
-            string path = dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString();
-
-            if (!File.Exists(path))
+            if (dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString() != "")
             {
-                ptbAnh.Image = null;
+                MemoryStream memoryStream = new MemoryStream((byte[]) dgvDMHangHoa.CurrentRow.Cells[12].Value);
+                ptbAnh.Image = Image.FromStream(memoryStream);
             }
             else
             {
-                ptbAnh.ImageLocation = path;
+                ptbAnh.Image = null;
             }
 
             rtbGhiChu.Text = dgvDMHangHoa.CurrentRow.Cells[13].Value.ToString();
@@ -277,7 +309,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Chọn ảnh";
-            openFileDialog.Filter = "Tệp hình ảnh (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg|Tất cả tệp|*.*";
+            openFileDialog.Filter = "Tệp hình ảnh (*.jpg;*.jpeg)|*.jpg;*.jpeg|Tất cả tệp|*.*";
             openFileDialog.Multiselect = false;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -288,18 +320,20 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            CleanInput();
+            dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
 
             btnThem.Enabled = true;
             btnLamMoi.Enabled = true;
             btnTimKiem.Enabled = true;
             txtMaHang.Enabled = true;
 
-            dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
+            CleanInput();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string queryAdd = $"INSERT INTO tDMHangHoa (MaHang, TenHangHoa, MaLoaiGo, MaKichThuoc, MaDacDiem, MaCongDung, MaMau, MaNuocSX, SoLuong, DonGiaNhap, ThoiGianBaoHanh, Anh, GhiChu) VALUES(@MaHang, @TenHang, @MaLoaiGo, @MaKichThuoc, @MaDacDiem, @MaCongDung, @MaMau, @MaNuocSX, @SoLuong, @DonGiaNhap, @ThoiGianBaoHanh, @Anh, @GhiChu)";
+
             if (isCheck())
             {
                 DataTable dtHangHoa = dtBase.table("SELECT * FROM tDMHangHoa WHERE" + " MaHang ='" + (txtMaHang.Text).Trim() + "'");
@@ -310,21 +344,12 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    try
+                    if (MessageBox.Show("Bạn có muốn thêm sản phẩm vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("Bạn có muốn thêm sản phẩm vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            dtBase.Excute($"INSERT INTO tDMHangHoa VALUES(N'" + txtMaHang.Text.Trim() + "', N'" + txtTenHang.Text.Trim() + "', N'" + cboLoaiGo.SelectedValue.ToString() + "', N'" + cboKichThuoc.SelectedValue.ToString() + "', N'" + cboDacDiem.SelectedValue.ToString() + "', N'" + cboCongDung.SelectedValue.ToString() + "', N'" + cboMauSac.SelectedValue.ToString() + "', N'" + cboXuatXu.SelectedValue.ToString() + "', " + txtSoLuong.Text.Trim() + ", " + txtDonGiaNhap.Text.Trim() + " , NULL, " + txtDonGiaNhap.Text.Trim() + " , N'" + ptbAnh.ImageLocation + "', N'" + rtbGhiChu.Text.Trim() + "')");
-                            MessageBox.Show("Bạn đã thêm sản phẩm thành công");
-
-                            dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
-
-                            CleanInput();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        GetValues();
+                        dtBase.Command(hangHoa, queryAdd);
+                        MessageBox.Show("Thêm thành công");
+                        frmDMHangHoa_Load(sender, e);
                     }
                 }
             }
@@ -332,37 +357,18 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if(isCheck())
+            string queryUpdate = $"UPDATE tDMHangHoa SET TenHangHoa = @TenHang, MaLoaiGo = @MaLoaiGo, MaKichThuoc = @MaKichThuoc, MaDacDiem = @MaDacDiem, MaCongDung = @MaCongDung, MaMau = @MaMau, MaNuocSX = @MaNuocSX, SoLuong = @SoLuong, DonGiaNhap = @DonGiaNhap, ThoiGianBaoHanh = @ThoiGianBaoHanh, Anh = @Anh, GhiChu = @GhiChu WHERE MaHang = @MaHang";
+            if (isCheck())
             {
-                try
+                if (MessageBox.Show("Bạn có sửa thông tin sản phẩm không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn có sửa thông tin sản phẩm không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        dtBase.Excute($"UPDATE tDMHangHoa SET TenHangHoa = N'" + txtTenHang.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaLoaiGo = N'" + cboLoaiGo.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaKichThuoc = N'" + cboKichThuoc.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaDacDiem = N'" + cboDacDiem.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaCongDung = N'" + cboCongDung.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaMau = N'" + cboMauSac.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET MaNuocSX = N'" + cboXuatXu.SelectedValue.ToString() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET SoLuong = N'" + txtSoLuong.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET DonGiaNhap = N'" + txtDonGiaNhap.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET DonGiaBan = N'" + txtDonGiaBan.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET ThoiGianBaoHanh = N'" + txtThoiGianBaoHanh.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET Anh = N'" + ptbAnh.ImageLocation + "' WHERE MaHang = '" + txtMaHang.Text + "'");
-                        dtBase.Excute($"UPDATE tDMHangHoa SET GhiChu = N'" + rtbGhiChu.Text.Trim() + "' WHERE MaHang = '" + txtMaHang.Text + "'");
+                    GetValues();
+                    dtBase.Command(hangHoa, queryUpdate);
+                    MessageBox.Show("Bạn đã sửa thông tin thành công");
 
-                        CleanInput();
-
-                        dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
-                        MessageBox.Show("Bạn đã sửa thông tin thành công");
-                        txtMaHang.Enabled = true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    CleanInput();
+                    dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
+                    txtMaHang.Enabled = true;
                 }
             }    
         }
@@ -371,7 +377,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa mặt hàng có mã là: " + txtMaHang.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tDMHangHoa WHERE MaHang ='" + txtMaHang.Text + "'");
+                dtBase.Excute($"DELETE tDMHangHoa WHERE MaHang = N'{txtMaHang.Text}'");
                 dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
 
                 CleanInput();
@@ -384,42 +390,42 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtMaHang.Text.Trim() != "")
             {
-                dk += " AND MaHang LIKE '%" + txtMaHang.Text + "%'";
+                dk += $" AND MaHang LIKE '%{txtMaHang.Text}%'";
             }
 
             if (txtTenHang.Text.Trim() != "")
             {
-                dk += " AND TenHangHoa LIKE N'%" + txtTenHang.Text + "%'";
+                dk += $" AND TenHangHoa LIKE N'%{txtTenHang.Text}%'";
             }
 
             if (cboLoaiGo.Text.Trim() != "")
             {
-                dk += " AND TenLoaiGo LIKE N'%" + cboLoaiGo.Text + "%'";
+                dk += $" AND TenLoaiGo LIKE N'%{cboLoaiGo.Text}%'";
             }
 
             if (cboKichThuoc.Text.Trim() != "")
             {
-                dk += " AND TenKichThuoc LIKE N'%" + cboKichThuoc.Text + "%'";
+                dk += $" AND TenKichThuoc LIKE N'%{cboKichThuoc.Text}%'";
             }
 
             if (cboDacDiem.Text.Trim() != "")
             {
-                dk += " AND TenDacDiem LIKE N'%" + cboDacDiem.Text + "%'";
+                dk += $" AND TenDacDiem LIKE N'%{cboDacDiem.Text}%'";
             }
 
             if (cboCongDung.Text.Trim() != "")
             {
-                dk += " AND TenCongDung LIKE N'%" + cboCongDung.Text + "%'";
+                dk += $" AND TenCongDung LIKE N'%{cboCongDung.Text}%'";
             }
 
             if (cboMauSac.Text.Trim() != "")
             {
-                dk += " AND TenMau LIKE N'%" + cboMauSac.Text + "%'";
+                dk += $" AND TenMau LIKE N'%{cboMauSac.Text}%'";
             }
 
             if (cboXuatXu.Text.Trim() != "")
             {
-                dk += " AND TenNuocSX LIKE N'%" + cboXuatXu.Text + "%'";
+                dk += $" AND TenNuocSX LIKE N'%{cboXuatXu.Text}%'";
             }
 
             if (dk != "")
@@ -437,10 +443,10 @@ namespace CSharp_QuanLiBanSanGo
                 Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
                 Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
                 exSheet.get_Range("B2").Font.Bold = true;
-                exSheet.get_Range("B2").Value = "Danh sách sản phẩm";
+                exSheet.get_Range("B2").Value = "DANH MỤC HÀNG HOÁ";
                 exSheet.get_Range("A3").Value = "Số thứ tự";
                 exSheet.get_Range("B3").Value = "Mã hàng";
-                exSheet.get_Range("C3").Value = "Tên hàng";
+                exSheet.get_Range("C3").Value = "Tên hàng hoá";
                 exSheet.get_Range("D3").Value = "Loại gỗ";
                 exSheet.get_Range("E3").Value = "Kích thước";
                 exSheet.get_Range("F3").Value = "Đặc điểm";
@@ -449,13 +455,10 @@ namespace CSharp_QuanLiBanSanGo
                 exSheet.get_Range("I3").Value = "Xuất xứ";
                 exSheet.get_Range("J3").Value = "Số lượng";
                 exSheet.get_Range("K3").Value = "Đơn giá nhập";
-                exSheet.get_Range("L3").Value = "Đơn giá bán";
                 exSheet.get_Range("M3").Value = "Thời gian bảo hành";
                 exSheet.get_Range("N3").Value = "Ghi chú";
 
-                int n = dgvDMHangHoa.Rows.Count;
-
-                for (int i = 0; i < n - 1; i++)
+                for (int i = 0; i < dgvDMHangHoa.Rows.Count; i++)
                 {
                     exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
                     exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvDMHangHoa.Rows[i].Cells[0].Value;
@@ -474,18 +477,18 @@ namespace CSharp_QuanLiBanSanGo
                 }
 
                 exSheet.Columns.AutoFit();
+                exBook.Activate();
                 SaveFileDialog excelFile = new SaveFileDialog();
                 excelFile.Title = "Lưu Excel";
                 excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-                excelFile.FileName = "DanhSachSanPham";
+                excelFile.FileName = "DanhMucHangHoa";
                 excelFile.ShowDialog();
                 exBook.SaveAs(excelFile.FileName.ToString());
-
-                MessageBox.Show("Đã xuất Excel thành công");
+                exApp.Quit();
             }
-            catch
+            catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

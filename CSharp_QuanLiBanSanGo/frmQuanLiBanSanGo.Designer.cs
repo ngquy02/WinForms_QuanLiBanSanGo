@@ -31,9 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLiBanSanGo));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tệpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtBáoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.devSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,12 +54,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viếtLệnhTruyVấnSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -83,10 +83,16 @@
             this.tệpToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.tệpToolStripMenuItem.Text = "Tệp";
             // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -94,7 +100,7 @@
             // 
             this.chỉnhSửaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xuấtBáoCáoToolStripMenuItem,
-            this.viếtLệnhTruyVấnSQLToolStripMenuItem});
+            this.devSQLToolStripMenuItem});
             this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
             this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.chỉnhSửaToolStripMenuItem.Text = "Thao tác";
@@ -107,8 +113,43 @@
             this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem,
             this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem});
             this.xuấtBáoCáoToolStripMenuItem.Name = "xuấtBáoCáoToolStripMenuItem";
-            this.xuấtBáoCáoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.xuấtBáoCáoToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.xuấtBáoCáoToolStripMenuItem.Text = "Xuất báo cáo";
+            // 
+            // danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem
+            // 
+            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Name = "danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem";
+            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
+            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Text = "Danh sách 2 hàng hoá được mua nhiều nhất từ một khách hàng";
+            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Click += new System.EventHandler(this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem_Click);
+            // 
+            // danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem
+            // 
+            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Name = "danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem";
+            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
+            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Text = "Danh sách hoá đơn và tổng tiền nhập hàng theo tháng";
+            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Click += new System.EventHandler(this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem_Click);
+            // 
+            // danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem
+            // 
+            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Name = "danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem";
+            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
+            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Text = "Danh sách 5 hoá đơn có tổng tiền bán hàng nhiều nhất theo năm";
+            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Click += new System.EventHandler(this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem_Click);
+            // 
+            // danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem
+            // 
+            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Name = "danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem";
+            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
+            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Text = "Danh sách họ tên, tổng tiền của 2 nhân viên bán được nhiều tiền nhất theo tháng";
+            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Click += new System.EventHandler(this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem_Click);
+            // 
+            // devSQLToolStripMenuItem
+            // 
+            this.devSQLToolStripMenuItem.Name = "devSQLToolStripMenuItem";
+            this.devSQLToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.devSQLToolStripMenuItem.Text = "Chế độ nhà phát triển";
+            this.devSQLToolStripMenuItem.Click += new System.EventHandler(this.devSQLToolStripMenuItem_Click);
             // 
             // trợGiúpToolStripMenuItem
             // 
@@ -123,6 +164,7 @@
             this.vềToolStripMenuItem.Name = "vềToolStripMenuItem";
             this.vềToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vềToolStripMenuItem.Text = "Về ứng dụng này";
+            this.vềToolStripMenuItem.Click += new System.EventHandler(this.vềToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -306,42 +348,6 @@
             this.pnlBody.Size = new System.Drawing.Size(1032, 532);
             this.pnlBody.TabIndex = 4;
             // 
-            // danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem
-            // 
-            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Name = "danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem";
-            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
-            this.danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem.Text = "Danh sách 2 hàng hoá được mua nhiều nhất từ một khách hàng";
-            // 
-            // danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem
-            // 
-            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Name = "danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem";
-            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
-            this.danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem.Text = "Danh sách hoá đơn và tổng tiền nhập hàng theo tháng";
-            // 
-            // danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem
-            // 
-            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Name = "danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem";
-            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
-            this.danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem.Text = "Danh sách 5 hoá đơn có tổng tiền bán hàng nhiều nhất theo năm";
-            // 
-            // danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem
-            // 
-            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Name = "danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem";
-            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Size = new System.Drawing.Size(503, 22);
-            this.danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem.Text = "Danh sách họ tên, tổng tiền của 2 nhân viên bán được nhiều tiền nhất theo tháng";
-            // 
-            // viếtLệnhTruyVấnSQLToolStripMenuItem
-            // 
-            this.viếtLệnhTruyVấnSQLToolStripMenuItem.Name = "viếtLệnhTruyVấnSQLToolStripMenuItem";
-            this.viếtLệnhTruyVấnSQLToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.viếtLệnhTruyVấnSQLToolStripMenuItem.Text = "Viết lệnh truy vấn SQL";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            // 
             // frmQuanLiBanSanGo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,7 +400,7 @@
         private System.Windows.Forms.ToolStripMenuItem danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viếtLệnhTruyVấnSQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem devSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }
