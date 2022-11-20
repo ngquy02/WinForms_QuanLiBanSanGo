@@ -43,12 +43,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvChiTietHDB = new System.Windows.Forms.DataGridView();
-            this.btnDong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,14 +88,14 @@
             this.txtThanhTien.Location = new System.Drawing.Point(183, 153);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(169, 20);
-            this.txtThanhTien.TabIndex = 9;
+            this.txtThanhTien.TabIndex = 4;
             // 
             // txtGiamGia
             // 
             this.txtGiamGia.Location = new System.Drawing.Point(183, 120);
             this.txtGiamGia.Name = "txtGiamGia";
             this.txtGiamGia.Size = new System.Drawing.Size(169, 20);
-            this.txtGiamGia.TabIndex = 8;
+            this.txtGiamGia.TabIndex = 3;
             this.txtGiamGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGia_KeyPress);
             // 
             // txtSoLuong
@@ -103,7 +103,7 @@
             this.txtSoLuong.Location = new System.Drawing.Point(183, 87);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(169, 20);
-            this.txtSoLuong.TabIndex = 7;
+            this.txtSoLuong.TabIndex = 2;
             this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // cboMatHang
@@ -112,7 +112,7 @@
             this.cboMatHang.Location = new System.Drawing.Point(183, 54);
             this.cboMatHang.Name = "cboMatHang";
             this.cboMatHang.Size = new System.Drawing.Size(169, 21);
-            this.cboMatHang.TabIndex = 6;
+            this.cboMatHang.TabIndex = 1;
             // 
             // label5
             // 
@@ -176,54 +176,83 @@
             // btnLamMoi
             // 
             this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLamMoi.Location = new System.Drawing.Point(240, 16);
+            this.btnLamMoi.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.refresh;
+            this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLamMoi.Location = new System.Drawing.Point(77, 7);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnLamMoi.TabIndex = 26;
+            this.btnLamMoi.Size = new System.Drawing.Size(110, 40);
+            this.btnLamMoi.TabIndex = 0;
             this.btnLamMoi.Text = "&Làm mới";
+            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnExcel
             // 
             this.btnExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExcel.Location = new System.Drawing.Point(565, 16);
+            this.btnExcel.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.excel;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcel.Location = new System.Drawing.Point(637, 7);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(99, 23);
-            this.btnExcel.TabIndex = 27;
+            this.btnExcel.Size = new System.Drawing.Size(130, 40);
+            this.btnExcel.TabIndex = 4;
             this.btnExcel.Text = "Xuất ra &Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcel.UseVisualStyleBackColor = true;
+            // 
+            // btnDong
+            // 
+            this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDong.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.close;
+            this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDong.Location = new System.Drawing.Point(797, 7);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(110, 40);
+            this.btnDong.TabIndex = 5;
+            this.btnDong.Text = "Đó&ng";
+            this.btnDong.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXoa.Location = new System.Drawing.Point(484, 16);
+            this.btnXoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.delete;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.Location = new System.Drawing.Point(497, 7);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 29;
+            this.btnXoa.Size = new System.Drawing.Size(110, 40);
+            this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "&Xoá";
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.Location = new System.Drawing.Point(403, 16);
+            this.btnSua.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.edit;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.Location = new System.Drawing.Point(357, 7);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 30;
+            this.btnSua.Size = new System.Drawing.Size(110, 40);
+            this.btnSua.TabIndex = 2;
             this.btnSua.Text = "&Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.Location = new System.Drawing.Point(321, 16);
+            this.btnThem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.Location = new System.Drawing.Point(217, 7);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 31;
+            this.btnThem.Size = new System.Drawing.Size(110, 40);
+            this.btnThem.TabIndex = 1;
             this.btnThem.Text = "&Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -246,21 +275,11 @@
             this.dgvChiTietHDB.Location = new System.Drawing.Point(0, 0);
             this.dgvChiTietHDB.Name = "dgvChiTietHDB";
             this.dgvChiTietHDB.ReadOnly = true;
+            this.dgvChiTietHDB.RowHeadersVisible = false;
             this.dgvChiTietHDB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChiTietHDB.Size = new System.Drawing.Size(984, 281);
             this.dgvChiTietHDB.TabIndex = 0;
             this.dgvChiTietHDB.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietHDB_CellClick);
-            // 
-            // btnDong
-            // 
-            this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDong.Location = new System.Drawing.Point(670, 16);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(75, 23);
-            this.btnDong.TabIndex = 29;
-            this.btnDong.Text = "Đó&ng";
-            this.btnDong.UseVisualStyleBackColor = true;
-            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmChiTietHDB
             // 

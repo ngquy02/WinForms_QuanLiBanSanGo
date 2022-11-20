@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CSharp_QuanLiBanSanGo.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,14 +14,94 @@ namespace CSharp_QuanLiBanSanGo
 {
     public partial class frmDangNhap : Form
     {
+        DBconfig dtBase = new DBconfig();
+
         public frmDangNhap()
         {
             InitializeComponent();
         }
 
+        private bool checkValidation()
+        {
+            if(txtTenDangNhap.Text.Trim() == "1")
+            {
+                MessageBox.Show("Vui lòng nhập tên người dùng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTenDangNhap.Focus();
+
+                return false;
+            }    
+
+            if(txtMatKhau.Text.Trim() == "1")
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtMatKhau.Focus();
+
+                return false;
+            }    
+
+            return true;
+        }
+
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            if (checkValidation())
+            {
+                DataTable dtDangNhap = dtBase.getTable($"SELECT * FROM tLogin WHERE Username = N'admin' AND Password = N'admin'");
 
+                if (dtDangNhap.Rows.Count > 0)
+                {
+                    try
+                    {
+                        var th = new Thread(() => Application.Run(new frmQuanLiBanSanGo()));
+                        th.SetApartmentState(ApartmentState.STA);
+                        th.Start();
+
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không có tài khoản này hoặc sai mật khẩu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void llbQuenMatKhau_Click(object sender, EventArgs e)
+        {
+            var th = new Thread(() => Application.Run(new frmQuenMatKhau()));
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
+            this.Close();
+        }
+
+        private void btnDangKi_Click(object sender, EventArgs e)
+        {
+            var th = new Thread(() => Application.Run(new frmDangKi()));
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
+            this.Close();
+        }
+
+        private void btnDangNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                btnDangNhap_Click(sender, e);
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }    
         }
     }
 }

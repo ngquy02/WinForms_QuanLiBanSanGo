@@ -64,7 +64,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
@@ -100,6 +100,24 @@
     </Compile>
     <Compile Include="frmChiTietHDN.Designer.cs">
       <DependentUpon>frmChiTietHDN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDangKi.Designer.cs">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNguoiDung.Designer.cs">
+      <DependentUpon>frmNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuenMatKhau.Designer.cs">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -149,29 +167,11 @@
     <Compile Include="frmQuanLiBanSanGo.Designer.cs">
       <DependentUpon>frmQuanLiBanSanGo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmReport1.cs">
+    <Compile Include="frmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmReport1.Designer.cs">
-      <DependentUpon>frmReport1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmReport2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmReport2.Designer.cs">
-      <DependentUpon>frmReport2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmReport3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmReport3.Designer.cs">
-      <DependentUpon>frmReport3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmReport4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmReport4.Designer.cs">
-      <DependentUpon>frmReport4.cs</DependentUpon>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSQL.cs">
       <SubType>Form</SubType>
@@ -179,7 +179,6 @@
     <Compile Include="frmSQL.Designer.cs">
       <DependentUpon>frmSQL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\HangHoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLiBanSanGoDataSet.Designer.cs">
@@ -212,6 +211,15 @@
     <EmbeddedResource Include="frmChiTietHDN.resx">
       <DependentUpon>frmChiTietHDN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDangKi.resx">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNguoiDung.resx">
+      <DependentUpon>frmNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuenMatKhau.resx">
+      <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,17 +241,8 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmReport1.resx">
-      <DependentUpon>frmReport1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmReport2.resx">
-      <DependentUpon>frmReport2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmReport3.resx">
-      <DependentUpon>frmReport3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmReport4.resx">
-      <DependentUpon>frmReport4.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSQL.resx">
       <DependentUpon>frmSQL.cs</DependentUpon>
@@ -256,6 +255,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="frmQuanLiBanSanGo.resx">
       <DependentUpon>frmQuanLiBanSanGo.cs</DependentUpon>
@@ -365,6 +365,29 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\factory.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\list.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\add-user.png" />
+    <None Include="Resources\enter.png" />
+    <None Include="Resources\floor.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\bill-import1.png" />
+    <None Include="Resources\im1.png" />
+    <None Include="Resources\import1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

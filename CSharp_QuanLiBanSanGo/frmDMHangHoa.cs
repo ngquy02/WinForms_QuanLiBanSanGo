@@ -1,5 +1,4 @@
 ﻿using CSharp_QuanLiBanSanGo.Class;
-using CSharp_QuanLiBanSanGo.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +16,6 @@ namespace CSharp_QuanLiBanSanGo
 {
     public partial class frmDMHangHoa : Form
     {
-        HangHoa hangHoa;
         DBconfig dtBase = new DBconfig();
         string queryLoad = "SELECT * FROM View_DMHangHoa";
 
@@ -26,11 +24,11 @@ namespace CSharp_QuanLiBanSanGo
             InitializeComponent();
         }
 
-        private bool isCheck()
+        private bool checkValidation()
         {
             if (txtMaHang.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập mã sản phẩm");
+                MessageBox.Show("Hãy nhập mã sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtMaHang.Focus();
 
                 return false;
@@ -38,7 +36,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtTenHang.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập tên sản phẩm");
+                MessageBox.Show("Hãy nhập tên sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTenHang.Focus();
 
                 return false;
@@ -46,7 +44,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtDonGiaNhap.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập đơn giá nhập");
+                MessageBox.Show("Hãy nhập đơn giá nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDonGiaNhap.Focus();
 
                 return false;
@@ -54,7 +52,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtThoiGianBaoHanh.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập thời gian bảo hành");
+                MessageBox.Show("Hãy nhập thời gian bảo hành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtThoiGianBaoHanh.Focus();
 
                 return false;
@@ -62,7 +60,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboKichThuoc.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn kích thước");
+                MessageBox.Show("Hãy chọn kích thước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboKichThuoc.Focus();
 
                 return false;
@@ -70,7 +68,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboLoaiGo.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn loại gỗ");
+                MessageBox.Show("Hãy chọn loại gỗ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboLoaiGo.Focus();
 
                 return false;
@@ -78,7 +76,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboDacDiem.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn đặc điểm");
+                MessageBox.Show("Hãy chọn đặc điểm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboDacDiem.Focus();
 
                 return false;
@@ -86,7 +84,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboXuatXu.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn xuất xứ");
+                MessageBox.Show("Hãy chọn xuất xứ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboXuatXu.Focus();
 
                 return false;
@@ -94,7 +92,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboMauSac.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn màu sắc");
+                MessageBox.Show("Hãy chọn màu sắc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboMauSac.Focus();
 
                 return false;
@@ -102,7 +100,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboCongDung.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn công dụng");
+                MessageBox.Show("Hãy chọn công dụng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboCongDung.Focus();
 
                 return false;
@@ -110,7 +108,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if(ptbAnh.Image == null)
             {
-                MessageBox.Show("Hãy chọn ảnh");
+                MessageBox.Show("Hãy chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ptbAnh.Focus();
 
                 return false;
@@ -119,7 +117,7 @@ namespace CSharp_QuanLiBanSanGo
             return true;
         }
 
-        private void CleanInput()
+        private void refreshInput()
         {
             txtMaHang.Text = "";
             txtTenHang.Text = "";
@@ -127,83 +125,59 @@ namespace CSharp_QuanLiBanSanGo
             txtDonGiaBan.Text = "";
             txtSoLuong.Text = "";
             txtThoiGianBaoHanh.Text = "";
-            cboKichThuoc.Text = "";
-            cboLoaiGo.Text = "";
-            cboDacDiem.Text = "";
-            cboXuatXu.Text = "";
-            cboMauSac.Text = "";
-            cboCongDung.Text = "";
+            cboKichThuoc.SelectedIndex = -1;
+            cboLoaiGo.SelectedIndex = -1;
+            cboDacDiem.SelectedIndex = -1;
+            cboXuatXu.SelectedIndex = -1;
+            cboMauSac.SelectedIndex = -1;
+            cboCongDung.SelectedIndex = -1;
             ptbAnh.Image = null;
             rtbGhiChu.Text = "";
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void load_LoaiGo()
         {
-            cboLoaiGo.DataSource = dtBase.table("SELECT * FROM tLoaiGo");
+            cboLoaiGo.DataSource = dtBase.getTable("SELECT * FROM tLoaiGo");
             cboLoaiGo.ValueMember = "MaLoaiGo";
             cboLoaiGo.DisplayMember = "TenLoaiGo";
         }
 
         private void load_KichThuoc()
         {
-            cboKichThuoc.DataSource = dtBase.table("SELECT * FROM tKichThuoc");
+            cboKichThuoc.DataSource = dtBase.getTable("SELECT * FROM tKichThuoc");
             cboKichThuoc.ValueMember = "MaKichThuoc";
             cboKichThuoc.DisplayMember = "TenKichThuoc";
         }
 
         private void load_DacDiem()
         {
-            cboDacDiem.DataSource = dtBase.table("SELECT * FROM tDacDiem");
+            cboDacDiem.DataSource = dtBase.getTable("SELECT * FROM tDacDiem");
             cboDacDiem.ValueMember = "MaDacDiem";
             cboDacDiem.DisplayMember = "TenDacDiem";
         }
 
         private void load_CongDung()
         {
-            cboCongDung.DataSource = dtBase.table("SELECT * FROM tCongDung");
+            cboCongDung.DataSource = dtBase.getTable("SELECT * FROM tCongDung");
             cboCongDung.ValueMember = "MaCongDung";
             cboCongDung.DisplayMember = "TenCongDung";
         }
 
         private void load_MauSac()
         {
-            cboMauSac.DataSource = dtBase.table("SELECT * FROM tMauSac");
+            cboMauSac.DataSource = dtBase.getTable("SELECT * FROM tMauSac");
             cboMauSac.ValueMember = "MaMau";
             cboMauSac.DisplayMember = "TenMau";
         }
 
         private void load_NuocSanXuat()
         {
-            cboXuatXu.DataSource = dtBase.table("SELECT * FROM tNuocSanXuat");
+            cboXuatXu.DataSource = dtBase.getTable("SELECT * FROM tNuocSanXuat");
             cboXuatXu.ValueMember = "MaNuocSX";
             cboXuatXu.DisplayMember = "TenNuocSX";
-        }
-
-        private void GetValues()
-        {
-            string maHang = txtMaHang.Text;
-            string tenHang = txtTenHang.Text;
-            string maLoaiGo = cboLoaiGo.SelectedValue.ToString();
-            string maKichThuoc = cboKichThuoc.SelectedValue.ToString();
-            string maDacDiem = cboDacDiem.SelectedValue.ToString();
-            string maCongDung = cboCongDung.SelectedValue.ToString();
-            string maMau = cboMauSac.SelectedValue.ToString();
-            string maNuocSX = cboXuatXu.SelectedValue.ToString();
-            string soLuong = txtSoLuong.Text;
-            string donGiaNhap = txtDonGiaNhap.Text;
-            string thoiGianBaoHanh = txtThoiGianBaoHanh.Text;
-            byte[] anh = ImageToByteArray(ptbAnh);
-            string ghiChu = rtbGhiChu.Text;
-
-            hangHoa = new HangHoa(maHang, tenHang, maLoaiGo, maKichThuoc, maDacDiem, maCongDung, maMau, maNuocSX, soLuong, donGiaNhap, thoiGianBaoHanh, anh, ghiChu);
-        }
-
-        private byte[] ImageToByteArray(PictureBox pictureBox)
-        {
-            MemoryStream memoryStream = new MemoryStream();
-            pictureBox.Image.Save(memoryStream, pictureBox.Image.RawFormat);
-
-            return memoryStream.ToArray();
         }
 
         private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
@@ -232,7 +206,7 @@ namespace CSharp_QuanLiBanSanGo
 
         private void frmDMHangHoa_Load(object sender, EventArgs e)
         {
-            DataTable dtHangHoa = dtBase.table(queryLoad);
+            DataTable dtHangHoa = dtBase.getTable(queryLoad);
             dgvDMHangHoa.DataSource = dtHangHoa;
 
             dgvDMHangHoa.Columns[0].HeaderText = "Mã hàng";
@@ -250,10 +224,6 @@ namespace CSharp_QuanLiBanSanGo
             dgvDMHangHoa.Columns[12].HeaderText = "Ảnh";
             dgvDMHangHoa.Columns[13].HeaderText = "Ghi chú";
 
-            DataGridViewImageColumn dataGridViewImageColumn = new DataGridViewImageColumn();
-            dataGridViewImageColumn = (DataGridViewImageColumn)dgvDMHangHoa.Columns[12];
-            dataGridViewImageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
-
             load_LoaiGo();
             load_KichThuoc();
             load_DacDiem();
@@ -264,7 +234,7 @@ namespace CSharp_QuanLiBanSanGo
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
 
-            CleanInput();
+            refreshInput();
         }
 
         private void dgvDMHangHoa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -286,14 +256,14 @@ namespace CSharp_QuanLiBanSanGo
             txtDonGiaBan.Text = arrDonGiaBan[0];
             txtThoiGianBaoHanh.Text = dgvDMHangHoa.CurrentRow.Cells[11].Value.ToString();
 
-            if (dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString() != "")
+            string path = dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString();
+            if (!File.Exists(path))
             {
-                MemoryStream memoryStream = new MemoryStream((byte[]) dgvDMHangHoa.CurrentRow.Cells[12].Value);
-                ptbAnh.Image = Image.FromStream(memoryStream);
+                ptbAnh.Image = null;
             }
             else
             {
-                ptbAnh.Image = null;
+                ptbAnh.ImageLocation = path;
             }
 
             rtbGhiChu.Text = dgvDMHangHoa.CurrentRow.Cells[13].Value.ToString();
@@ -304,6 +274,7 @@ namespace CSharp_QuanLiBanSanGo
             btnXoa.Enabled = true;
             btnTimKiem.Enabled = false;
         }
+
 
         private void btnNhapAnh_Click(object sender, EventArgs e)
         {
@@ -320,36 +291,42 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
+            dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
 
             btnThem.Enabled = true;
             btnLamMoi.Enabled = true;
             btnTimKiem.Enabled = true;
             txtMaHang.Enabled = true;
 
-            CleanInput();
+            refreshInput();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string queryAdd = $"INSERT INTO tDMHangHoa (MaHang, TenHangHoa, MaLoaiGo, MaKichThuoc, MaDacDiem, MaCongDung, MaMau, MaNuocSX, SoLuong, DonGiaNhap, ThoiGianBaoHanh, Anh, GhiChu) VALUES(@MaHang, @TenHang, @MaLoaiGo, @MaKichThuoc, @MaDacDiem, @MaCongDung, @MaMau, @MaNuocSX, @SoLuong, @DonGiaNhap, @ThoiGianBaoHanh, @Anh, @GhiChu)";
+            string queryAdd = $"INSERT INTO tDMHangHoa (MaHang, TenHangHoa, MaLoaiGo, MaKichThuoc, MaDacDiem, MaCongDung, MaMau, MaNuocSX, SoLuong, DonGiaNhap, ThoiGianBaoHanh, Anh, GhiChu) VALUES(N'{txtMaHang.Text}', N'{txtTenHang.Text}', N'{cboLoaiGo.SelectedValue}', N'{cboKichThuoc.SelectedValue}', N'{cboDacDiem.SelectedValue}', N'{cboCongDung.SelectedValue}', N'{cboMauSac.SelectedValue}', N'{cboXuatXu.SelectedValue}', {txtSoLuong.Text}, {txtDonGiaNhap.Text}, {txtThoiGianBaoHanh.Text}, '{ptbAnh.ImageLocation}', N'{rtbGhiChu.Text}')";
 
-            if (isCheck())
+            if (checkValidation())
             {
-                DataTable dtHangHoa = dtBase.table("SELECT * FROM tDMHangHoa WHERE" + " MaHang ='" + (txtMaHang.Text).Trim() + "'");
+                DataTable dtHangHoa = dtBase.getTable("SELECT * FROM tDMHangHoa WHERE" + " MaHang ='" + (txtMaHang.Text).Trim() + "'");
                 if (dtHangHoa.Rows.Count > 0)
                 {
-                    MessageBox.Show("Mặt hàng này đã có, hãy nhập mã hàng khác");
+                    MessageBox.Show("Mặt hàng này đã có, hãy nhập mã hàng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtMaHang.Focus();
                 }
                 else
                 {
-                    if (MessageBox.Show("Bạn có muốn thêm sản phẩm vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có muốn thêm sản phẩm vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        GetValues();
-                        dtBase.Command(hangHoa, queryAdd);
-                        MessageBox.Show("Thêm thành công");
-                        frmDMHangHoa_Load(sender, e);
+                        try
+                        {
+                            dtBase.getExcute(queryAdd);
+                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -357,18 +334,24 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string queryUpdate = $"UPDATE tDMHangHoa SET TenHangHoa = @TenHang, MaLoaiGo = @MaLoaiGo, MaKichThuoc = @MaKichThuoc, MaDacDiem = @MaDacDiem, MaCongDung = @MaCongDung, MaMau = @MaMau, MaNuocSX = @MaNuocSX, SoLuong = @SoLuong, DonGiaNhap = @DonGiaNhap, ThoiGianBaoHanh = @ThoiGianBaoHanh, Anh = @Anh, GhiChu = @GhiChu WHERE MaHang = @MaHang";
-            if (isCheck())
-            {
-                if (MessageBox.Show("Bạn có sửa thông tin sản phẩm không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    GetValues();
-                    dtBase.Command(hangHoa, queryUpdate);
-                    MessageBox.Show("Bạn đã sửa thông tin thành công");
+            string queryUpdate = $"UPDATE tDMHangHoa SET TenHangHoa = N'{txtTenHang.Text}', MaLoaiGo = N'{cboLoaiGo.SelectedValue}', MaKichThuoc = N'{cboKichThuoc.SelectedValue}', MaDacDiem = N'{cboDacDiem.SelectedValue}', MaCongDung = N'{cboCongDung.SelectedValue}', MaMau = N'{cboMauSac.SelectedValue}', MaNuocSX = N'{cboXuatXu.SelectedValue}', SoLuong = {txtSoLuong.Text}, DonGiaNhap = {txtDonGiaNhap.Text}, ThoiGianBaoHanh = {txtThoiGianBaoHanh.Text}, Anh = '{ptbAnh.ImageLocation}', GhiChu = N'{rtbGhiChu.Text}' WHERE MaHang = N'{txtMaHang.Text}'";
 
-                    CleanInput();
-                    dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
-                    txtMaHang.Enabled = true;
+            if (checkValidation())
+            {
+                if (MessageBox.Show("Bạn có sửa thông tin sản phẩm không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        dtBase.getExcute(queryUpdate);
+                        MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
+                        txtMaHang.Enabled = true;
+                        refreshInput();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }    
         }
@@ -377,10 +360,18 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa mặt hàng có mã là: " + txtMaHang.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tDMHangHoa WHERE MaHang = N'{txtMaHang.Text}'");
-                dgvDMHangHoa.DataSource = dtBase.table(queryLoad);
+                try
+                {
+                    dtBase.getExcute($"DELETE tDMHangHoa WHERE MaHang = N'{txtMaHang.Text}'");
+                    dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
+                    MessageBox.Show("Đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                CleanInput();
+                    refreshInput();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -430,8 +421,8 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dk != "")
             {
-                string find = queryLoad + " WHERE MaHang LIKE N'%MH%'" + dk;
-                dgvDMHangHoa.DataSource = dtBase.table(find);
+                string find = queryLoad + " WHERE MaHang LIKE N'%%'" + dk;
+                dgvDMHangHoa.DataSource = dtBase.getTable(find);
             }
         }
 
@@ -485,11 +476,22 @@ namespace CSharp_QuanLiBanSanGo
                 excelFile.ShowDialog();
                 exBook.SaveAs(excelFile.FileName.ToString());
                 exApp.Quit();
+                MessageBox.Show("Đã xuất Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
         }
     }
 }

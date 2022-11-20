@@ -23,11 +23,11 @@ namespace CSharp_QuanLiBanSanGo
             InitializeComponent();
         }
 
-        private bool isCheck()
+        private bool checkValidation()
         {
             if (txtSoHDB.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập số hoá đơn");
+                MessageBox.Show("Hãy nhập số hoá đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtSoHDB.Focus();
 
                 return false;
@@ -35,7 +35,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboNhanVien.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn nhân viên");
+                MessageBox.Show("Hãy chọn nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboNhanVien.Focus();
 
                 return false;
@@ -43,7 +43,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (cboKhachHang.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn khách hàng");
+                MessageBox.Show("Hãy chọn khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboKhachHang.Focus();
 
                 return false;
@@ -52,32 +52,35 @@ namespace CSharp_QuanLiBanSanGo
             return true;
         }
 
-        private void CleanInput()
+        private void refreshInput()
         {
             txtSoHDB.Text = "";
             cboNhanVien.Text = "";
             dtpNgayBan.Text = "";
             cboKhachHang.Text = "";
             txtTongTien.Text = "";
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void load_NhanVien()
         {
-            cboNhanVien.DataSource = dtBase.table("SELECT * FROM tNhanVien");
+            cboNhanVien.DataSource = dtBase.getTable("SELECT * FROM tNhanVien");
             cboNhanVien.ValueMember = "MaNV";
             cboNhanVien.DisplayMember = "TenNV";
         }
 
         private void load_KhachHang()
         {
-            cboKhachHang.DataSource = dtBase.table("SELECT * FROM tKhachHang");
+            cboKhachHang.DataSource = dtBase.getTable("SELECT * FROM tKhachHang");
             cboKhachHang.ValueMember = "MaKhach";
             cboKhachHang.DisplayMember = "TenKhach";
         }
 
         private void frmHoaDonBan_Load(object sender, EventArgs e)
         {
-            DataTable dtHDB = dtBase.table(queryLoad);
+            DataTable dtHDB = dtBase.getTable(queryLoad);
             dgvHoaDonBan.DataSource = dtHDB;
 
             dgvHoaDonBan.Columns[0].HeaderText = "Số hoá đơn bán";
@@ -92,7 +95,7 @@ namespace CSharp_QuanLiBanSanGo
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
 
-            CleanInput();
+            refreshInput();
         }
 
         private void dgvHoaDonBan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,43 +124,43 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            CleanInput();
+            refreshInput();
 
             btnThem.Enabled = true;
             btnTimKiem.Enabled = true;
             txtSoHDB.Enabled = true;
 
-            dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
+            dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                DataTable dtNhanVien = dtBase.table($"SELECT * FROM tHoaDonBan WHERE SoHDB = N'{txtSoHDB.Text}'");
+                DataTable dtNhanVien = dtBase.getTable($"SELECT * FROM tHoaDonBan WHERE SoHDB = N'{txtSoHDB.Text}'");
 
                 if (dtNhanVien.Rows.Count > 0)
                 {
-                    MessageBox.Show("Số hoá đơn này đã có, hãy nhập số hoá đơn khác");
+                    MessageBox.Show("Số hoá đơn này đã có, hãy nhập số hoá đơn khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtSoHDB.Focus();
                 }
                 else
                 {
                     try
                     {
-                        if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            dtBase.Excute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Text} ', N'{cboKhachHang.SelectedValue}')");
+                            dtBase.getExcute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Text} ', N'{cboKhachHang.SelectedValue}')");
                             MessageBox.Show("Bạn đã thêm hoá đơn thành công");
 
-                            dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
+                            dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
 
-                            CleanInput();
+                            refreshInput();
                         }
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -165,27 +168,26 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                try
+                if (MessageBox.Show("Bạn có sửa thông tin hoá đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Bạn có sửa thông tin hoá đơn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    try
                     {
-                        dtBase.Excute($"UPDATE tHoaDonBan SET MaNV = N'{cboNhanVien.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
-                        dtBase.Excute($"UPDATE tHoaDonBan SET NgayBan = N'{dtpNgayBan.Text}' WHERE SoHDB = '{txtSoHDB.Text}'");
-                        dtBase.Excute($"UPDATE tHoaDonBan SET MaKhach = N'{cboKhachHang.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonBan SET MaNV = N'{cboNhanVien.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonBan SET NgayBan = N'{dtpNgayBan.Text}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonBan SET MaKhach = N'{cboKhachHang.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
 
-                        CleanInput();
+                        refreshInput();
 
-                        dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
-                        MessageBox.Show("Bạn đã sửa thông tin thành công");
+                        dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
+                        MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtSoHDB.Enabled = true;
                     }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    catch(Exception ex )
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -194,10 +196,18 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa hoá đơn mã là: " + txtSoHDB.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tHoaDonBan WHERE SoHDB ='{txtSoHDB.Text}'");
-                dgvHoaDonBan.DataSource = dtBase.table(queryLoad);
+                try
+                {
+                    dtBase.getExcute($"DELETE tHoaDonBan WHERE SoHDB ='{txtSoHDB.Text}'");
+                    dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
+                    MessageBox.Show("Đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                CleanInput();
+                    refreshInput();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -218,7 +228,7 @@ namespace CSharp_QuanLiBanSanGo
             if (dk != "")
             {
                 string find = queryLoad + " WHERE SoHDB LIKE N'%HDB%'" + dk;
-                dgvHoaDonBan.DataSource = dtBase.table(find);
+                dgvHoaDonBan.DataSource = dtBase.getTable(find);
             }
         }
 

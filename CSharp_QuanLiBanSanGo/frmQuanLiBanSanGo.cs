@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Office.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,12 +45,76 @@ namespace CSharp_QuanLiBanSanGo
         
         private void resetBtn()
         {
-            btnDMHangHoa.BackColor = Color.FromArgb(64, 0, 0);
-            btnHoaDonBan.BackColor = Color.FromArgb(64, 0, 0);
-            btnHoaDonNhap.BackColor = Color.FromArgb(64, 0, 0);
-            btnNhanVien.BackColor = Color.FromArgb(64, 0, 0);
-            btnKhachHang.BackColor = Color.FromArgb(64, 0, 0);
-            btnNCC.BackColor = Color.FromArgb(64, 0, 0);
+            btnDMHangHoa.BackColor = Color.FromArgb(206, 223, 209);
+            btnHoaDonBan.BackColor = Color.FromArgb(206, 223, 209);
+            btnHoaDonNhap.BackColor = Color.FromArgb(206, 223, 209);
+            btnNhanVien.BackColor = Color.FromArgb(206, 223, 209);
+            btnKhachHang.BackColor = Color.FromArgb(206, 223, 209);
+            btnNCC.BackColor = Color.FromArgb(206, 223, 209);
+            btnBaoCao.BackColor = Color.FromArgb(206, 223, 209);
+        }
+
+        private void devSQLToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmSQL frmSQL = new frmSQL();
+            frmSQL.ShowDialog();
+        }
+
+        private void quảnLíNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNguoiDung nguoiDung = new frmNguoiDung();
+            nguoiDung.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLogOut_Click(sender, e);
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnExit_Click(sender, e);
+        }
+
+        private void danhMụcHàngHoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnDMHangHoa_Click(sender, e);
+        }
+
+        private void hoáĐơnBánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnHoaDonBan_Click(sender, e);
+        }
+
+        private void hoáĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnHoaDonNhap_Click(sender, e);
+        }
+
+        private void danhSáchNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnNhanVien_Click(sender, e);
+        }
+
+        private void danhSáchKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnKhachHang_Click(sender, e);
+        }
+
+        private void danhSáchNhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnNCC_Click(sender, e);
+        }
+
+        private void lậpBáoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnBaoCao_Click(sender, e);
+        }
+
+        private void vềToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
         }
 
         private void ptbHome_Click(object sender, EventArgs e)
@@ -58,97 +124,81 @@ namespace CSharp_QuanLiBanSanGo
                 currentFormChild.Close();
             }
 
-            lblTieuDe.Text = "Quản lí bán sàn gỗ";
+            lblTieuDe.Text = "Trang chủ".ToUpper();
             resetBtn();
         }
 
         private void btnDMHangHoa_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmDMHangHoa());
-            lblTieuDe.Text = btnDMHangHoa.Text;
+            lblTieuDe.Text = btnDMHangHoa.Text.ToUpper();
             resetBtn();
-            btnDMHangHoa.BackColor = Color.Black;
+            btnDMHangHoa.BackColor = Color.FromArgb(168, 189, 171);
         }
 
         private void btnHoaDonBan_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmHoaDonBan());
-            lblTieuDe.Text = btnHoaDonBan.Text;
+            lblTieuDe.Text = btnHoaDonBan.Text.ToUpper();
             resetBtn();
-            btnHoaDonBan.BackColor = Color.Black;
+            btnHoaDonBan.BackColor = Color.FromArgb(168, 189, 171);
         }
 
         private void btnHoaDonNhap_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmHoaDonNhap());
-            lblTieuDe.Text = btnHoaDonNhap.Text;
+            lblTieuDe.Text = btnHoaDonNhap.Text.ToUpper();
             resetBtn();
-            btnHoaDonNhap.BackColor = Color.Black;
+            btnHoaDonNhap.BackColor = Color.FromArgb(168, 189, 171);
         }
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmNhanVien());
-            lblTieuDe.Text = btnNhanVien.Text;
+            lblTieuDe.Text = btnNhanVien.Text.ToUpper();
             resetBtn();
-            btnNhanVien.BackColor = Color.Black;
+            btnNhanVien.BackColor = Color.FromArgb(168, 189, 171);
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmKhachHang());
-            lblTieuDe.Text = btnKhachHang.Text;
+            lblTieuDe.Text = btnKhachHang.Text.ToUpper();
             resetBtn();
-            btnKhachHang.BackColor = Color.Black;
+            btnKhachHang.BackColor = Color.FromArgb(168, 189, 171);
         }
 
         private void btnNCC_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmNCC());
-            lblTieuDe.Text = btnNCC.Text;
+            lblTieuDe.Text = btnNCC.Text.ToUpper();
             resetBtn();
-            btnNCC.BackColor = Color.Black;
+            btnNCC.BackColor = Color.FromArgb(168, 189, 171);
         }
 
-        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnBaoCao_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            OpenChildForm(new frmBaoCao());
+            lblTieuDe.Text = btnBaoCao.Text.ToUpper();
+            resetBtn();
+            btnBaoCao.BackColor = Color.FromArgb(168, 189, 171);
         }
 
-        private void devSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            frmSQL frmSQL = new frmSQL();
-            frmSQL.ShowDialog();
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
-        private void danhSách2HàngHoáĐượcMuaNhiềuNhấtTừMộtKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            frmReport1 report1 = new frmReport1();
-            report1.ShowDialog();
-        }
+            var th = new Thread(() => Application.Run(new frmDangNhap()));
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
 
-        private void danhSáchHoáĐơnVàTổngTiềnNhậpHàngTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmReport2 report2 = new frmReport2();
-            report2.ShowDialog();
-        }
-
-        private void danhSách5HoáĐơnCóTổngTiềnBánHàngNhiềuNhấtTheoNămToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmReport3 report3 = new frmReport3();
-            report3.ShowDialog();
-        }
-
-        private void danhSáchHọTênTổngTiềnCủa2NhânViênBánĐượcNhiềuTiềnNhấtTheoThángToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmReport4 report4 = new frmReport4();
-            report4.ShowDialog();
-        }
-
-        private void vềToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAbout about = new frmAbout();
-            about.ShowDialog();
+            this.Close();
         }
     }
 }

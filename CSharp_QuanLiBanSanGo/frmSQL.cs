@@ -27,18 +27,6 @@ namespace CSharp_QuanLiBanSanGo
             if(rtbSQL.Text.Trim() == "")
             {
                 MessageBox.Show("Hãy nhập lệnh truy vấn");
-            }    
-            else
-            {
-                try
-                {
-                    dgvSQL.DataSource = dtBase.table(query);
-                    sslTrangThai.Text = "Thành công";
-                }
-                catch
-                {
-                    sslTrangThai.Text = "Thất bại";
-                }
             }
         }
 
@@ -53,7 +41,6 @@ namespace CSharp_QuanLiBanSanGo
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             rtbSQL.Text = "";
-            sslTrangThai.Text = "Chế độ nhà phát triển";
         }
 
         private void frmSQL_Load(object sender, EventArgs e)

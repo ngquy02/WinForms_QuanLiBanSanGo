@@ -16,7 +16,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQuanLiBanSanGo());
+            Application.Run(new frmDangNhap());
         }
     }
 }

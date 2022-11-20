@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(130, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Phần mềm quản lí bán sàn gỗ";
             // 
             // label2
             // 
@@ -75,6 +65,18 @@
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.floor;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(115, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(294, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "      Phần mềm quản lí bán sàn gỗ";
             // 
             // frmAbout
             // 

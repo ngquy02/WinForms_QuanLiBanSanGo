@@ -23,11 +23,11 @@ namespace CSharp_QuanLiBanSanGo
             InitializeComponent();
         }
 
-        private bool isCheck()
+        private bool checkValidation()
         {
             if (txtMaNV.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập mã nhân viên");
+                MessageBox.Show("Hãy nhập mã nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtMaNV.Focus();
 
                 return false;
@@ -35,7 +35,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtTenNV.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập tên nhân viên");
+                MessageBox.Show("Hãy nhập tên nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTenNV.Focus();
 
                 return false;
@@ -52,7 +52,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dtpNgaySinh.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập ngày sinh");
+                MessageBox.Show("Hãy nhập ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 dtpNgaySinh.Focus();
 
                 return false;
@@ -60,7 +60,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtDienThoai.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập số điện thoại");
+                MessageBox.Show("Hãy nhập số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDienThoai.Focus();
 
                 return false;
@@ -68,7 +68,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtDiaChi.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập địa chỉ");
+                MessageBox.Show("Hãy nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDiaChi.Focus();
 
                 return false;
@@ -76,7 +76,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if(cboCongViec.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy chọn công việc");
+                MessageBox.Show("Hãy chọn công việc", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 cboCongViec.Focus();
 
                 return false;
@@ -85,21 +85,24 @@ namespace CSharp_QuanLiBanSanGo
             return true;
         }
 
-        private void CleanInput()
+        private void refreshInput()
         {
             txtMaNV.Text = "";
             txtTenNV.Text = "";
             rdoNam.Checked = false;
-            rdoNam.Checked = false;
+            rdoNu.Checked = false;
             dtpNgaySinh.Text = "";
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
             cboCongViec.Text = "";
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void load_CongViec()
         {
-            cboCongViec.DataSource = dtBase.table("SELECT * FROM tCongViec");
+            cboCongViec.DataSource = dtBase.getTable("SELECT * FROM tCongViec");
             cboCongViec.ValueMember = "MaCV";
             cboCongViec.DisplayMember = "TenCV";
         }
@@ -114,7 +117,7 @@ namespace CSharp_QuanLiBanSanGo
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            DataTable dtNhanVien = dtBase.table(queryLoad);
+            DataTable dtNhanVien = dtBase.getTable(queryLoad);
             dgvNhanVien.DataSource = dtNhanVien;
 
             dgvNhanVien.Columns[0].HeaderText = "Mã nhân viên";
@@ -130,7 +133,7 @@ namespace CSharp_QuanLiBanSanGo
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
 
-            CleanInput();
+            refreshInput();
         }
 
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -161,36 +164,42 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            CleanInput();
+            refreshInput();
 
             btnThem.Enabled = true;
             btnTimKiem.Enabled = true;
             txtMaNV.Enabled = true;
 
-            dgvNhanVien.DataSource = dtBase.table(queryLoad);
+            dgvNhanVien.DataSource = dtBase.getTable(queryLoad);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                DataTable dtNhanVien = dtBase.table($"SELECT * FROM tNhanVien WHERE MaNV ='{txtMaNV.Text}'");
+                DataTable dtNhanVien = dtBase.getTable($"SELECT * FROM tNhanVien WHERE MaNV ='{txtMaNV.Text}'");
 
                 if (dtNhanVien.Rows.Count > 0)
                 {
-                    MessageBox.Show("Mã nhân viên này đã có, hãy nhập mã nhân viên khác");
+                    MessageBox.Show("Mã nhân viên này đã có, hãy nhập mã nhân viên khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtMaNV.Focus();
                 }
                 else
                 {
-                    if (MessageBox.Show("Bạn có muốn thêm nhân viên này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có muốn thêm nhân viên này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dtBase.Excute($"INSERT INTO tNhanVien(MaNV, TenNV, GioiTinh, NgaySinh, DienThoai, DiaChi, MaCV) VALUES(N'{txtMaNV.Text}', N'{txtTenNV.Text}', N'{gioiTinh}', N'{dtpNgaySinh.Text}', N'{txtDienThoai.Text}', N'{txtDiaChi.Text}', N'{cboCongViec.SelectedValue}')");
-                        MessageBox.Show("Bạn đã thêm nhân viên thành công");
+                        try
+                        {
+                            dtBase.getExcute($"INSERT INTO tNhanVien(MaNV, TenNV, GioiTinh, NgaySinh, DienThoai, DiaChi, MaCV) VALUES(N'{txtMaNV.Text}', N'{txtTenNV.Text}', N'{gioiTinh}', N'{dtpNgaySinh.Text}', N'{txtDienThoai.Text}', N'{txtDiaChi.Text}', N'{cboCongViec.SelectedValue}')");
 
-                        dgvNhanVien.DataSource = dtBase.table(queryLoad);
-
-                        CleanInput();
+                            MessageBox.Show("Bạn đã thêm nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvNhanVien.DataSource = dtBase.getTable(queryLoad);
+                            refreshInput();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -198,22 +207,28 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                if (MessageBox.Show("Bạn có sửa thông tin nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có sửa thông tin nhân viên này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dtBase.Excute($"UPDATE tNhanVien SET TenNV = N'{txtTenNV.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
-                    dtBase.Excute($"UPDATE tNhanVien SET GioiTinh = N'{gioiTinh}' WHERE MaNV = N'{txtMaNV.Text}'");
-                    dtBase.Excute($"UPDATE tNhanVien SET NgaySinh = N'{dtpNgaySinh.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
-                    dtBase.Excute($"UPDATE tNhanVien SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
-                    dtBase.Excute($"UPDATE tNhanVien SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
-                    dtBase.Excute($"UPDATE tNhanVien SET MaCV = N'{cboCongViec.SelectedValue}' WHERE MaNV = N'" + txtMaNV.Text + "'");
+                    try
+                    {
+                        dtBase.getExcute($"UPDATE tNhanVien SET TenNV = N'{txtTenNV.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET GioiTinh = N'{gioiTinh}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET NgaySinh = N'{dtpNgaySinh.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET MaCV = N'{cboCongViec.SelectedValue}' WHERE MaNV = N'" + txtMaNV.Text + "'");
 
-                    CleanInput();
-
-                    dgvNhanVien.DataSource = dtBase.table(queryLoad);
-                    MessageBox.Show("Bạn đã sửa thông tin thành công");
-                    txtMaNV.Enabled = true;
+                        dgvNhanVien.DataSource = dtBase.getTable(queryLoad);
+                        MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMaNV.Enabled = true;
+                        refreshInput();
+                    }    
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -222,10 +237,18 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (MessageBox.Show("Bạn có muốn xóa nhà nhân viên có mã là: " + txtMaNV.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tNhanVien WHERE MaNV ='{txtMaNV.Text}'");
-                dgvNhanVien.DataSource = dtBase.table(queryLoad);
+                try
+                {
+                    dtBase.getExcute($"DELETE tNhanVien WHERE MaNV ='{txtMaNV.Text}'");
 
-                CleanInput();
+                    dgvNhanVien.DataSource = dtBase.getTable(queryLoad);
+                    MessageBox.Show("Đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshInput();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -275,7 +298,7 @@ namespace CSharp_QuanLiBanSanGo
             if (dk != "")
             {
                 string find = queryLoad + " WHERE MaNV LIKE N'%NV%'" + dk;
-                dgvNhanVien.DataSource = dtBase.table(find);
+                dgvNhanVien.DataSource = dtBase.getTable(find);
             }
         }
 

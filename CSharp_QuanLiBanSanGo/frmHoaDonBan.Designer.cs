@@ -78,7 +78,7 @@
             this.cboKhachHang.Location = new System.Drawing.Point(129, 125);
             this.cboKhachHang.Name = "cboKhachHang";
             this.cboKhachHang.Size = new System.Drawing.Size(178, 21);
-            this.cboKhachHang.TabIndex = 10;
+            this.cboKhachHang.TabIndex = 4;
             // 
             // cboNhanVien
             // 
@@ -86,7 +86,7 @@
             this.cboNhanVien.Location = new System.Drawing.Point(129, 59);
             this.cboNhanVien.Name = "cboNhanVien";
             this.cboNhanVien.Size = new System.Drawing.Size(178, 21);
-            this.cboNhanVien.TabIndex = 10;
+            this.cboNhanVien.TabIndex = 2;
             // 
             // txtTongTien
             // 
@@ -94,7 +94,7 @@
             this.txtTongTien.Location = new System.Drawing.Point(129, 158);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(178, 20);
-            this.txtTongTien.TabIndex = 9;
+            this.txtTongTien.TabIndex = 5;
             // 
             // dtpNgayBan
             // 
@@ -102,14 +102,14 @@
             this.dtpNgayBan.Location = new System.Drawing.Point(129, 92);
             this.dtpNgayBan.Name = "dtpNgayBan";
             this.dtpNgayBan.Size = new System.Drawing.Size(178, 20);
-            this.dtpNgayBan.TabIndex = 7;
+            this.dtpNgayBan.TabIndex = 3;
             // 
             // txtSoHDB
             // 
             this.txtSoHDB.Location = new System.Drawing.Point(129, 26);
             this.txtSoHDB.Name = "txtSoHDB";
             this.txtSoHDB.Size = new System.Drawing.Size(178, 20);
-            this.txtSoHDB.TabIndex = 5;
+            this.txtSoHDB.TabIndex = 1;
             // 
             // label5
             // 
@@ -173,66 +173,84 @@
             // btnLamMoi
             // 
             this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLamMoi.Location = new System.Drawing.Point(248, 16);
+            this.btnLamMoi.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.refresh;
+            this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLamMoi.Location = new System.Drawing.Point(85, 7);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnLamMoi.Size = new System.Drawing.Size(110, 40);
             this.btnLamMoi.TabIndex = 0;
             this.btnLamMoi.Text = "&Làm mới";
+            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnXuatExcel
             // 
             this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXuatExcel.Location = new System.Drawing.Point(654, 16);
+            this.btnXuatExcel.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.excel;
+            this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXuatExcel.Location = new System.Drawing.Point(785, 7);
             this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(99, 23);
-            this.btnXuatExcel.TabIndex = 0;
+            this.btnXuatExcel.Size = new System.Drawing.Size(130, 40);
+            this.btnXuatExcel.TabIndex = 5;
             this.btnXuatExcel.Text = "Xuất ra &Excel";
+            this.btnXuatExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXuatExcel.UseVisualStyleBackColor = true;
             this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTimKiem.Location = new System.Drawing.Point(573, 16);
+            this.btnTimKiem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.search;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.Location = new System.Drawing.Point(645, 7);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiem.TabIndex = 0;
+            this.btnTimKiem.Size = new System.Drawing.Size(110, 40);
+            this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm &kiếm";
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXoa.Location = new System.Drawing.Point(492, 16);
+            this.btnXoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.delete;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.Location = new System.Drawing.Point(505, 7);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 0;
+            this.btnXoa.Size = new System.Drawing.Size(110, 40);
+            this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "&Xoá";
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.Location = new System.Drawing.Point(411, 16);
+            this.btnSua.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.edit;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.Location = new System.Drawing.Point(365, 7);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 0;
+            this.btnSua.Size = new System.Drawing.Size(110, 40);
+            this.btnSua.TabIndex = 2;
             this.btnSua.Text = "&Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.Location = new System.Drawing.Point(329, 16);
+            this.btnThem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.Location = new System.Drawing.Point(225, 7);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 0;
+            this.btnThem.Size = new System.Drawing.Size(110, 40);
+            this.btnThem.TabIndex = 1;
             this.btnThem.Text = "&Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -255,6 +273,7 @@
             this.dgvHoaDonBan.Location = new System.Drawing.Point(0, 0);
             this.dgvHoaDonBan.Name = "dgvHoaDonBan";
             this.dgvHoaDonBan.ReadOnly = true;
+            this.dgvHoaDonBan.RowHeadersVisible = false;
             this.dgvHoaDonBan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDonBan.Size = new System.Drawing.Size(1000, 320);
             this.dgvHoaDonBan.TabIndex = 0;

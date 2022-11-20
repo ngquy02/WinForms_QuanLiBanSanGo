@@ -22,11 +22,11 @@ namespace CSharp_QuanLiBanSanGo
             InitializeComponent();
         }
 
-        private bool isCheck()
+        private bool checkValidation()
         {
             if (txtMaKhach.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập mã khách");
+                MessageBox.Show("Hãy nhập mã khách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtMaKhach.Focus();
 
                 return false;
@@ -34,7 +34,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtTenKhach.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập tên khách hàng");
+                MessageBox.Show("Hãy nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTenKhach.Focus();
 
                 return false;
@@ -42,7 +42,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtDiaChi.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập địa chỉ");
+                MessageBox.Show("Hãy nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDiaChi.Focus();
 
                 return false;
@@ -50,7 +50,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtDienThoai.Text.Trim() == "")
             {
-                MessageBox.Show("Hãy nhập số điện thoại");
+                MessageBox.Show("Hãy nhập số điện thoại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtDienThoai.Focus();
 
                 return false;
@@ -59,12 +59,15 @@ namespace CSharp_QuanLiBanSanGo
             return true;
         }
 
-        private void CleanInput()
+        private void refreshInput()
         {
             txtMaKhach.Text = "";
             txtTenKhach.Text = "";
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
+
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
 
         private void txtDienThoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -77,7 +80,7 @@ namespace CSharp_QuanLiBanSanGo
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            DataTable dtKhachHang = dtBase.table(queryLoad);
+            DataTable dtKhachHang = dtBase.getTable(queryLoad);
             dgvKhachHang.DataSource = dtKhachHang;
 
             dgvKhachHang.Columns[0].HeaderText = "Mã khách hàng";
@@ -88,7 +91,7 @@ namespace CSharp_QuanLiBanSanGo
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
 
-            CleanInput();
+            refreshInput();
         }
 
         private void dgvKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -107,35 +110,41 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            CleanInput();
+            refreshInput();
 
             btnThem.Enabled = true;
             btnTimKiem.Enabled = true;
             txtMaKhach.Enabled = true;
 
-            dgvKhachHang.DataSource = dtBase.table(queryLoad);
+            dgvKhachHang.DataSource = dtBase.getTable(queryLoad);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                DataTable dtKhachHang = dtBase.table($"SELECT * FROM tKhachHang WHERE MaKhach ='{txtMaKhach.Text}'");
+                DataTable dtKhachHang = dtBase.getTable($"SELECT * FROM tKhachHang WHERE MaKhach ='{txtMaKhach.Text}'");
                 if (dtKhachHang.Rows.Count > 0)
                 {
-                    MessageBox.Show("Mã khách này đã có, hãy nhập mã khách hàng khác");
+                    MessageBox.Show("Mã khách này đã có, hãy nhập mã khách hàng khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtMaKhach.Focus();
                 }
                 else
                 {
-                    if (MessageBox.Show("Bạn có muốn thêm khách hàng này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có muốn thêm khách hàng này vào danh sách không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dtBase.Excute($"INSERT INTO tKhachHang(MaKhach, TenKhach, DiaChi, DienThoai) VALUES(N'{txtMaKhach.Text}', N'{txtTenKhach.Text}', N'{txtDiaChi.Text}', N'{txtDienThoai.Text}')");
-                        MessageBox.Show("Bạn đã thêm khách hàng thành công");
+                        try
+                        {
+                            dtBase.getExcute($"INSERT INTO tKhachHang(MaKhach, TenKhach, DiaChi, DienThoai) VALUES(N'{txtMaKhach.Text}', N'{txtTenKhach.Text}', N'{txtDiaChi.Text}', N'{txtDienThoai.Text}')");
 
-                        dgvKhachHang.DataSource = dtBase.table(queryLoad);
-
-                        CleanInput();
+                            MessageBox.Show("Bạn đã thêm khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvKhachHang.DataSource = dtBase.getTable(queryLoad);
+                            refreshInput();
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -143,31 +152,45 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (isCheck())
+            if (checkValidation())
             {
-                if (MessageBox.Show("Bạn có sửa thông tin nhà khách hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có sửa thông tin nhà khách hàng này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dtBase.Excute($"UPDATE tKhachHang SET TenKhach = N'{txtTenKhach.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
-                    dtBase.Excute($"UPDATE tKhachHang SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
-                    dtBase.Excute($"UPDATE tKhachHang SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                    try
+                    {
+                        dtBase.getExcute($"UPDATE tKhachHang SET TenKhach = N'{txtTenKhach.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                        dtBase.getExcute($"UPDATE tKhachHang SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                        dtBase.getExcute($"UPDATE tKhachHang SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
 
-                    CleanInput();
-
-                    dgvKhachHang.DataSource = dtBase.table(queryLoad);
-                    MessageBox.Show("Bạn đã sửa thông tin thành công");
-                    txtMaKhach.Enabled = true;
+                        dgvKhachHang.DataSource = dtBase.getTable(queryLoad);
+                        MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtMaKhach.Enabled = true;
+                        refreshInput();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa nhà khách hàng có mã là: " + txtMaKhach.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn xóa nhà khách hàng có mã là: " + txtMaKhach.Text + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                dtBase.Excute($"DELETE tKhachHang WHERE MaKhach ='" + txtMaKhach.Text + "'");
-                dgvKhachHang.DataSource = dtBase.table(queryLoad);
+                try
+                {
+                    dtBase.getExcute($"DELETE tKhachHang WHERE MaKhach ='" + txtMaKhach.Text + "'");
 
-                CleanInput();
+                    dgvKhachHang.DataSource = dtBase.getTable(queryLoad);
+                    MessageBox.Show("Bạn đã xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshInput();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -198,7 +221,7 @@ namespace CSharp_QuanLiBanSanGo
             if (dk != "")
             {
                 string find = queryLoad + " WHERE MaKhach LIKE N'%KH%'" + dk;
-                dgvKhachHang.DataSource = dtBase.table(find);
+                dgvKhachHang.DataSource = dtBase.getTable(find);
             }
         }
 

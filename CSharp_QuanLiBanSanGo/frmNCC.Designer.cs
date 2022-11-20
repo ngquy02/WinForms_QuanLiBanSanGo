@@ -73,7 +73,7 @@
             this.txtDienThoai.Location = new System.Drawing.Point(129, 125);
             this.txtDienThoai.Name = "txtDienThoai";
             this.txtDienThoai.Size = new System.Drawing.Size(155, 20);
-            this.txtDienThoai.TabIndex = 30;
+            this.txtDienThoai.TabIndex = 4;
             this.txtDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // txtDiaChi
@@ -81,21 +81,21 @@
             this.txtDiaChi.Location = new System.Drawing.Point(129, 92);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(155, 20);
-            this.txtDiaChi.TabIndex = 27;
+            this.txtDiaChi.TabIndex = 3;
             // 
             // txtTenNCC
             // 
             this.txtTenNCC.Location = new System.Drawing.Point(129, 59);
             this.txtTenNCC.Name = "txtTenNCC";
             this.txtTenNCC.Size = new System.Drawing.Size(155, 20);
-            this.txtTenNCC.TabIndex = 28;
+            this.txtTenNCC.TabIndex = 2;
             // 
             // txtMaNCC
             // 
             this.txtMaNCC.Location = new System.Drawing.Point(129, 26);
             this.txtMaNCC.Name = "txtMaNCC";
             this.txtMaNCC.Size = new System.Drawing.Size(155, 20);
-            this.txtMaNCC.TabIndex = 29;
+            this.txtMaNCC.TabIndex = 1;
             // 
             // label6
             // 
@@ -153,6 +153,7 @@
             this.dgvNCC.Location = new System.Drawing.Point(0, 0);
             this.dgvNCC.Name = "dgvNCC";
             this.dgvNCC.ReadOnly = true;
+            this.dgvNCC.RowHeadersVisible = false;
             this.dgvNCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNCC.Size = new System.Drawing.Size(1000, 375);
             this.dgvNCC.TabIndex = 0;
@@ -170,71 +171,89 @@
             this.panel3.Location = new System.Drawing.Point(0, 545);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1000, 55);
-            this.panel3.TabIndex = 2;
+            this.panel3.TabIndex = 1;
             // 
             // btnLamMoi
             // 
             this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLamMoi.Location = new System.Drawing.Point(248, 16);
+            this.btnLamMoi.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.refresh;
+            this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLamMoi.Location = new System.Drawing.Point(85, 7);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnLamMoi.TabIndex = 21;
+            this.btnLamMoi.Size = new System.Drawing.Size(110, 40);
+            this.btnLamMoi.TabIndex = 0;
             this.btnLamMoi.Text = "&Làm mới";
+            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnExcel
             // 
             this.btnExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExcel.Location = new System.Drawing.Point(654, 16);
+            this.btnExcel.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.excel;
+            this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExcel.Location = new System.Drawing.Point(785, 7);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(99, 23);
-            this.btnExcel.TabIndex = 22;
+            this.btnExcel.Size = new System.Drawing.Size(130, 40);
+            this.btnExcel.TabIndex = 5;
             this.btnExcel.Text = "Xuất ra &Excel";
+            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcel.UseVisualStyleBackColor = true;
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTimKiem.Location = new System.Drawing.Point(573, 16);
+            this.btnTimKiem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.search;
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.Location = new System.Drawing.Point(645, 7);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiem.TabIndex = 23;
+            this.btnTimKiem.Size = new System.Drawing.Size(110, 40);
+            this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm &kiếm";
+            this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXoa.Location = new System.Drawing.Point(492, 16);
+            this.btnXoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.delete;
+            this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.Location = new System.Drawing.Point(505, 7);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
-            this.btnXoa.TabIndex = 23;
+            this.btnXoa.Size = new System.Drawing.Size(110, 40);
+            this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "&Xoá";
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.Location = new System.Drawing.Point(411, 16);
+            this.btnSua.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.edit;
+            this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.Location = new System.Drawing.Point(365, 7);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
-            this.btnSua.TabIndex = 24;
+            this.btnSua.Size = new System.Drawing.Size(110, 40);
+            this.btnSua.TabIndex = 2;
             this.btnSua.Text = "&Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.Location = new System.Drawing.Point(329, 16);
+            this.btnThem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add;
+            this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.Location = new System.Drawing.Point(225, 7);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
-            this.btnThem.TabIndex = 25;
+            this.btnThem.Size = new System.Drawing.Size(110, 40);
+            this.btnThem.TabIndex = 1;
             this.btnThem.Text = "&Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 

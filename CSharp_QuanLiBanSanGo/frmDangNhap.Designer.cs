@@ -31,15 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDangNhap = new System.Windows.Forms.Button();
-            this.btnDangKi = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.llbQuenMatKhau = new System.Windows.Forms.LinkLabel();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.btnDangKi = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,43 +61,27 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(43, 10);
+            this.label1.Location = new System.Drawing.Point(133, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 33);
+            this.label1.Size = new System.Drawing.Size(153, 33);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Location = new System.Drawing.Point(80, 15);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(117, 40);
-            this.btnDangNhap.TabIndex = 0;
-            this.btnDangNhap.Text = "Đăng &nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
-            // btnDangKi
-            // 
-            this.btnDangKi.Location = new System.Drawing.Point(221, 15);
-            this.btnDangKi.Name = "btnDangKi";
-            this.btnDangKi.Size = new System.Drawing.Size(117, 40);
-            this.btnDangKi.TabIndex = 1;
-            this.btnDangKi.Text = "Đăng &kí";
-            this.btnDangKi.UseVisualStyleBackColor = true;
+            this.label1.Text = "ĐĂNG NHẬP";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnDangNhap);
             this.panel2.Controls.Add(this.btnDangKi);
+            this.panel2.Controls.Add(this.btnThoat);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 267);
+            this.panel2.Location = new System.Drawing.Point(0, 282);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(419, 70);
+            this.panel2.Size = new System.Drawing.Size(419, 55);
             this.panel2.TabIndex = 2;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.splitter2);
+            this.panel3.Controls.Add(this.splitter1);
+            this.panel3.Controls.Add(this.btnDangNhap);
             this.panel3.Controls.Add(this.llbQuenMatKhau);
             this.panel3.Controls.Add(this.txtMatKhau);
             this.panel3.Controls.Add(this.txtTenDangNhap);
@@ -103,25 +90,47 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 52);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(419, 215);
+            this.panel3.Size = new System.Drawing.Size(419, 230);
             this.panel3.TabIndex = 1;
+            // 
+            // splitter2
+            // 
+            this.splitter2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitter2.Location = new System.Drawing.Point(0, 0);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(419, 1);
+            this.splitter2.TabIndex = 0;
+            this.splitter2.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitter1.Location = new System.Drawing.Point(0, 229);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(419, 1);
+            this.splitter1.TabIndex = 5;
+            this.splitter1.TabStop = false;
             // 
             // llbQuenMatKhau
             // 
             this.llbQuenMatKhau.AutoSize = true;
-            this.llbQuenMatKhau.Location = new System.Drawing.Point(68, 140);
+            this.llbQuenMatKhau.Location = new System.Drawing.Point(68, 154);
             this.llbQuenMatKhau.Name = "llbQuenMatKhau";
             this.llbQuenMatKhau.Size = new System.Drawing.Size(80, 13);
             this.llbQuenMatKhau.TabIndex = 4;
             this.llbQuenMatKhau.TabStop = true;
-            this.llbQuenMatKhau.Text = "Quên mật khẩu";
+            this.llbQuenMatKhau.Text = "&Quên mật khẩu";
+            this.llbQuenMatKhau.Click += new System.EventHandler(this.llbQuenMatKhau_Click);
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(175, 103);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(175, 20);
-            this.txtMatKhau.TabIndex = 3;
+            this.txtMatKhau.TabIndex = 2;
             // 
             // txtTenDangNhap
             // 
@@ -148,6 +157,46 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên đăng nhập";
             // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.enter;
+            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDangNhap.Location = new System.Drawing.Point(240, 140);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(110, 40);
+            this.btnDangNhap.TabIndex = 3;
+            this.btnDangNhap.Text = "Đăng &nhập";
+            this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            this.btnDangNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnDangNhap_KeyPress);
+            // 
+            // btnDangKi
+            // 
+            this.btnDangKi.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add_user;
+            this.btnDangKi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDangKi.Location = new System.Drawing.Point(239, 7);
+            this.btnDangKi.Name = "btnDangKi";
+            this.btnDangKi.Size = new System.Drawing.Size(110, 40);
+            this.btnDangKi.TabIndex = 1;
+            this.btnDangKi.Text = "Đăng &kí";
+            this.btnDangKi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDangKi.UseVisualStyleBackColor = true;
+            this.btnDangKi.Click += new System.EventHandler(this.btnDangKi_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.close;
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThoat.Location = new System.Drawing.Point(70, 7);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(110, 40);
+            this.btnThoat.TabIndex = 0;
+            this.btnThoat.Text = "&Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,12 +205,13 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng nhập vào hệ thống";
+            this.Text = "Đăng nhập";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -184,5 +234,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel llbQuenMatKhau;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Splitter splitter2;
     }
 }
