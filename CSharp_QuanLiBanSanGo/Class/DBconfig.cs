@@ -13,7 +13,7 @@ namespace CSharp_QuanLiBanSanGo.Class
     {
         private SqlDataAdapter sqlDataAdapter;
         private SqlCommand sqlCommand;
-        public static string connectString = @"Data Source=DESKTOP-2TPJP92\SQLEXPRESS;Initial Catalog=QuanLiBanSanGo;Integrated Security=True";
+        public string connectString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\QLBanSanGo.mdf;Integrated Security=True";
 
         public DataTable getTable(string query)
         {

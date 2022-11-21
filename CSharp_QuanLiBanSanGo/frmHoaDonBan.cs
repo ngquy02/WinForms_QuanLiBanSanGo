@@ -17,6 +17,7 @@ namespace CSharp_QuanLiBanSanGo
     {
         DBconfig dtBase = new DBconfig();
         string queryLoad = "SELECT * FROM View_HoaDonBan";
+        DateTime date = new DateTime(1900, 01, 01, 0, 0, 0);
 
         public frmHoaDonBan()
         {
@@ -41,6 +42,14 @@ namespace CSharp_QuanLiBanSanGo
                 return false;
             }
 
+            if (dtpNgayBan.Value == date)
+            {
+                MessageBox.Show("Hãy nhập ngày bán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtpNgayBan.Focus();
+
+                return false;
+            }
+
             if (cboKhachHang.Text.Trim() == "")
             {
                 MessageBox.Show("Hãy chọn khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -55,9 +64,9 @@ namespace CSharp_QuanLiBanSanGo
         private void refreshInput()
         {
             txtSoHDB.Text = "";
-            cboNhanVien.Text = "";
-            dtpNgayBan.Text = "";
-            cboKhachHang.Text = "";
+            cboNhanVien.SelectedIndex = -1;
+            dtpNgayBan.Value = date;
+            cboKhachHang.SelectedIndex = -1;
             txtTongTien.Text = "";
 
             btnSua.Enabled = false;
@@ -150,7 +159,7 @@ namespace CSharp_QuanLiBanSanGo
                     {
                         if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            dtBase.getExcute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Text} ', N'{cboKhachHang.SelectedValue}')");
+                            dtBase.getExcute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Value.ToString("yyyy-MM-dd")} ', N'{cboKhachHang.SelectedValue}')");
                             MessageBox.Show("Bạn đã thêm hoá đơn thành công");
 
                             dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
@@ -175,7 +184,7 @@ namespace CSharp_QuanLiBanSanGo
                     try
                     {
                         dtBase.getExcute($"UPDATE tHoaDonBan SET MaNV = N'{cboNhanVien.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
-                        dtBase.getExcute($"UPDATE tHoaDonBan SET NgayBan = N'{dtpNgayBan.Text}' WHERE SoHDB = '{txtSoHDB.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonBan SET NgayBan = N'{dtpNgayBan.Value.ToString("yyyy-MM-dd")}' WHERE SoHDB = '{txtSoHDB.Text}'");
                         dtBase.getExcute($"UPDATE tHoaDonBan SET MaKhach = N'{cboKhachHang.SelectedValue}' WHERE SoHDB = '{txtSoHDB.Text}'");
 
                         refreshInput();
@@ -220,6 +229,16 @@ namespace CSharp_QuanLiBanSanGo
                 dk += $" AND SoHDB LIKE N'{txtSoHDB.Text}%'";
             }
 
+            if (cboNhanVien.Text.Trim() != "")
+            {
+                dk += $" AND TenNV LIKE N'%{cboNhanVien.Text}%'";
+            }
+
+            if (dtpNgayBan.Value != date)
+            {
+                dk += $" AND NgayBan LIKE N'%{dtpNgayBan.Value.ToString("yyyy-MM-dd")}%'";
+            }
+
             if (cboKhachHang.Text.Trim() != "")
             {
                 dk += $" AND TenKhach LIKE N'%{cboKhachHang.Text}%'";
@@ -234,47 +253,64 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            SaveFileDialog excelFile = new SaveFileDialog();
-            excelFile.Title = "Lưu Excel";
-            excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-            excelFile.FileName = "DanhSachHDB";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất danh sách sang Excel";
+            saveFileDialog.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
+            saveFileDialog.FileName = "HoaDonBan";
 
-            if(excelFile.ShowDialog() == DialogResult.OK)
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    Excel.Application exApp = new Excel.Application();
-                    Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Application application = new Excel.Application();
+                    application.Application.Workbooks.Add(Type.Missing);
+                    Excel.Workbook exBook = application.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
                     Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-                    exSheet.get_Range("B2").Font.Bold = true;
-                    exSheet.get_Range("B2").Value = "Danh sách sản phẩm";
-                    exSheet.get_Range("A3").Value = "Số thứ tự";
-                    exSheet.get_Range("B3").Value = "Số hoá đơn bán";
-                    exSheet.get_Range("C3").Value = "Nhân viên";
-                    exSheet.get_Range("D3").Value = "Ngày bán";
-                    exSheet.get_Range("E3").Value = "Khách hàng";
-                    exSheet.get_Range("F3").Value = "Tổng tiền";
 
-                    for (int i = 0; i < dgvHoaDonBan.Rows.Count; i++)
+                    exSheet.get_Range("A1").Font.Bold = true;
+                    exSheet.get_Range("A1").Value = "Hoá đơn bán";
+                    application.Cells[2, 1] = "Số thứ tự";
+
+                    for (int i = 0; i < dgvHoaDonBan.Columns.Count; i++)
                     {
-                        exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
-                        exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[0].Value;
-                        exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[1].Value;
-                        exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[2].Value;
-                        exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[3].Value;
-                        exSheet.get_Range("F" + (i + 4).ToString()).Value = dgvHoaDonBan.Rows[i].Cells[4].Value;
+                        application.Cells[2, i + 2] = dgvHoaDonBan.Columns[i].HeaderText;
                     }
 
-                    exSheet.Columns.AutoFit();
-                    exBook.SaveAs(excelFile.FileName.ToString());
-                    exApp.ActiveWorkbook.Saved = true;
-                    MessageBox.Show("Đã xuất Excel thành công");
-                }
-                catch
-                {
+                    for (int i = 0; i < dgvHoaDonBan.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dgvHoaDonBan.Columns.Count; j++)
+                        {
+                            application.Cells[i + 3, 1] = (i + 1).ToString();
+                            application.Cells[i + 3, j + 2] = dgvHoaDonBan.Rows[i].Cells[j].Value;
+                        }
+                    }
 
+                    application.Columns.AutoFit();
+                    application.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName);
+                    application.ActiveWorkbook.Saved = true;
+
+                    MessageBox.Show("Xuất danh sách sang Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void mởToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvHoaDonBan_DoubleClick(sender, e);
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

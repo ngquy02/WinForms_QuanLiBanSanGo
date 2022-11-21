@@ -471,7 +471,7 @@ namespace CSharp_QuanLiBanSanGo
                 exBook.Activate();
                 SaveFileDialog excelFile = new SaveFileDialog();
                 excelFile.Title = "Lưu Excel";
-                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
+                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
                 excelFile.FileName = "DanhMucHangHoa";
                 excelFile.ShowDialog();
                 exBook.SaveAs(excelFile.FileName.ToString());

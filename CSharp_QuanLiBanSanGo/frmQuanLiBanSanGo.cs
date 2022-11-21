@@ -54,6 +54,12 @@ namespace CSharp_QuanLiBanSanGo
             btnBaoCao.BackColor = Color.FromArgb(206, 223, 209);
         }
 
+        private void quảnLíNgườiDùngToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmNguoiDung nguoiDung = new frmNguoiDung();
+            nguoiDung.ShowDialog();
+        }
+
         private void devSQLToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmSQL frmSQL = new frmSQL();

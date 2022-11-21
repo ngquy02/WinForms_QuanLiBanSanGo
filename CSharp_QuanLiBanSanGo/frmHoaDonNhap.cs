@@ -16,6 +16,7 @@ namespace CSharp_QuanLiBanSanGo
     {
         DBconfig dtBase = new DBconfig();
         string queryLoad = "SELECT * FROM View_HoaDonNhap";
+        DateTime date = new DateTime(1900, 01, 01, 0, 0, 0);
 
         public frmHoaDonNhap()
         {
@@ -40,6 +41,14 @@ namespace CSharp_QuanLiBanSanGo
                 return false;
             }
 
+            if (dtpNgayNhap.Value == date)
+            {
+                MessageBox.Show("Hãy nhập ngày nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                dtpNgayNhap.Focus();
+
+                return false;
+            }
+
             if (cboNCC.Text.Trim() == "")
             {
                 MessageBox.Show("Hãy chọn nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -54,8 +63,9 @@ namespace CSharp_QuanLiBanSanGo
         private void refreshInput()
         {
             txtSoHDN.Text = "";
-            cboNhanVien.Text = "";
-            cboNCC.Text = "";
+            cboNhanVien.SelectedIndex = -1;
+            dtpNgayNhap.Value = date;
+            cboNCC.SelectedIndex = -1;
             txtTongTien.Text = "";
 
             btnSua.Enabled = false;
@@ -148,7 +158,7 @@ namespace CSharp_QuanLiBanSanGo
                     {
                         try
                         {
-                            dtBase.getExcute($"INSERT INTO tHoaDonNhap(SoHDN, MaNV, NgayNhap, MaNCC) VALUES(N'{txtSoHDN.Text}', N'{cboNhanVien.SelectedValue.ToString()}', N'{dtpNgayNhap.Text}', N'{cboNCC.SelectedValue}')");
+                            dtBase.getExcute($"INSERT INTO tHoaDonNhap(SoHDN, MaNV, NgayNhap, MaNCC) VALUES(N'{txtSoHDN.Text}', N'{cboNhanVien.SelectedValue.ToString()}', N'{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}', N'{cboNCC.SelectedValue}')");
                             MessageBox.Show("Bạn đã thêm hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             dgvHoaDonNhap.DataSource = dtBase.getTable(queryLoad);
@@ -173,8 +183,8 @@ namespace CSharp_QuanLiBanSanGo
                     try
                     {
                         dtBase.getExcute($"UPDATE tHoaDonNhap SET MaNV = N'{cboNhanVien.SelectedValue}' WHERE SoHDN = '{txtSoHDN.Text}'");
-                        dtBase.getExcute($"UPDATE tHoaDonNhap SET NgayNhap = N'{dtpNgayNhap.Text}' WHERE SoHDN = '{txtSoHDN.Text}'");
-                        dtBase.getExcute($"UPDATE tHoaDonNhap SET MaNCC = N'{cboNCC.SelectedValue.ToString()}' WHERE SoHDN = '{txtSoHDN.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonNhap SET NgayNhap = N'{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}' WHERE SoHDN = '{txtSoHDN.Text}'");
+                        dtBase.getExcute($"UPDATE tHoaDonNhap SET MaNCC = N'{cboNCC.SelectedValue}' WHERE SoHDN = '{txtSoHDN.Text}'");
 
                         refreshInput();
 
@@ -218,9 +228,14 @@ namespace CSharp_QuanLiBanSanGo
                 dk += $" AND SoHDB LIKE N'{txtSoHDN.Text}%'";
             }
 
-            if (dtpNgayNhap.Text.Trim() != "")
+            if (cboNhanVien.Text.Trim() != "")
             {
-                dk += $" AND NgayNhap LIKE N'{dtpNgayNhap.Text}%'";
+                dk += $" AND TenNV LIKE N'{cboNhanVien.Text}%'";
+            }
+
+            if (dtpNgayNhap.Value != date)
+            {
+                dk += $" AND NgayBan LIKE N'%{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}%'";
             }
 
             if (cboNCC.Text.Trim() != "")
@@ -237,45 +252,70 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất danh sách sang Excel";
+            saveFileDialog.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
+            saveFileDialog.FileName = "HoaDonNhap";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-                exSheet.get_Range("B2").Font.Bold = true;
-                exSheet.get_Range("B2").Value = "Danh sách hoá đơn nhập";
-                exSheet.get_Range("A3").Value = "Số thứ tự";
-                exSheet.get_Range("B3").Value = "Số hoá đơn nhập";
-                exSheet.get_Range("C3").Value = "Nhân viên";
-                exSheet.get_Range("D3").Value = "Ngày nhập";
-                exSheet.get_Range("E3").Value = "Nhà cung cấp";
-                exSheet.get_Range("F3").Value = "Tồng tiền";
-
-                int n = dgvHoaDonNhap.Rows.Count;
-
-                for (int i = 0; i < n - 1; i++)
+                try
                 {
-                    exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
-                    exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvHoaDonNhap.Rows[i].Cells[0].Value;
-                    exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvHoaDonNhap.Rows[i].Cells[1].Value;
-                    exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvHoaDonNhap.Rows[i].Cells[2].Value;
-                    exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvHoaDonNhap.Rows[i].Cells[3].Value;
-                    exSheet.get_Range("F" + (i + 4).ToString()).Value = dgvHoaDonNhap.Rows[i].Cells[4].Value;
+                    Excel.Application application = new Excel.Application();
+                    application.Application.Workbooks.Add(Type.Missing);
+                    Excel.Workbook exBook = application.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+
+                    exSheet.get_Range("A1").Font.Bold = true;
+                    exSheet.get_Range("A1").Value = "Hoá đơn nhập";
+                    application.Cells[2, 1] = "Số thứ tự";
+
+                    for (int i = 0; i < dgvHoaDonNhap.Columns.Count; i++)
+                    {
+                        application.Cells[2, i + 2] = dgvHoaDonNhap.Columns[i].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvHoaDonNhap.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dgvHoaDonNhap.Columns.Count; j++)
+                        {
+                            application.Cells[i + 3, 1] = (i + 1).ToString();
+                            application.Cells[i + 3, j + 2] = dgvHoaDonNhap.Rows[i].Cells[j].Value;
+                        }
+                    }
+
+                    application.Columns.AutoFit();
+                    application.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName);
+                    application.ActiveWorkbook.Saved = true;
+
+                    MessageBox.Show("Xuất danh sách sang Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                exSheet.Columns.AutoFit();
-                SaveFileDialog excelFile = new SaveFileDialog();
-                excelFile.Title = "Lưu Excel";
-                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-                excelFile.FileName = "DanhSachHDN";
-                excelFile.ShowDialog();
-                exBook.SaveAs(excelFile.FileName.ToString());
-                MessageBox.Show("Xuất Excel thành công");
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch
-            {
+        }
 
-            }
+        private void btnTimNC_Click(object sender, EventArgs e)
+        {
+            frmTKHDN timHDN = new frmTKHDN();
+            timHDN.ShowDialog();
+        }
+
+        private void mởToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvHoaDonNhap_DoubleClick(sender, e);
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

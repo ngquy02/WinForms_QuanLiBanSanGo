@@ -17,6 +17,7 @@ namespace CSharp_QuanLiBanSanGo
         DBconfig dtBase = new DBconfig();
         string queryLoad = "SELECT * FROM View_NhanVien";
         string gioiTinh;
+        DateTime date = new DateTime(1900, 01, 01, 0, 0, 0);
 
         public frmNhanVien()
         {
@@ -50,7 +51,7 @@ namespace CSharp_QuanLiBanSanGo
                 gioiTinh = rdoNu.Text;
             }
 
-            if (dtpNgaySinh.Text.Trim() == "")
+            if (dtpNgaySinh.Value == date)
             {
                 MessageBox.Show("Hãy nhập ngày sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 dtpNgaySinh.Focus();
@@ -91,10 +92,10 @@ namespace CSharp_QuanLiBanSanGo
             txtTenNV.Text = "";
             rdoNam.Checked = false;
             rdoNu.Checked = false;
-            dtpNgaySinh.Text = "";
+            dtpNgaySinh.Value = date;
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
-            cboCongViec.Text = "";
+            cboCongViec.SelectedIndex = -1;
 
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -190,7 +191,7 @@ namespace CSharp_QuanLiBanSanGo
                     {
                         try
                         {
-                            dtBase.getExcute($"INSERT INTO tNhanVien(MaNV, TenNV, GioiTinh, NgaySinh, DienThoai, DiaChi, MaCV) VALUES(N'{txtMaNV.Text}', N'{txtTenNV.Text}', N'{gioiTinh}', N'{dtpNgaySinh.Text}', N'{txtDienThoai.Text}', N'{txtDiaChi.Text}', N'{cboCongViec.SelectedValue}')");
+                            dtBase.getExcute($"INSERT INTO tNhanVien(MaNV, TenNV, GioiTinh, NgaySinh, DienThoai, DiaChi, MaCV) VALUES(N'{txtMaNV.Text}', N'{txtTenNV.Text}', N'{gioiTinh}', N'{dtpNgaySinh.Value.ToString("yyyy-MM-dd")}', N'{txtDienThoai.Text}', N'{txtDiaChi.Text}', N'{cboCongViec.SelectedValue}')");
 
                             MessageBox.Show("Bạn đã thêm nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgvNhanVien.DataSource = dtBase.getTable(queryLoad);
@@ -215,7 +216,7 @@ namespace CSharp_QuanLiBanSanGo
                     {
                         dtBase.getExcute($"UPDATE tNhanVien SET TenNV = N'{txtTenNV.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
                         dtBase.getExcute($"UPDATE tNhanVien SET GioiTinh = N'{gioiTinh}' WHERE MaNV = N'{txtMaNV.Text}'");
-                        dtBase.getExcute($"UPDATE tNhanVien SET NgaySinh = N'{dtpNgaySinh.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
+                        dtBase.getExcute($"UPDATE tNhanVien SET NgaySinh = N'{dtpNgaySinh.Value.ToString("yyyy-MM-dd")}' WHERE MaNV = N'{txtMaNV.Text}'");
                         dtBase.getExcute($"UPDATE tNhanVien SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
                         dtBase.getExcute($"UPDATE tNhanVien SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNV = N'{txtMaNV.Text}'");
                         dtBase.getExcute($"UPDATE tNhanVien SET MaCV = N'{cboCongViec.SelectedValue}' WHERE MaNV = N'" + txtMaNV.Text + "'");
@@ -266,18 +267,19 @@ namespace CSharp_QuanLiBanSanGo
                 dk += $" AND TenNV LIKE N'%{txtTenNV.Text}%'";
             }
 
-            if (rdoNam.Checked.ToString().Trim() != "")
+            if (rdoNam.Checked == true)
             {
-                dk += $" AND GioiTinh LIKE N'%{rdoNam.Checked}%'";
+                dk += $" AND GioiTinh LIKE N'%{rdoNam.Text}%'";
             }
-            else
+            
+            if(rdoNu.Checked == true)
             {
-                dk += $" AND GioiTinh LIKE N'%{rdoNu.Checked}%'";
+                dk += $" AND GioiTinh LIKE N'%{rdoNu.Text}%'";
             }
 
-            if (dtpNgaySinh.Text.Trim() != "")
+            if (dtpNgaySinh.Value.ToString("yyyy-MM-dd") != DateTime.Now.ToString("yyyy-MM-dd"))
             {
-                dk += $" AND NgaySinh LIKE N'%{dtpNgaySinh.Text}%'";
+                dk += $" AND NgaySinh LIKE N'%{dtpNgaySinh.Value.ToString("yyyy-MM-dd")}%'";
             }
 
             if (txtDienThoai.Text.Trim() != "")
@@ -297,57 +299,66 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dk != "")
             {
-                string find = queryLoad + " WHERE MaNV LIKE N'%NV%'" + dk;
+                string find = queryLoad + " WHERE MaNV LIKE N'%%'" + dk;
                 dgvNhanVien.DataSource = dtBase.getTable(find);
             }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất danh sách sang Excel";
+            saveFileDialog.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
+            saveFileDialog.FileName = "NhanVien";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-                exSheet.get_Range("B2").Font.Bold = true;
-                exSheet.get_Range("B2").Value = "Danh sách nhân viên";
-                exSheet.get_Range("A3").Value = "Số thứ tự";
-                exSheet.get_Range("B3").Value = "Mã nhân viên";
-                exSheet.get_Range("C3").Value = "Tên nhân viên";
-                exSheet.get_Range("C3").Value = "Giới tính";
-                exSheet.get_Range("C3").Value = "Ngày sinh";
-                exSheet.get_Range("D3").Value = "Địa chỉ";
-                exSheet.get_Range("E3").Value = "Điện thoại";
-                exSheet.get_Range("C3").Value = "Công việc";
-
-                int n = dgvNhanVien.Rows.Count;
-
-                for (int i = 0; i < n - 1; i++)
+                try
                 {
-                    exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
-                    exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[0].Value;
-                    exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[1].Value;
-                    exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[2].Value;
-                    exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[3].Value;
-                    exSheet.get_Range("F" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[4].Value;
-                    exSheet.get_Range("G" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[5].Value;
-                    exSheet.get_Range("H" + (i + 4).ToString()).Value = dgvNhanVien.Rows[i].Cells[6].Value;
-                }
+                    Excel.Application application = new Excel.Application();
+                    application.Application.Workbooks.Add(Type.Missing);
+                    Excel.Workbook exBook = application.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
 
-                exSheet.Columns.AutoFit();
-                exBook.Activate();
-                SaveFileDialog excelFile = new SaveFileDialog();
-                excelFile.Title = "Lưu Excel";
-                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-                excelFile.ShowDialog();
-                exBook.SaveAs(excelFile.FileName.ToString());
-                exApp.Quit();
-                MessageBox.Show("Xuất Excel thành công");
+                    exSheet.get_Range("A1").Font.Bold = true;
+                    exSheet.get_Range("A1").Value = "Nhân viên";
+                    application.Cells[2, 1] = "Số thứ tự";
+
+                    for (int i = 0; i < dgvNhanVien.Columns.Count; i++)
+                    {
+                        application.Cells[2, i + 2] = dgvNhanVien.Columns[i].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvNhanVien.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dgvNhanVien.Columns.Count; j++)
+                        {
+                            application.Cells[i + 3, 1] = (i + 1).ToString();
+                            application.Cells[i + 3, j + 2] = dgvNhanVien.Rows[i].Cells[j].Value;
+                        }
+                    }
+
+                    application.Columns.AutoFit();
+                    application.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName);
+                    application.ActiveWorkbook.Saved = true;
+
+                    MessageBox.Show("Xuất danh sách sang Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch
-            {
-                
-            }
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

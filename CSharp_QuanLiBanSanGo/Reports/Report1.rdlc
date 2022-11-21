@@ -441,7 +441,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>Func_1</DataSetName>
+        <DataSetName>Report1</DataSetName>
         <Top>2.40453cm</Top>
         <Left>3.58086cm</Left>
         <Height>1.2cm</Height>
@@ -611,7 +611,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="Func_1">
+    <DataSet Name="Report1">
       <Query>
         <DataSourceName>QuanLiBanSanGoDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -639,12 +639,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>QuanLiBanSanGoDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QuanLiBanSanGoDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Func_1</rd:TableName>
+        <rd:DataSetName>QLBanSanGoDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QLBanSanGoDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>Report1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Func_1TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>Report1TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

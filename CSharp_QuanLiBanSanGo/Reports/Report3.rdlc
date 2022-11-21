@@ -426,6 +426,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -452,7 +453,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>Func_3</DataSetName>
+        <DataSetName>Report3</DataSetName>
         <Top>2.40453cm</Top>
         <Left>2.90054cm</Left>
         <Height>1.2cm</Height>
@@ -636,7 +637,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="Func_3">
+    <DataSet Name="Report3">
       <Query>
         <DataSourceName>QuanLiBanSanGoDataSet2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -664,12 +665,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>QuanLiBanSanGoDataSet2</rd:DataSetName>
-        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QuanLiBanSanGoDataSet2.xsd</rd:SchemaPath>
-        <rd:TableName>Func_3</rd:TableName>
+        <rd:DataSetName>QLBanSanGoDataSet2</rd:DataSetName>
+        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QLBanSanGoDataSet2.xsd</rd:SchemaPath>
+        <rd:TableName>Report3</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Func_3TableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>Report3TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

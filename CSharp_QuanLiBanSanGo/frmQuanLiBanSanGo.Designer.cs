@@ -68,6 +68,7 @@
             this.vềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.quảnLíNgườiDùngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -219,7 +220,7 @@
             this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNhanVien.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnNhanVien.ForeColor = System.Drawing.Color.Black;
-            this.btnNhanVien.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.staff;
+            this.btnNhanVien.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.id_card;
             this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNhanVien.Location = new System.Drawing.Point(0, 223);
             this.btnNhanVien.Name = "btnNhanVien";
@@ -240,7 +241,7 @@
             this.btnHoaDonNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoaDonNhap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnHoaDonNhap.ForeColor = System.Drawing.Color.Black;
-            this.btnHoaDonNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.bill;
+            this.btnHoaDonNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.im1;
             this.btnHoaDonNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHoaDonNhap.Location = new System.Drawing.Point(0, 173);
             this.btnHoaDonNhap.Name = "btnHoaDonNhap";
@@ -319,13 +320,14 @@
             // cmsHeThong
             // 
             this.cmsHeThong.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quảnLíNgườiDùngToolStripMenuItem1,
             this.viếtLệnhTruyVấnSQLToolStripMenuItem,
             this.vềỨngDụngNàyToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem1,
             this.thoátToolStripMenuItem1});
             this.cmsHeThong.Name = "cmsHeThong";
             this.cmsHeThong.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHeThong.Size = new System.Drawing.Size(191, 92);
+            this.cmsHeThong.Size = new System.Drawing.Size(191, 136);
             // 
             // viếtLệnhTruyVấnSQLToolStripMenuItem
             // 
@@ -512,6 +514,13 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // quảnLíNgườiDùngToolStripMenuItem1
+            // 
+            this.quảnLíNgườiDùngToolStripMenuItem1.Name = "quảnLíNgườiDùngToolStripMenuItem1";
+            this.quảnLíNgườiDùngToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
+            this.quảnLíNgườiDùngToolStripMenuItem1.Text = "Quản lí người dùng";
+            this.quảnLíNgườiDùngToolStripMenuItem1.Click += new System.EventHandler(this.quảnLíNgườiDùngToolStripMenuItem1_Click);
+            // 
             // frmQuanLiBanSanGo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,6 +590,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem quảnLíNgườiDùngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem devSQLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quảnLíNgườiDùngToolStripMenuItem1;
     }
 }
 

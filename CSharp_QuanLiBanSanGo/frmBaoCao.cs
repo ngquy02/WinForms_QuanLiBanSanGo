@@ -95,8 +95,8 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report1.rdlc";
                     ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Func_1";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Func_1(N'{cboChonKH.SelectedValue}')");
+                    reportDataSource.Name = "Report1";
+                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report1(N'{cboChonKH.SelectedValue}')");
                     rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
                     this.rvBaoCao.RefreshReport();
                     btnBaoCao.Enabled = false;
@@ -115,8 +115,8 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report2.rdlc";
                     ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Func_2";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Func_2({cboChonThang.Text})");
+                    reportDataSource.Name = "Report2";
+                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report2({cboChonThang.Text})");
                     rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
                     this.rvBaoCao.RefreshReport();
                     btnBaoCao.Enabled = false;
@@ -135,8 +135,8 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report3.rdlc";
                     ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Func_3";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Func_3({txtNhapNam.Text})");
+                    reportDataSource.Name = "Report3";
+                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report3({txtNhapNam.Text})");
                     rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
                     this.rvBaoCao.RefreshReport();
                     btnBaoCao.Enabled = false;
@@ -155,8 +155,8 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report4.rdlc";
                     ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Func_4";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Func_4('{cboChonThang.Text}')");
+                    reportDataSource.Name = "Report4";
+                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report4('{cboChonThang.Text}')");
                     rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
                     this.rvBaoCao.RefreshReport();
                     btnBaoCao.Enabled = false;

@@ -228,44 +228,59 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-            try
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất danh sách sang Excel";
+            saveFileDialog.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
+            saveFileDialog.FileName = "NhaCungCap";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
-                Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
-                exSheet.get_Range("B2").Font.Bold = true;
-                exSheet.get_Range("B2").Value = "Danh sách nhà cung cấp";
-                exSheet.get_Range("A3").Value = "Số thứ tự";
-                exSheet.get_Range("B3").Value = "Mã nhà cung cấp";
-                exSheet.get_Range("C3").Value = "Tên nhà cung cấp";
-                exSheet.get_Range("D3").Value = "Địa chỉ";
-                exSheet.get_Range("E3").Value = "Điện thoại";
-
-                int n = dgvNCC.Rows.Count;
-
-                for (int i = 0; i < n - 1; i++)
+                try
                 {
-                    exSheet.get_Range("A" + (i + 4).ToString()).Value = (i + 1).ToString();
-                    exSheet.get_Range("B" + (i + 4).ToString()).Value = dgvNCC.Rows[i].Cells[0].Value;
-                    exSheet.get_Range("C" + (i + 4).ToString()).Value = dgvNCC.Rows[i].Cells[1].Value;
-                    exSheet.get_Range("D" + (i + 4).ToString()).Value = dgvNCC.Rows[i].Cells[2].Value;
-                    exSheet.get_Range("E" + (i + 4).ToString()).Value = dgvNCC.Rows[i].Cells[3].Value;
-                }
+                    Excel.Application application = new Excel.Application();
+                    application.Application.Workbooks.Add(Type.Missing);
+                    Excel.Workbook exBook = application.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
 
-                exSheet.Columns.AutoFit();
-                exBook.Activate();
-                SaveFileDialog excelFile = new SaveFileDialog();
-                excelFile.Title = "Lưu Excel";
-                excelFile.Filter = "Sổ làm việc Excel|*.xlsx|Tất cả tệp|*.*";
-                excelFile.FileName = "DanhSachNCC";
-                excelFile.ShowDialog();
-                exBook.SaveAs(excelFile.FileName.ToString());
-                MessageBox.Show("Xuất Excel thành công");
+                    exSheet.get_Range("A1").Font.Bold = true;
+                    exSheet.get_Range("A1").Value = "Nhà cung cấp";
+                    application.Cells[2, 1] = "Số thứ tự";
+
+                    for (int i = 0; i < dgvNCC.Columns.Count; i++)
+                    {
+                        application.Cells[2, i + 2] = dgvNCC.Columns[i].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvNCC.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dgvNCC.Columns.Count; j++)
+                        {
+                            application.Cells[i + 3, 1] = (i + 1).ToString();
+                            application.Cells[i + 3, j + 2] = dgvNCC.Rows[i].Cells[j].Value;
+                        }
+                    }
+
+                    application.Columns.AutoFit();
+                    application.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName);
+                    application.ActiveWorkbook.Saved = true;
+
+                    MessageBox.Show("Xuất danh sách sang Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch
-            {
-                
-            }
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

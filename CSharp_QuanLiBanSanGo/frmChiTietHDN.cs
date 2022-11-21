@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CSharp_QuanLiBanSanGo
 {
@@ -240,12 +241,64 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Xuất danh sách sang Excel";
+            saveFileDialog.Filter = "Sổ làm việc Excel|*.xlsx|Sổ làm việc Excel 97-2003|*.xls";
+            saveFileDialog.FileName = "ChiTietHDN";
 
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Excel.Application application = new Excel.Application();
+                    application.Application.Workbooks.Add(Type.Missing);
+                    Excel.Workbook exBook = application.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                    Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+
+                    exSheet.get_Range("A1").Font.Bold = true;
+                    exSheet.get_Range("A1").Value = "Chi tiết hoá đơn";
+                    application.Cells[2, 1] = "Số thứ tự";
+
+                    for (int i = 0; i < dgvChiTietHDN.Columns.Count; i++)
+                    {
+                        application.Cells[2, i + 2] = dgvChiTietHDN.Columns[i].HeaderText;
+                    }
+
+                    for (int i = 0; i < dgvChiTietHDN.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < dgvChiTietHDN.Columns.Count; j++)
+                        {
+                            application.Cells[i + 3, 1] = (i + 1).ToString();
+                            application.Cells[i + 3, j + 2] = dgvChiTietHDN.Rows[i].Cells[j].Value;
+                        }
+                    }
+
+                    application.Columns.AutoFit();
+                    application.ActiveWorkbook.SaveCopyAs(saveFileDialog.FileName);
+                    application.ActiveWorkbook.Saved = true;
+
+                    MessageBox.Show("Xuất danh sách sang Excel thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnLamMoi_Click(sender, e);
+        }
+
+        private void xoáToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoa_Click(sender, e);
         }
     }
 }

@@ -140,7 +140,10 @@
             this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "frmSQL";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Viết lệnh truy vấn SQL";
             this.Load += new System.EventHandler(this.frmSQL_Load);

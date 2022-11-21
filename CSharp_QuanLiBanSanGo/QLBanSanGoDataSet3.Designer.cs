@@ -20,17 +20,17 @@ namespace CSharp_QuanLiBanSanGo {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("QuanLiBanSanGoDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("QLBanSanGoDataSet3")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class QuanLiBanSanGoDataSet1 : global::System.Data.DataSet {
+    public partial class QLBanSanGoDataSet3 : global::System.Data.DataSet {
         
-        private Func_2DataTable tableFunc_2;
+        private Report4DataTable tableReport4;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public QuanLiBanSanGoDataSet1() {
+        public QLBanSanGoDataSet3() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace CSharp_QuanLiBanSanGo {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected QuanLiBanSanGoDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected QLBanSanGoDataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace CSharp_QuanLiBanSanGo {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Func_2"] != null)) {
-                    base.Tables.Add(new Func_2DataTable(ds.Tables["Func_2"]));
+                if ((ds.Tables["Report4"] != null)) {
+                    base.Tables.Add(new Report4DataTable(ds.Tables["Report4"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace CSharp_QuanLiBanSanGo {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Func_2DataTable Func_2 {
+        public Report4DataTable Report4 {
             get {
-                return this.tableFunc_2;
+                return this.tableReport4;
             }
         }
         
@@ -127,7 +127,7 @@ namespace CSharp_QuanLiBanSanGo {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            QuanLiBanSanGoDataSet1 cln = ((QuanLiBanSanGoDataSet1)(base.Clone()));
+            QLBanSanGoDataSet3 cln = ((QLBanSanGoDataSet3)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace CSharp_QuanLiBanSanGo {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Func_2"] != null)) {
-                    base.Tables.Add(new Func_2DataTable(ds.Tables["Func_2"]));
+                if ((ds.Tables["Report4"] != null)) {
+                    base.Tables.Add(new Report4DataTable(ds.Tables["Report4"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace CSharp_QuanLiBanSanGo {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableFunc_2 = ((Func_2DataTable)(base.Tables["Func_2"]));
+            this.tableReport4 = ((Report4DataTable)(base.Tables["Report4"]));
             if ((initTable == true)) {
-                if ((this.tableFunc_2 != null)) {
-                    this.tableFunc_2.InitVars();
+                if ((this.tableReport4 != null)) {
+                    this.tableReport4.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace CSharp_QuanLiBanSanGo {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "QuanLiBanSanGoDataSet1";
+            this.DataSetName = "QLBanSanGoDataSet3";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/QuanLiBanSanGoDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/QLBanSanGoDataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableFunc_2 = new Func_2DataTable();
-            base.Tables.Add(this.tableFunc_2);
+            this.tableReport4 = new Report4DataTable();
+            base.Tables.Add(this.tableReport4);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeFunc_2() {
+        private bool ShouldSerializeReport4() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace CSharp_QuanLiBanSanGo {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            QuanLiBanSanGoDataSet1 ds = new QuanLiBanSanGoDataSet1();
+            QLBanSanGoDataSet3 ds = new QLBanSanGoDataSet3();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,27 @@ namespace CSharp_QuanLiBanSanGo {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void Func_2RowChangeEventHandler(object sender, Func_2RowChangeEvent e);
+        public delegate void Report4RowChangeEventHandler(object sender, Report4RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Func_2DataTable : global::System.Data.TypedTableBase<Func_2Row> {
+        public partial class Report4DataTable : global::System.Data.TypedTableBase<Report4Row> {
             
-            private global::System.Data.DataColumn columnSoHDN;
+            private global::System.Data.DataColumn columnMaNV;
             
-            private global::System.Data.DataColumn columnTongTienNhap;
+            private global::System.Data.DataColumn columnTenNV;
             
-            private global::System.Data.DataColumn columnNgayNhap;
+            private global::System.Data.DataColumn columnDoanhThu;
+            
+            private global::System.Data.DataColumn columnNgayBan;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2DataTable() {
-                this.TableName = "Func_2";
+            public Report4DataTable() {
+                this.TableName = "Report4";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +298,7 @@ namespace CSharp_QuanLiBanSanGo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal Func_2DataTable(global::System.Data.DataTable table) {
+            internal Report4DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +315,40 @@ namespace CSharp_QuanLiBanSanGo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected Func_2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Report4DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SoHDNColumn {
+            public global::System.Data.DataColumn MaNVColumn {
                 get {
-                    return this.columnSoHDN;
+                    return this.columnMaNV;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TongTienNhapColumn {
+            public global::System.Data.DataColumn TenNVColumn {
                 get {
-                    return this.columnTongTienNhap;
+                    return this.columnTenNV;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NgayNhapColumn {
+            public global::System.Data.DataColumn DoanhThuColumn {
                 get {
-                    return this.columnNgayNhap;
+                    return this.columnDoanhThu;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn NgayBanColumn {
+                get {
+                    return this.columnNgayBan;
                 }
             }
             
@@ -353,54 +363,55 @@ namespace CSharp_QuanLiBanSanGo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2Row this[int index] {
+            public Report4Row this[int index] {
                 get {
-                    return ((Func_2Row)(this.Rows[index]));
+                    return ((Report4Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Func_2RowChangeEventHandler Func_2RowChanging;
+            public event Report4RowChangeEventHandler Report4RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Func_2RowChangeEventHandler Func_2RowChanged;
+            public event Report4RowChangeEventHandler Report4RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Func_2RowChangeEventHandler Func_2RowDeleting;
+            public event Report4RowChangeEventHandler Report4RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event Func_2RowChangeEventHandler Func_2RowDeleted;
+            public event Report4RowChangeEventHandler Report4RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddFunc_2Row(Func_2Row row) {
+            public void AddReport4Row(Report4Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2Row AddFunc_2Row(string SoHDN, decimal TongTienNhap, System.DateTime NgayNhap) {
-                Func_2Row rowFunc_2Row = ((Func_2Row)(this.NewRow()));
+            public Report4Row AddReport4Row(string MaNV, string TenNV, decimal DoanhThu, System.DateTime NgayBan) {
+                Report4Row rowReport4Row = ((Report4Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        SoHDN,
-                        TongTienNhap,
-                        NgayNhap};
-                rowFunc_2Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowFunc_2Row);
-                return rowFunc_2Row;
+                        MaNV,
+                        TenNV,
+                        DoanhThu,
+                        NgayBan};
+                rowReport4Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowReport4Row);
+                return rowReport4Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2Row FindBySoHDN(string SoHDN) {
-                return ((Func_2Row)(this.Rows.Find(new object[] {
-                            SoHDN})));
+            public Report4Row FindByMaNV(string MaNV) {
+                return ((Report4Row)(this.Rows.Find(new object[] {
+                            MaNV})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Func_2DataTable cln = ((Func_2DataTable)(base.Clone()));
+                Report4DataTable cln = ((Report4DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -408,57 +419,62 @@ namespace CSharp_QuanLiBanSanGo {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Func_2DataTable();
+                return new Report4DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnSoHDN = base.Columns["SoHDN"];
-                this.columnTongTienNhap = base.Columns["TongTienNhap"];
-                this.columnNgayNhap = base.Columns["NgayNhap"];
+                this.columnMaNV = base.Columns["MaNV"];
+                this.columnTenNV = base.Columns["TenNV"];
+                this.columnDoanhThu = base.Columns["DoanhThu"];
+                this.columnNgayBan = base.Columns["NgayBan"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnSoHDN = new global::System.Data.DataColumn("SoHDN", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSoHDN);
-                this.columnTongTienNhap = new global::System.Data.DataColumn("TongTienNhap", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTongTienNhap);
-                this.columnNgayNhap = new global::System.Data.DataColumn("NgayNhap", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNgayNhap);
+                this.columnMaNV = new global::System.Data.DataColumn("MaNV", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaNV);
+                this.columnTenNV = new global::System.Data.DataColumn("TenNV", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTenNV);
+                this.columnDoanhThu = new global::System.Data.DataColumn("DoanhThu", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDoanhThu);
+                this.columnNgayBan = new global::System.Data.DataColumn("NgayBan", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNgayBan);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnSoHDN}, true));
-                this.columnSoHDN.AllowDBNull = false;
-                this.columnSoHDN.Unique = true;
-                this.columnSoHDN.MaxLength = 20;
+                                this.columnMaNV}, true));
+                this.columnMaNV.AllowDBNull = false;
+                this.columnMaNV.Unique = true;
+                this.columnMaNV.MaxLength = 20;
+                this.columnTenNV.AllowDBNull = false;
+                this.columnTenNV.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2Row NewFunc_2Row() {
-                return ((Func_2Row)(this.NewRow()));
+            public Report4Row NewReport4Row() {
+                return ((Report4Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Func_2Row(builder);
+                return new Report4Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Func_2Row);
+                return typeof(Report4Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Func_2RowChanged != null)) {
-                    this.Func_2RowChanged(this, new Func_2RowChangeEvent(((Func_2Row)(e.Row)), e.Action));
+                if ((this.Report4RowChanged != null)) {
+                    this.Report4RowChanged(this, new Report4RowChangeEvent(((Report4Row)(e.Row)), e.Action));
                 }
             }
             
@@ -466,8 +482,8 @@ namespace CSharp_QuanLiBanSanGo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Func_2RowChanging != null)) {
-                    this.Func_2RowChanging(this, new Func_2RowChangeEvent(((Func_2Row)(e.Row)), e.Action));
+                if ((this.Report4RowChanging != null)) {
+                    this.Report4RowChanging(this, new Report4RowChangeEvent(((Report4Row)(e.Row)), e.Action));
                 }
             }
             
@@ -475,8 +491,8 @@ namespace CSharp_QuanLiBanSanGo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Func_2RowDeleted != null)) {
-                    this.Func_2RowDeleted(this, new Func_2RowChangeEvent(((Func_2Row)(e.Row)), e.Action));
+                if ((this.Report4RowDeleted != null)) {
+                    this.Report4RowDeleted(this, new Report4RowChangeEvent(((Report4Row)(e.Row)), e.Action));
                 }
             }
             
@@ -484,14 +500,14 @@ namespace CSharp_QuanLiBanSanGo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Func_2RowDeleting != null)) {
-                    this.Func_2RowDeleting(this, new Func_2RowChangeEvent(((Func_2Row)(e.Row)), e.Action));
+                if ((this.Report4RowDeleting != null)) {
+                    this.Report4RowDeleting(this, new Report4RowChangeEvent(((Report4Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveFunc_2Row(Func_2Row row) {
+            public void RemoveReport4Row(Report4Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -500,7 +516,7 @@ namespace CSharp_QuanLiBanSanGo {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                QuanLiBanSanGoDataSet1 ds = new QuanLiBanSanGoDataSet1();
+                QLBanSanGoDataSet3 ds = new QLBanSanGoDataSet3();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -518,7 +534,7 @@ namespace CSharp_QuanLiBanSanGo {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Func_2DataTable";
+                attribute2.FixedValue = "Report4DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -562,82 +578,93 @@ namespace CSharp_QuanLiBanSanGo {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Func_2Row : global::System.Data.DataRow {
+        public partial class Report4Row : global::System.Data.DataRow {
             
-            private Func_2DataTable tableFunc_2;
+            private Report4DataTable tableReport4;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal Func_2Row(global::System.Data.DataRowBuilder rb) : 
+            internal Report4Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableFunc_2 = ((Func_2DataTable)(this.Table));
+                this.tableReport4 = ((Report4DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string SoHDN {
+            public string MaNV {
                 get {
-                    return ((string)(this[this.tableFunc_2.SoHDNColumn]));
+                    return ((string)(this[this.tableReport4.MaNVColumn]));
                 }
                 set {
-                    this[this.tableFunc_2.SoHDNColumn] = value;
+                    this[this.tableReport4.MaNVColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public decimal TongTienNhap {
+            public string TenNV {
                 get {
-                    try {
-                        return ((decimal)(this[this.tableFunc_2.TongTienNhapColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TongTienNhap\' in table \'Func_2\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableReport4.TenNVColumn]));
                 }
                 set {
-                    this[this.tableFunc_2.TongTienNhapColumn] = value;
+                    this[this.tableReport4.TenNVColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime NgayNhap {
+            public decimal DoanhThu {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableFunc_2.NgayNhapColumn]));
+                        return ((decimal)(this[this.tableReport4.DoanhThuColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NgayNhap\' in table \'Func_2\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DoanhThu\' in table \'Report4\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableFunc_2.NgayNhapColumn] = value;
+                    this[this.tableReport4.DoanhThuColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTongTienNhapNull() {
-                return this.IsNull(this.tableFunc_2.TongTienNhapColumn);
+            public System.DateTime NgayBan {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableReport4.NgayBanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NgayBan\' in table \'Report4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport4.NgayBanColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTongTienNhapNull() {
-                this[this.tableFunc_2.TongTienNhapColumn] = global::System.Convert.DBNull;
+            public bool IsDoanhThuNull() {
+                return this.IsNull(this.tableReport4.DoanhThuColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNgayNhapNull() {
-                return this.IsNull(this.tableFunc_2.NgayNhapColumn);
+            public void SetDoanhThuNull() {
+                this[this.tableReport4.DoanhThuColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNgayNhapNull() {
-                this[this.tableFunc_2.NgayNhapColumn] = global::System.Convert.DBNull;
+            public bool IsNgayBanNull() {
+                return this.IsNull(this.tableReport4.NgayBanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetNgayBanNull() {
+                this[this.tableReport4.NgayBanColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -645,22 +672,22 @@ namespace CSharp_QuanLiBanSanGo {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class Func_2RowChangeEvent : global::System.EventArgs {
+        public class Report4RowChangeEvent : global::System.EventArgs {
             
-            private Func_2Row eventRow;
+            private Report4Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2RowChangeEvent(Func_2Row row, global::System.Data.DataRowAction action) {
+            public Report4RowChangeEvent(Report4Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Func_2Row Row {
+            public Report4Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -676,7 +703,7 @@ namespace CSharp_QuanLiBanSanGo {
         }
     }
 }
-namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
+namespace CSharp_QuanLiBanSanGo.QLBanSanGoDataSet3TableAdapters {
     
     
     /// <summary>
@@ -688,7 +715,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Func_2TableAdapter : global::System.ComponentModel.Component {
+    public partial class Report4TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -702,7 +729,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public Func_2TableAdapter() {
+        public Report4TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -799,10 +826,11 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Func_2";
-            tableMapping.ColumnMappings.Add("SoHDN", "SoHDN");
-            tableMapping.ColumnMappings.Add("TongTienNhap", "TongTienNhap");
-            tableMapping.ColumnMappings.Add("NgayNhap", "NgayNhap");
+            tableMapping.DataSetTable = "Report4";
+            tableMapping.ColumnMappings.Add("MaNV", "MaNV");
+            tableMapping.ColumnMappings.Add("TenNV", "TenNV");
+            tableMapping.ColumnMappings.Add("DoanhThu", "DoanhThu");
+            tableMapping.ColumnMappings.Add("NgayBan", "NgayBan");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -810,7 +838,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CSharp_QuanLiBanSanGo.Properties.Settings.Default.QuanLiBanSanGoConnectionString;
+            this._connection.ConnectionString = global::CSharp_QuanLiBanSanGo.Properties.Settings.Default.QLBanSanGoConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -819,7 +847,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT SoHDN, TongTienNhap, NgayNhap FROM dbo.Func_2(@thang)";
+            this._commandCollection[0].CommandText = "SELECT MaNV, TenNV, DoanhThu, NgayBan FROM dbo.Report4(@thang)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@thang", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -828,7 +856,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QuanLiBanSanGoDataSet1.Func_2DataTable dataTable, int thang) {
+        public virtual int Fill(QLBanSanGoDataSet3.Report4DataTable dataTable, int thang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(thang));
             if ((this.ClearBeforeFill == true)) {
@@ -842,10 +870,10 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QuanLiBanSanGoDataSet1.Func_2DataTable GetData(int thang) {
+        public virtual QLBanSanGoDataSet3.Report4DataTable GetData(int thang) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(thang));
-            QuanLiBanSanGoDataSet1.Func_2DataTable dataTable = new QuanLiBanSanGoDataSet1.Func_2DataTable();
+            QLBanSanGoDataSet3.Report4DataTable dataTable = new QLBanSanGoDataSet3.Report4DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -919,7 +947,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(QuanLiBanSanGoDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(QLBanSanGoDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -929,7 +957,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(QuanLiBanSanGoDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(QLBanSanGoDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -939,7 +967,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(QuanLiBanSanGoDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(QLBanSanGoDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -973,7 +1001,7 @@ namespace CSharp_QuanLiBanSanGo.QuanLiBanSanGoDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(QuanLiBanSanGoDataSet1 dataSet) {
+        public virtual int UpdateAll(QLBanSanGoDataSet3 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -179,27 +179,33 @@
     <Compile Include="frmSQL.Designer.cs">
       <DependentUpon>frmSQL.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTKHDN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTKHDN.Designer.cs">
+      <DependentUpon>frmTKHDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLiBanSanGoDataSet.Designer.cs">
+    <Compile Include="QLBanSanGoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiBanSanGoDataSet1.Designer.cs">
+    <Compile Include="QLBanSanGoDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiBanSanGoDataSet2.Designer.cs">
+    <Compile Include="QLBanSanGoDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiBanSanGoDataSet3.Designer.cs">
+    <Compile Include="QLBanSanGoDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmAbout.resx">
@@ -247,6 +253,9 @@
     <EmbeddedResource Include="frmSQL.resx">
       <DependentUpon>frmSQL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTKHDN.resx">
+      <DependentUpon>frmTKHDN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -274,49 +283,49 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLiBanSanGoDataSet.xsc">
-      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet.xsc">
+      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet.xsd">
+    <None Include="QLBanSanGoDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLiBanSanGoDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLBanSanGoDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLiBanSanGoDataSet.xss">
-      <DependentUpon>QuanLiBanSanGoDataSet.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet.xss">
+      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet1.xsc">
-      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet1.xsc">
+      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet1.xsd">
+    <None Include="QLBanSanGoDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLiBanSanGoDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLBanSanGoDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLiBanSanGoDataSet1.xss">
-      <DependentUpon>QuanLiBanSanGoDataSet1.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet1.xss">
+      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet2.xsc">
-      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet2.xsc">
+      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet2.xsd">
+    <None Include="QLBanSanGoDataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLiBanSanGoDataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLBanSanGoDataSet2.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLiBanSanGoDataSet2.xss">
-      <DependentUpon>QuanLiBanSanGoDataSet2.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet2.xss">
+      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet3.xsc">
-      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet3.xsc">
+      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
     </None>
-    <None Include="QuanLiBanSanGoDataSet3.xsd">
+    <None Include="QLBanSanGoDataSet3.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLiBanSanGoDataSet3.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLBanSanGoDataSet3.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QuanLiBanSanGoDataSet3.xss">
-      <DependentUpon>QuanLiBanSanGoDataSet3.xsd</DependentUpon>
+    <None Include="QLBanSanGoDataSet3.xss">
+      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -365,6 +374,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="QLBanSanGo.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="QLBanSanGo_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>QLBanSanGo.mdf</DependentUpon>
+    </Content>
+    <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
     <None Include="Resources\factory.png" />
     <None Include="Resources\report.png" />
     <None Include="Resources\list.png" />
@@ -402,7 +419,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SQL_File\ChucNang.sql" />
-    <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
