@@ -62,14 +62,22 @@ namespace CSharp_QuanLiBanSanGo
                 txtGiamGia.Focus();
 
                 return false;
-            }    
+            }
+            
+            if (int.Parse(txtGiamGia.Text) > 100 || int.Parse(txtGiamGia.Text) < 0)
+            {
+                MessageBox.Show("Không hợp lệ, giá trị chỉ nằm từ 0 - 100", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtGiamGia.Focus();
+
+                return false;
+            }
 
             return true;
         }
 
         private void refreshInput()
         {
-            cboMatHang.Text = "";
+            cboMatHang.SelectedIndex = -1;
             txtSoLuong.Text = "";
             txtDonGia.Text = "";
             txtGiamGia.Text = "";

@@ -192,21 +192,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QLBanSanGoDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QLBanSanGoDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QLBanSanGoDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
@@ -283,50 +268,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QLBanSanGoDataSet.xsc">
-      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLBanSanGoDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLBanSanGoDataSet.xss">
-      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet1.xsc">
-      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLBanSanGoDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLBanSanGoDataSet1.xss">
-      <DependentUpon>QLBanSanGoDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet2.xsc">
-      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLBanSanGoDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLBanSanGoDataSet2.xss">
-      <DependentUpon>QLBanSanGoDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet3.xsc">
-      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="QLBanSanGoDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLBanSanGoDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLBanSanGoDataSet3.xss">
-      <DependentUpon>QLBanSanGoDataSet3.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -374,13 +315,18 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="QLBanSanGo.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="QLBanSanGo_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>QLBanSanGo.mdf</DependentUpon>
-    </Content>
+    <None Include="QLBanSanGoDataSet.xsc">
+      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBanSanGoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBanSanGoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBanSanGoDataSet.xss">
+      <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\logo.png" />
     <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
     <None Include="Resources\factory.png" />
     <None Include="Resources\report.png" />

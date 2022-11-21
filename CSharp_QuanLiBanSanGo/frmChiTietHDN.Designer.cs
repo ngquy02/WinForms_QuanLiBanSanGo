@@ -127,9 +127,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(355, 75);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.Size = new System.Drawing.Size(78, 13);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Đơn giá";
+            this.label6.Text = "Đơn giá (đồng)";
             // 
             // label3
             // 
@@ -154,9 +154,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(355, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Giảm giá";
+            this.label4.Text = "Giảm giá (%)";
             // 
             // txtThanhTien
             // 
@@ -171,9 +171,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(680, 75);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Thành tiền";
+            this.label5.Text = "Thành tiền (đồng)";
             // 
             // txtGiamGia
             // 
@@ -185,6 +185,7 @@
             // 
             // cboMatHang
             // 
+            this.cboMatHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMatHang.FormattingEnabled = true;
             this.cboMatHang.Location = new System.Drawing.Point(135, 72);
             this.cboMatHang.Name = "cboMatHang";
@@ -233,19 +234,19 @@
             this.xoáToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 48);
             // 
             // làmMớiToolStripMenuItem
             // 
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
             this.làmMớiToolStripMenuItem.Click += new System.EventHandler(this.làmMớiToolStripMenuItem_Click);
             // 
             // xoáToolStripMenuItem
             // 
             this.xoáToolStripMenuItem.Name = "xoáToolStripMenuItem";
-            this.xoáToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xoáToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.xoáToolStripMenuItem.Text = "Xoá";
             this.xoáToolStripMenuItem.Click += new System.EventHandler(this.xoáToolStripMenuItem_Click);
             // 

@@ -160,7 +160,7 @@ namespace CSharp_QuanLiBanSanGo
                         if (MessageBox.Show("Bạn có muốn thêm hoá đơn này vào không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             dtBase.getExcute($"INSERT INTO tHoaDonBan(SoHDB, MaNV, NgayBan, MaKhach) VALUES(N'{txtSoHDB.Text}', N'{cboNhanVien.SelectedValue}', N'{dtpNgayBan.Value.ToString("yyyy-MM-dd")} ', N'{cboKhachHang.SelectedValue}')");
-                            MessageBox.Show("Bạn đã thêm hoá đơn thành công");
+                            MessageBox.Show("Bạn đã thêm hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             dgvHoaDonBan.DataSource = dtBase.getTable(queryLoad);
 

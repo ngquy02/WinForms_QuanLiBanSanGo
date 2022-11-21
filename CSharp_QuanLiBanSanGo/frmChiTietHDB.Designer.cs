@@ -172,6 +172,7 @@
             // 
             // cboMatHang
             // 
+            this.cboMatHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMatHang.FormattingEnabled = true;
             this.cboMatHang.Location = new System.Drawing.Point(135, 72);
             this.cboMatHang.Name = "cboMatHang";

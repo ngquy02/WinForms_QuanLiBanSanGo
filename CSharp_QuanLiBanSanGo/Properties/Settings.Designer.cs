@@ -44,5 +44,16 @@ namespace CSharp_QuanLiBanSanGo.Properties {
                 return ((string)(this["QLBanSanGoConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2TPJP92\\SQLEXPRESS;Initial Catalog=QLBanSanGo;Integrated Secu" +
+            "rity=True")]
+        public string QLBanSanGoConnectionString1 {
+            get {
+                return ((string)(this["QLBanSanGoConnectionString1"]));
+            }
+        }
     }
 }

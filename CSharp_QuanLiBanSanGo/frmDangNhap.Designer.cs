@@ -153,7 +153,6 @@
             this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            this.btnDangNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnDangNhap_KeyPress);
             // 
             // llbQuenMatKhau
             // 
@@ -174,6 +173,7 @@
             this.txtMatKhau.Size = new System.Drawing.Size(175, 20);
             this.txtMatKhau.TabIndex = 2;
             this.toolTip1.SetToolTip(this.txtMatKhau, "Điền mật khẩu");
+            this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
             // 
             // txtTenDangNhap
             // 
@@ -182,6 +182,7 @@
             this.txtTenDangNhap.Size = new System.Drawing.Size(175, 20);
             this.txtTenDangNhap.TabIndex = 1;
             this.toolTip1.SetToolTip(this.txtTenDangNhap, "Điền tên đăng nhập");
+            this.txtTenDangNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenDangNhap_KeyPress);
             // 
             // label3
             // 

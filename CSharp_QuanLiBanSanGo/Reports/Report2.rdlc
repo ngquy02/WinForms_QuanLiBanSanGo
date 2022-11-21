@@ -481,11 +481,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>9ec32ba8-fb43-475a-80ac-e1a6222cab14</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="QLBanSanGoDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>62b5ac3a-00ab-47b8-9ece-e4cd00a35051</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="Report2">
       <Query>
-        <DataSourceName>QuanLiBanSanGoDataSet1</DataSourceName>
+        <DataSourceName>QLBanSanGoDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -503,8 +510,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>QLBanSanGoDataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QLBanSanGoDataSet1.xsd</rd:SchemaPath>
+        <rd:DataSetName>QLBanSanGoDataSet</rd:DataSetName>
+        <rd:SchemaPath>D:\Code\C#\CSharp_QuanLiBanSanGo\CSharp_QuanLiBanSanGo\QLBanSanGoDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Report2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

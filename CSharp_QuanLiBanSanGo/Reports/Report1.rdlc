@@ -415,6 +415,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -609,11 +610,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>618e3271-7605-4872-acbe-4b58f0b6f0f2</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="QLBanSanGoDataSet">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>77d144bc-dffa-4d2a-bee6-dcaafb0a121f</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="Report1">
       <Query>
-        <DataSourceName>QuanLiBanSanGoDataSet</DataSourceName>
+        <DataSourceName>QLBanSanGoDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>

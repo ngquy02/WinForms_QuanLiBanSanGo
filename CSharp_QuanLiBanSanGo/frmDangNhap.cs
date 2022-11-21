@@ -23,7 +23,7 @@ namespace CSharp_QuanLiBanSanGo
 
         private bool checkValidation()
         {
-            if(txtTenDangNhap.Text.Trim() == "1")
+            if(txtTenDangNhap.Text.Trim() == "")
             {
                 MessageBox.Show("Vui lòng nhập tên người dùng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtTenDangNhap.Focus();
@@ -31,7 +31,7 @@ namespace CSharp_QuanLiBanSanGo
                 return false;
             }    
 
-            if(txtMatKhau.Text.Trim() == "1")
+            if(txtMatKhau.Text.Trim() == "")
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtMatKhau.Focus();
@@ -46,7 +46,7 @@ namespace CSharp_QuanLiBanSanGo
         {
             if (checkValidation())
             {
-                DataTable dtDangNhap = dtBase.getTable($"SELECT * FROM tLogin WHERE Username = N'admin' AND Password = N'admin'");
+                DataTable dtDangNhap = dtBase.getTable($"SELECT * FROM tLogin WHERE Username = N'{txtTenDangNhap.Text}' AND Password = N'{txtMatKhau.Text}'");
 
                 if (dtDangNhap.Rows.Count > 0)
                 {
@@ -88,20 +88,28 @@ namespace CSharp_QuanLiBanSanGo
             this.Close();
         }
 
-        private void btnDangNhap_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)Keys.Enter)
-            {
-                btnDangNhap_Click(sender, e);
-            }
-        }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }    
+        }
+
+        private void txtTenDangNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnDangNhap_Click(sender, e);
+            }
+        }
+
+        private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnDangNhap_Click(sender, e);
+            }
         }
     }
 }
