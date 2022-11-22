@@ -32,7 +32,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLiBanSanGo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBaoCao = new System.Windows.Forms.Button();
+            this.btnNCC = new System.Windows.Forms.Button();
+            this.btnKhachHang = new System.Windows.Forms.Button();
+            this.btnNhanVien = new System.Windows.Forms.Button();
+            this.btnHoaDonNhap = new System.Windows.Forms.Button();
+            this.btnHoaDonBan = new System.Windows.Forms.Button();
+            this.btnDMHangHoa = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ptbHome = new System.Windows.Forms.PictureBox();
             this.cmsHeThong = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.quảnLíNgườiDùngToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viếtLệnhTruyVấnSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,23 +69,13 @@
             this.vềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnBaoCao = new System.Windows.Forms.Button();
-            this.btnNCC = new System.Windows.Forms.Button();
-            this.btnKhachHang = new System.Windows.Forms.Button();
-            this.btnNhanVien = new System.Windows.Forms.Button();
-            this.btnHoaDonNhap = new System.Windows.Forms.Button();
-            this.btnHoaDonBan = new System.Windows.Forms.Button();
-            this.btnDMHangHoa = new System.Windows.Forms.Button();
-            this.ptbHome = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbHome)).BeginInit();
             this.cmsHeThong.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbHome)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -106,6 +106,193 @@
             this.panel3.Size = new System.Drawing.Size(218, 55);
             this.panel3.TabIndex = 0;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(241)))), ((int)(((byte)(209)))));
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(213)))), ((int)(((byte)(198)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.logout;
+            this.btnLogOut.Location = new System.Drawing.Point(109, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(109, 55);
+            this.btnLogOut.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btnLogOut, "Đăng xuất");
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(241)))), ((int)(((byte)(209)))));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(213)))), ((int)(((byte)(198)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.exit;
+            this.btnExit.Location = new System.Drawing.Point(0, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(109, 55);
+            this.btnExit.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btnExit, "Thoát");
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnBaoCao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBaoCao.FlatAppearance.BorderSize = 0;
+            this.btnBaoCao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnBaoCao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaoCao.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnBaoCao.ForeColor = System.Drawing.Color.Black;
+            this.btnBaoCao.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.report;
+            this.btnBaoCao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBaoCao.Location = new System.Drawing.Point(0, 373);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(218, 50);
+            this.btnBaoCao.TabIndex = 7;
+            this.btnBaoCao.Text = "&Báo cáo";
+            this.btnBaoCao.UseVisualStyleBackColor = false;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
+            // btnNCC
+            // 
+            this.btnNCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnNCC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNCC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNCC.FlatAppearance.BorderSize = 0;
+            this.btnNCC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnNCC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNCC.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNCC.ForeColor = System.Drawing.Color.Black;
+            this.btnNCC.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.factory;
+            this.btnNCC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNCC.Location = new System.Drawing.Point(0, 323);
+            this.btnNCC.Name = "btnNCC";
+            this.btnNCC.Size = new System.Drawing.Size(218, 50);
+            this.btnNCC.TabIndex = 6;
+            this.btnNCC.Text = "Nhà &cung cấp";
+            this.btnNCC.UseVisualStyleBackColor = false;
+            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click);
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnKhachHang.FlatAppearance.BorderSize = 0;
+            this.btnKhachHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnKhachHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKhachHang.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnKhachHang.ForeColor = System.Drawing.Color.Black;
+            this.btnKhachHang.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.customer;
+            this.btnKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 273);
+            this.btnKhachHang.Name = "btnKhachHang";
+            this.btnKhachHang.Size = new System.Drawing.Size(218, 50);
+            this.btnKhachHang.TabIndex = 5;
+            this.btnKhachHang.Text = "&Khách hàng";
+            this.btnKhachHang.UseVisualStyleBackColor = false;
+            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
+            // 
+            // btnNhanVien
+            // 
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNhanVien.FlatAppearance.BorderSize = 0;
+            this.btnNhanVien.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnNhanVien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNhanVien.ForeColor = System.Drawing.Color.Black;
+            this.btnNhanVien.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.id_card;
+            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 223);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(218, 50);
+            this.btnNhanVien.TabIndex = 4;
+            this.btnNhanVien.Text = "Nhân &viên";
+            this.btnNhanVien.UseVisualStyleBackColor = false;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            // 
+            // btnHoaDonNhap
+            // 
+            this.btnHoaDonNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnHoaDonNhap.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHoaDonNhap.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHoaDonNhap.FlatAppearance.BorderSize = 0;
+            this.btnHoaDonNhap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnHoaDonNhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnHoaDonNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDonNhap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHoaDonNhap.ForeColor = System.Drawing.Color.Black;
+            this.btnHoaDonNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.im1;
+            this.btnHoaDonNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHoaDonNhap.Location = new System.Drawing.Point(0, 173);
+            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
+            this.btnHoaDonNhap.Size = new System.Drawing.Size(218, 50);
+            this.btnHoaDonNhap.TabIndex = 3;
+            this.btnHoaDonNhap.Text = "Hoá đơn &nhập";
+            this.btnHoaDonNhap.UseVisualStyleBackColor = false;
+            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
+            // 
+            // btnHoaDonBan
+            // 
+            this.btnHoaDonBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHoaDonBan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHoaDonBan.FlatAppearance.BorderSize = 0;
+            this.btnHoaDonBan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnHoaDonBan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoaDonBan.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnHoaDonBan.ForeColor = System.Drawing.Color.Black;
+            this.btnHoaDonBan.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.bill01;
+            this.btnHoaDonBan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHoaDonBan.Location = new System.Drawing.Point(0, 123);
+            this.btnHoaDonBan.Name = "btnHoaDonBan";
+            this.btnHoaDonBan.Size = new System.Drawing.Size(218, 50);
+            this.btnHoaDonBan.TabIndex = 2;
+            this.btnHoaDonBan.Text = "Hoá đơn &bán";
+            this.btnHoaDonBan.UseVisualStyleBackColor = false;
+            this.btnHoaDonBan.Click += new System.EventHandler(this.btnHoaDonBan_Click);
+            // 
+            // btnDMHangHoa
+            // 
+            this.btnDMHangHoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
+            this.btnDMHangHoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDMHangHoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDMHangHoa.FlatAppearance.BorderSize = 0;
+            this.btnDMHangHoa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
+            this.btnDMHangHoa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
+            this.btnDMHangHoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDMHangHoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDMHangHoa.ForeColor = System.Drawing.Color.Black;
+            this.btnDMHangHoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.list;
+            this.btnDMHangHoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDMHangHoa.Location = new System.Drawing.Point(0, 73);
+            this.btnDMHangHoa.Name = "btnDMHangHoa";
+            this.btnDMHangHoa.Size = new System.Drawing.Size(218, 50);
+            this.btnDMHangHoa.TabIndex = 1;
+            this.btnDMHangHoa.Text = "&Hàng hoá";
+            this.btnDMHangHoa.UseVisualStyleBackColor = false;
+            this.btnDMHangHoa.Click += new System.EventHandler(this.btnDMHangHoa_Click);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.ptbHome);
@@ -114,6 +301,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(218, 73);
             this.panel4.TabIndex = 0;
+            // 
+            // ptbHome
+            // 
+            this.ptbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(235)))), ((int)(((byte)(202)))));
+            this.ptbHome.ContextMenuStrip = this.cmsHeThong;
+            this.ptbHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptbHome.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.logo;
+            this.ptbHome.Location = new System.Drawing.Point(0, 0);
+            this.ptbHome.Name = "ptbHome";
+            this.ptbHome.Size = new System.Drawing.Size(218, 73);
+            this.ptbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbHome.TabIndex = 0;
+            this.ptbHome.TabStop = false;
+            this.toolTip1.SetToolTip(this.ptbHome, "Trang chủ");
+            this.ptbHome.Click += new System.EventHandler(this.ptbHome_Click);
             // 
             // cmsHeThong
             // 
@@ -319,209 +522,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(241)))), ((int)(((byte)(209)))));
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(213)))), ((int)(((byte)(198)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.logout;
-            this.btnLogOut.Location = new System.Drawing.Point(109, 0);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(109, 55);
-            this.btnLogOut.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.btnLogOut, "Đăng xuất");
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(241)))), ((int)(((byte)(209)))));
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(213)))), ((int)(((byte)(198)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.exit;
-            this.btnExit.Location = new System.Drawing.Point(0, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(109, 55);
-            this.btnExit.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.btnExit, "Thoát");
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnBaoCao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBaoCao.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBaoCao.FlatAppearance.BorderSize = 0;
-            this.btnBaoCao.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnBaoCao.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnBaoCao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBaoCao.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnBaoCao.ForeColor = System.Drawing.Color.Black;
-            this.btnBaoCao.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.report;
-            this.btnBaoCao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaoCao.Location = new System.Drawing.Point(0, 373);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(218, 50);
-            this.btnBaoCao.TabIndex = 7;
-            this.btnBaoCao.Text = "&Báo cáo";
-            this.btnBaoCao.UseVisualStyleBackColor = false;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
-            // 
-            // btnNCC
-            // 
-            this.btnNCC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnNCC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNCC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNCC.FlatAppearance.BorderSize = 0;
-            this.btnNCC.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnNCC.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNCC.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNCC.ForeColor = System.Drawing.Color.Black;
-            this.btnNCC.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.factory;
-            this.btnNCC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNCC.Location = new System.Drawing.Point(0, 323);
-            this.btnNCC.Name = "btnNCC";
-            this.btnNCC.Size = new System.Drawing.Size(218, 50);
-            this.btnNCC.TabIndex = 6;
-            this.btnNCC.Text = "Nhà &cung cấp";
-            this.btnNCC.UseVisualStyleBackColor = false;
-            this.btnNCC.Click += new System.EventHandler(this.btnNCC_Click);
-            // 
-            // btnKhachHang
-            // 
-            this.btnKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKhachHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnKhachHang.FlatAppearance.BorderSize = 0;
-            this.btnKhachHang.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnKhachHang.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKhachHang.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnKhachHang.ForeColor = System.Drawing.Color.Black;
-            this.btnKhachHang.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.customer;
-            this.btnKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 273);
-            this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Size = new System.Drawing.Size(218, 50);
-            this.btnKhachHang.TabIndex = 5;
-            this.btnKhachHang.Text = "&Khách hàng";
-            this.btnKhachHang.UseVisualStyleBackColor = false;
-            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
-            // 
-            // btnNhanVien
-            // 
-            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnNhanVien.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnNhanVien.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnNhanVien.ForeColor = System.Drawing.Color.Black;
-            this.btnNhanVien.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.id_card;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 223);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(218, 50);
-            this.btnNhanVien.TabIndex = 4;
-            this.btnNhanVien.Text = "Nhân &viên";
-            this.btnNhanVien.UseVisualStyleBackColor = false;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
-            // 
-            // btnHoaDonNhap
-            // 
-            this.btnHoaDonNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnHoaDonNhap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHoaDonNhap.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHoaDonNhap.FlatAppearance.BorderSize = 0;
-            this.btnHoaDonNhap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnHoaDonNhap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnHoaDonNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoaDonNhap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHoaDonNhap.ForeColor = System.Drawing.Color.Black;
-            this.btnHoaDonNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.im1;
-            this.btnHoaDonNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHoaDonNhap.Location = new System.Drawing.Point(0, 173);
-            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
-            this.btnHoaDonNhap.Size = new System.Drawing.Size(218, 50);
-            this.btnHoaDonNhap.TabIndex = 3;
-            this.btnHoaDonNhap.Text = "Hoá đơn &nhập";
-            this.btnHoaDonNhap.UseVisualStyleBackColor = false;
-            this.btnHoaDonNhap.Click += new System.EventHandler(this.btnHoaDonNhap_Click);
-            // 
-            // btnHoaDonBan
-            // 
-            this.btnHoaDonBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnHoaDonBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHoaDonBan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnHoaDonBan.FlatAppearance.BorderSize = 0;
-            this.btnHoaDonBan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnHoaDonBan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnHoaDonBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoaDonBan.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnHoaDonBan.ForeColor = System.Drawing.Color.Black;
-            this.btnHoaDonBan.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.bill;
-            this.btnHoaDonBan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHoaDonBan.Location = new System.Drawing.Point(0, 123);
-            this.btnHoaDonBan.Name = "btnHoaDonBan";
-            this.btnHoaDonBan.Size = new System.Drawing.Size(218, 50);
-            this.btnHoaDonBan.TabIndex = 2;
-            this.btnHoaDonBan.Text = "Hoá đơn &bán";
-            this.btnHoaDonBan.UseVisualStyleBackColor = false;
-            this.btnHoaDonBan.Click += new System.EventHandler(this.btnHoaDonBan_Click);
-            // 
-            // btnDMHangHoa
-            // 
-            this.btnDMHangHoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(223)))), ((int)(((byte)(209)))));
-            this.btnDMHangHoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDMHangHoa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDMHangHoa.FlatAppearance.BorderSize = 0;
-            this.btnDMHangHoa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(196)))), ((int)(((byte)(174)))));
-            this.btnDMHangHoa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(189)))), ((int)(((byte)(171)))));
-            this.btnDMHangHoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDMHangHoa.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnDMHangHoa.ForeColor = System.Drawing.Color.Black;
-            this.btnDMHangHoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.list;
-            this.btnDMHangHoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDMHangHoa.Location = new System.Drawing.Point(0, 73);
-            this.btnDMHangHoa.Name = "btnDMHangHoa";
-            this.btnDMHangHoa.Size = new System.Drawing.Size(218, 50);
-            this.btnDMHangHoa.TabIndex = 1;
-            this.btnDMHangHoa.Text = "&Hàng hoá";
-            this.btnDMHangHoa.UseVisualStyleBackColor = false;
-            this.btnDMHangHoa.Click += new System.EventHandler(this.btnDMHangHoa_Click);
-            // 
-            // ptbHome
-            // 
-            this.ptbHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(235)))), ((int)(((byte)(202)))));
-            this.ptbHome.ContextMenuStrip = this.cmsHeThong;
-            this.ptbHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ptbHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ptbHome.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.logo;
-            this.ptbHome.Location = new System.Drawing.Point(0, 0);
-            this.ptbHome.Name = "ptbHome";
-            this.ptbHome.Size = new System.Drawing.Size(218, 73);
-            this.ptbHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbHome.TabIndex = 0;
-            this.ptbHome.TabStop = false;
-            this.toolTip1.SetToolTip(this.ptbHome, "Trang chủ");
-            this.ptbHome.Click += new System.EventHandler(this.ptbHome_Click);
-            // 
             // frmQuanLiBanSanGo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -541,12 +541,12 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ptbHome)).EndInit();
             this.cmsHeThong.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -33,11 +33,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnThoat = new System.Windows.Forms.Button();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.splitter2 = new System.Windows.Forms.Splitter();
-            this.button1 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.txtNhapLaiMK = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
@@ -46,6 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkHienMatKhau = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -80,34 +81,9 @@
             this.panel2.Size = new System.Drawing.Size(419, 55);
             this.panel2.TabIndex = 2;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.close;
-            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThoat.Location = new System.Drawing.Point(71, 7);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(110, 40);
-            this.btnThoat.TabIndex = 2;
-            this.btnThoat.Text = "&Thoát";
-            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.enter;
-            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDangNhap.Location = new System.Drawing.Point(233, 7);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(110, 40);
-            this.btnDangNhap.TabIndex = 1;
-            this.btnDangNhap.Text = "Đăng &nhập";
-            this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.chkHienMatKhau);
             this.panel3.Controls.Add(this.splitter2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.splitter1);
@@ -132,19 +108,6 @@
             this.splitter2.Size = new System.Drawing.Size(419, 1);
             this.splitter2.TabIndex = 5;
             this.splitter2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add_user;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(239, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 40);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Đăng &kí";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnDangKi_Click);
             // 
             // splitter1
             // 
@@ -209,6 +172,56 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên đăng nhập";
             // 
+            // chkHienMatKhau
+            // 
+            this.chkHienMatKhau.AutoSize = true;
+            this.chkHienMatKhau.Location = new System.Drawing.Point(71, 155);
+            this.chkHienMatKhau.Name = "chkHienMatKhau";
+            this.chkHienMatKhau.Size = new System.Drawing.Size(95, 17);
+            this.chkHienMatKhau.TabIndex = 4;
+            this.chkHienMatKhau.Text = "Hiện mật khẩu";
+            this.chkHienMatKhau.UseVisualStyleBackColor = true;
+            this.chkHienMatKhau.CheckedChanged += new System.EventHandler(this.chkHienMatKhau_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add_user;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(239, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 40);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Đăng &kí";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnDangKi_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.close;
+            this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThoat.Location = new System.Drawing.Point(71, 7);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(110, 40);
+            this.btnThoat.TabIndex = 0;
+            this.btnThoat.Text = "&Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.enter;
+            this.btnDangNhap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDangNhap.Location = new System.Drawing.Point(233, 7);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(110, 40);
+            this.btnDangNhap.TabIndex = 1;
+            this.btnDangNhap.Text = "Đăng &nhập";
+            this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
             // frmDangKi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,5 +264,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox chkHienMatKhau;
     }
 }

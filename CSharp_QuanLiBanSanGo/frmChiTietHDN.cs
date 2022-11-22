@@ -127,14 +127,12 @@ namespace CSharp_QuanLiBanSanGo
             dgvChiTietHDN.DataSource = dtChiTietHDB;
 
             dgvChiTietHDN.Columns[0].HeaderText = "Số hoá đơn nhập";
-            dgvChiTietHDN.Columns[1].HeaderText = "Tên mặt hàng";
-            dgvChiTietHDN.Columns[2].HeaderText = "Số lượng";
-            dgvChiTietHDN.Columns[3].HeaderText = "Đơn giá";
-            dgvChiTietHDN.Columns[4].HeaderText = "Giảm giá";
-            dgvChiTietHDN.Columns[5].HeaderText = "Thành tiền";
-
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
+            dgvChiTietHDN.Columns[1].HeaderText = "Mã hàng";
+            dgvChiTietHDN.Columns[2].HeaderText = "Tên mặt hàng";
+            dgvChiTietHDN.Columns[3].HeaderText = "Số lượng";
+            dgvChiTietHDN.Columns[4].HeaderText = "Đơn giá (đồng)";
+            dgvChiTietHDN.Columns[5].HeaderText = "Giảm giá (%)";
+            dgvChiTietHDN.Columns[6].HeaderText = "Thành tiền (đồng)";
 
             load_MatHang();
 
@@ -143,16 +141,16 @@ namespace CSharp_QuanLiBanSanGo
 
         private void dgvChiTietHDN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboMatHang.Text = dgvChiTietHDN.CurrentRow.Cells[1].Value.ToString();
-            txtSoLuong.Text = dgvChiTietHDN.CurrentRow.Cells[2].Value.ToString();
-            txtDonGia.Text = dgvChiTietHDN.CurrentRow.Cells[3].Value.ToString();
-            txtGiamGia.Text = dgvChiTietHDN.CurrentRow.Cells[4].Value.ToString();
-            txtThanhTien.Text = dgvChiTietHDN.CurrentRow.Cells[5].Value.ToString();
+            cboMatHang.Text = dgvChiTietHDN.CurrentRow.Cells[2].Value.ToString();
+            txtSoLuong.Text = dgvChiTietHDN.CurrentRow.Cells[3].Value.ToString();
+            txtDonGia.Text = dgvChiTietHDN.CurrentRow.Cells[4].Value.ToString();
+            txtGiamGia.Text = dgvChiTietHDN.CurrentRow.Cells[5].Value.ToString();
+            txtThanhTien.Text = dgvChiTietHDN.CurrentRow.Cells[6].Value.ToString();
 
-            string[] arrDonGia = dgvChiTietHDN.CurrentRow.Cells[3].Value.ToString().Split(',');
+            string[] arrDonGia = dgvChiTietHDN.CurrentRow.Cells[4].Value.ToString().Split(',');
             txtDonGia.Text = arrDonGia[0];
 
-            string[] arrGiamGia = dgvChiTietHDN.CurrentRow.Cells[4].Value.ToString().Split(',');
+            string[] arrGiamGia = dgvChiTietHDN.CurrentRow.Cells[5].Value.ToString().Split(',');
             txtGiamGia.Text = arrGiamGia[0];
 
             cboMatHang.Enabled = false;

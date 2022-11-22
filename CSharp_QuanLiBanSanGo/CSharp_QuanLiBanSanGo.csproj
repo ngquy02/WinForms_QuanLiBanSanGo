@@ -327,6 +327,8 @@
       <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </None>
     <None Include="Resources\logo.png" />
+    <None Include="Resources\bill01.png" />
+    <None Include="Resources\file01.png" />
     <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
     <None Include="Resources\factory.png" />
     <None Include="Resources\report.png" />

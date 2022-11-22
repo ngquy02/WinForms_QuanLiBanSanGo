@@ -96,6 +96,7 @@ namespace CSharp_QuanLiBanSanGo
             txtDienThoai.Text = "";
             txtDiaChi.Text = "";
             cboCongViec.SelectedIndex = -1;
+            txtMucLuong.Text = "";
 
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -127,12 +128,11 @@ namespace CSharp_QuanLiBanSanGo
             dgvNhanVien.Columns[3].HeaderText = "Ngày sinh";
             dgvNhanVien.Columns[4].HeaderText = "Điện thoại";
             dgvNhanVien.Columns[5].HeaderText = "Địa chỉ";
-            dgvNhanVien.Columns[6].HeaderText = "Công việc";
+            dgvNhanVien.Columns[6].HeaderText = "Mã công việc";
+            dgvNhanVien.Columns[7].HeaderText = "Công việc";
+            dgvNhanVien.Columns[8].HeaderText = "Mức lương";
 
             load_CongViec();
-
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
 
             refreshInput();
         }
@@ -154,7 +154,8 @@ namespace CSharp_QuanLiBanSanGo
             dtpNgaySinh.Text = dgvNhanVien.CurrentRow.Cells[3].Value.ToString();
             txtDienThoai.Text = dgvNhanVien.CurrentRow.Cells[4].Value.ToString();
             txtDiaChi.Text = dgvNhanVien.CurrentRow.Cells[5].Value.ToString();
-            cboCongViec.Text = dgvNhanVien.CurrentRow.Cells[6].Value.ToString();
+            cboCongViec.Text = dgvNhanVien.CurrentRow.Cells[7].Value.ToString();
+            txtMucLuong.Text = dgvNhanVien.CurrentRow.Cells[8].Value.ToString();
 
             txtMaNV.Enabled = false;
             btnThem.Enabled = false;

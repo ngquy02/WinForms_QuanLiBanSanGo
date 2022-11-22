@@ -58,6 +58,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xoáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtMucLuong = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,10 +87,12 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.rdoNam);
             this.groupBox1.Controls.Add(this.txtMaNV);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboCongViec);
             this.groupBox1.Controls.Add(this.txtTenNV);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtMucLuong);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtDienThoai);
             this.groupBox1.Controls.Add(this.txtDiaChi);
@@ -366,7 +370,7 @@
             this.xoáToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 48);
             // 
             // làmMớiToolStripMenuItem
             // 
@@ -381,6 +385,24 @@
             this.xoáToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.xoáToolStripMenuItem.Text = "Xoá";
             this.xoáToolStripMenuItem.Click += new System.EventHandler(this.xoáToolStripMenuItem_Click);
+            // 
+            // txtMucLuong
+            // 
+            this.txtMucLuong.Enabled = false;
+            this.txtMucLuong.Location = new System.Drawing.Point(785, 72);
+            this.txtMucLuong.Name = "txtMucLuong";
+            this.txtMucLuong.Size = new System.Drawing.Size(178, 20);
+            this.txtMucLuong.TabIndex = 6;
+            this.txtMucLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(680, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Mức lương";
             // 
             // frmNhanVien
             // 
@@ -436,5 +458,7 @@
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xoáToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtMucLuong;
     }
 }

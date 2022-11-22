@@ -218,9 +218,9 @@ namespace CSharp_QuanLiBanSanGo
             dgvDMHangHoa.Columns[6].HeaderText = "Màu sắc";
             dgvDMHangHoa.Columns[7].HeaderText = "Xuất xứ";
             dgvDMHangHoa.Columns[8].HeaderText = "Số lượng";
-            dgvDMHangHoa.Columns[9].HeaderText = "Đơn giá nhập";
-            dgvDMHangHoa.Columns[10].HeaderText = "Đơn giá bán";
-            dgvDMHangHoa.Columns[11].HeaderText = "Thời gian bảo hành";
+            dgvDMHangHoa.Columns[9].HeaderText = "Đơn giá nhập (đồng)";
+            dgvDMHangHoa.Columns[10].HeaderText = "Đơn giá bán (đồng)";
+            dgvDMHangHoa.Columns[11].HeaderText = "Bảo hành (năm)";
             dgvDMHangHoa.Columns[12].HeaderText = "Ảnh";
             dgvDMHangHoa.Columns[13].HeaderText = "Ghi chú";
 
@@ -230,9 +230,6 @@ namespace CSharp_QuanLiBanSanGo
             load_CongDung();
             load_MauSac();
             load_NuocSanXuat();
-
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
 
             refreshInput();
         }

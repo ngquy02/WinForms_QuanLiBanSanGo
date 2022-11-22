@@ -70,6 +70,18 @@ namespace CSharp_QuanLiBanSanGo
             }
         }
 
+        private void chkHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '*')
+            {
+                txtMatKhau.PasswordChar = '\0';
+            }
+            else
+            {
+                txtMatKhau.PasswordChar = '*';
+            }
+        }
+
         private void llbQuenMatKhau_Click(object sender, EventArgs e)
         {
             var th = new Thread(() => Application.Run(new frmQuenMatKhau()));

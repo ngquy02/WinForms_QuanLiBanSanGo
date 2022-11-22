@@ -28,6 +28,18 @@ namespace CSharp_QuanLiBanSanGo
             {
                 MessageBox.Show("Hãy nhập lệnh truy vấn");
             }
+            else
+            {
+                try
+                {
+                    dgvSQL.DataSource = dtBase.getTable(query);
+                    MessageBox.Show("Thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }    
         }
 
         private void rtbSQL_KeyDown(object sender, KeyEventArgs e)
@@ -36,16 +48,6 @@ namespace CSharp_QuanLiBanSanGo
             {
                 btnThucThi_Click(sender, e);
             }
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            rtbSQL.Text = "";
-        }
-
-        private void frmSQL_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

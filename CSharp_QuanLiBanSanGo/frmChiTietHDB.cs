@@ -110,13 +110,11 @@ namespace CSharp_QuanLiBanSanGo
             dgvChiTietHDB.DataSource = dtChiTietHDB;
 
             dgvChiTietHDB.Columns[0].HeaderText = "Số hoá đơn bán";
-            dgvChiTietHDB.Columns[1].HeaderText = "Tên mặt hàng";
-            dgvChiTietHDB.Columns[2].HeaderText = "Số lượng";
-            dgvChiTietHDB.Columns[3].HeaderText = "Giảm giá";
-            dgvChiTietHDB.Columns[4].HeaderText = "Thành tiền";
-
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
+            dgvChiTietHDB.Columns[1].HeaderText = "Mã hàng";
+            dgvChiTietHDB.Columns[2].HeaderText = "Tên mặt hàng";
+            dgvChiTietHDB.Columns[3].HeaderText = "Số lượng";
+            dgvChiTietHDB.Columns[4].HeaderText = "Giảm giá (%)";
+            dgvChiTietHDB.Columns[5].HeaderText = "Thành tiền (đồng)";
 
             load_MatHang();
 
@@ -125,12 +123,12 @@ namespace CSharp_QuanLiBanSanGo
 
         private void dgvChiTietHDB_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cboMatHang.Text = dgvChiTietHDB.CurrentRow.Cells[1].Value.ToString();
-            txtSoLuong.Text = dgvChiTietHDB.CurrentRow.Cells[2].Value.ToString();
-            txtGiamGia.Text = dgvChiTietHDB.CurrentRow.Cells[3].Value.ToString();
-            txtThanhTien.Text = dgvChiTietHDB.CurrentRow.Cells[4].Value.ToString();
+            cboMatHang.Text = dgvChiTietHDB.CurrentRow.Cells[2].Value.ToString();
+            txtSoLuong.Text = dgvChiTietHDB.CurrentRow.Cells[3].Value.ToString();
+            txtGiamGia.Text = dgvChiTietHDB.CurrentRow.Cells[4].Value.ToString();
+            txtThanhTien.Text = dgvChiTietHDB.CurrentRow.Cells[5].Value.ToString();
 
-            string[] arrGiamGia = dgvChiTietHDB.CurrentRow.Cells[3].Value.ToString().Split(',');
+            string[] arrGiamGia = dgvChiTietHDB.CurrentRow.Cells[4].Value.ToString().Split(',');
             txtGiamGia.Text = arrGiamGia[0];
 
             cboMatHang.Enabled = false;
@@ -191,7 +189,7 @@ namespace CSharp_QuanLiBanSanGo
                     try
                     {
                         dtBase.getExcute($"UPDATE tChiTietHoaDonBan SET SoLuong = {txtSoLuong.Text} WHERE SoHDB = '{lblSoHDB.Text}' AND MaHang = N'{cboMatHang.SelectedValue}'");
-                        dtBase.getExcute($"UPDATE tChiTietHoaDonBan SET GiamGia = {txtGiamGia} WHERE SoHDB = '{lblSoHDB.Text}' AND MaHang = N'{cboMatHang.SelectedValue}'");
+                        dtBase.getExcute($"UPDATE tChiTietHoaDonBan SET GiamGia = {txtGiamGia.Text} WHERE SoHDB = '{lblSoHDB.Text}' AND MaHang = N'{cboMatHang.SelectedValue}'");
                         MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         dgvChiTietHDB.DataSource = dtBase.getTable(queryLoad);

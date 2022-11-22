@@ -113,6 +113,16 @@ namespace CSharp_QuanLiBanSanGo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bill01 {
+            get {
+                object obj = ResourceManager.GetObject("bill01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -186,6 +196,16 @@ namespace CSharp_QuanLiBanSanGo.Properties {
         internal static System.Drawing.Bitmap factory {
             get {
                 object obj = ResourceManager.GetObject("factory", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file01 {
+            get {
+                object obj = ResourceManager.GetObject("file01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

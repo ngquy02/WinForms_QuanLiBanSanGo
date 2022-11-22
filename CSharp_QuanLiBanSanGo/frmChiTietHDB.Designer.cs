@@ -88,7 +88,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(960, 157);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết hoá đơn bán";
             // 
@@ -149,9 +149,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(460, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Giảm giá";
+            this.label4.Text = "Giảm giá (%)";
             // 
             // txtSoLuong
             // 
@@ -166,9 +166,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(460, 110);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Thành tiền";
+            this.label5.Text = "Thành tiền (đồng)";
             // 
             // cboMatHang
             // 

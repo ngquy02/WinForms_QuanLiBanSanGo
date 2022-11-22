@@ -89,9 +89,6 @@ namespace CSharp_QuanLiBanSanGo
             dgvNCC.Columns[2].HeaderText = "Địa chỉ";
             dgvNCC.Columns[3].HeaderText = "Điện thoại";
 
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-
             refreshInput();
         }
 

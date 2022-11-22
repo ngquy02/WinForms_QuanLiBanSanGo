@@ -43,6 +43,7 @@
             this.dtpNgayNhap = new System.Windows.Forms.DateTimePicker();
             this.txtSoHDN = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -91,7 +92,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(976, 157);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hoá đơn nhập";
             // 
@@ -110,7 +111,7 @@
             this.btnTimNC.Location = new System.Drawing.Point(853, 128);
             this.btnTimNC.Name = "btnTimNC";
             this.btnTimNC.Size = new System.Drawing.Size(117, 23);
-            this.btnTimNC.TabIndex = 15;
+            this.btnTimNC.TabIndex = 6;
             this.btnTimNC.Text = "Tìm kiếm nâng cao";
             this.btnTimNC.UseVisualStyleBackColor = true;
             this.btnTimNC.Click += new System.EventHandler(this.btnTimNC_Click);
@@ -173,9 +174,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(460, 75);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Tổng tiền";
+            this.label5.Text = "Tổng tiền (đồng)";
             // 
             // dtpNgayNhap
             // 
@@ -195,6 +196,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnChiTiet);
             this.panel2.Controls.Add(this.btnLamMoi);
             this.panel2.Controls.Add(this.btnExcel);
             this.panel2.Controls.Add(this.btnTimKiem);
@@ -207,12 +209,26 @@
             this.panel2.Size = new System.Drawing.Size(1000, 55);
             this.panel2.TabIndex = 1;
             // 
+            // btnChiTiet
+            // 
+            this.btnChiTiet.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnChiTiet.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.file01;
+            this.btnChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnChiTiet.Location = new System.Drawing.Point(435, 7);
+            this.btnChiTiet.Name = "btnChiTiet";
+            this.btnChiTiet.Size = new System.Drawing.Size(110, 40);
+            this.btnChiTiet.TabIndex = 3;
+            this.btnChiTiet.Text = "&Chi tiết";
+            this.btnChiTiet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChiTiet.UseVisualStyleBackColor = true;
+            this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
+            // 
             // btnLamMoi
             // 
             this.btnLamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLamMoi.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.refresh;
             this.btnLamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLamMoi.Location = new System.Drawing.Point(85, 7);
+            this.btnLamMoi.Location = new System.Drawing.Point(15, 7);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(110, 40);
             this.btnLamMoi.TabIndex = 0;
@@ -226,10 +242,10 @@
             this.btnExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExcel.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.excel;
             this.btnExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcel.Location = new System.Drawing.Point(785, 7);
+            this.btnExcel.Location = new System.Drawing.Point(855, 7);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(130, 40);
-            this.btnExcel.TabIndex = 5;
+            this.btnExcel.TabIndex = 6;
             this.btnExcel.Text = "Xuất ra &Excel";
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcel.UseVisualStyleBackColor = true;
@@ -240,10 +256,10 @@
             this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTimKiem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.search;
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTimKiem.Location = new System.Drawing.Point(645, 7);
+            this.btnTimKiem.Location = new System.Drawing.Point(715, 7);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(110, 40);
-            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.TabIndex = 5;
             this.btnTimKiem.Text = "Tìm &kiếm";
             this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -254,10 +270,10 @@
             this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnXoa.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.delete;
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnXoa.Location = new System.Drawing.Point(505, 7);
+            this.btnXoa.Location = new System.Drawing.Point(575, 7);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(110, 40);
-            this.btnXoa.TabIndex = 3;
+            this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "&Xoá";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -268,7 +284,7 @@
             this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSua.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.edit;
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSua.Location = new System.Drawing.Point(365, 6);
+            this.btnSua.Location = new System.Drawing.Point(295, 7);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(110, 40);
             this.btnSua.TabIndex = 2;
@@ -282,7 +298,7 @@
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThem.Image = global::CSharp_QuanLiBanSanGo.Properties.Resources.add;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnThem.Location = new System.Drawing.Point(225, 7);
+            this.btnThem.Location = new System.Drawing.Point(155, 7);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(110, 40);
             this.btnThem.TabIndex = 1;
@@ -401,5 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xoáToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnChiTiet;
     }
 }

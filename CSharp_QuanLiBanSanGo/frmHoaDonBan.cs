@@ -70,6 +70,7 @@ namespace CSharp_QuanLiBanSanGo
             txtTongTien.Text = "";
 
             btnSua.Enabled = false;
+            btnChiTiet.Enabled = false;
             btnXoa.Enabled = false;
         }
 
@@ -93,16 +94,15 @@ namespace CSharp_QuanLiBanSanGo
             dgvHoaDonBan.DataSource = dtHDB;
 
             dgvHoaDonBan.Columns[0].HeaderText = "Số hoá đơn bán";
-            dgvHoaDonBan.Columns[1].HeaderText = "Nhân viên";
-            dgvHoaDonBan.Columns[2].HeaderText = "Ngày bán";
-            dgvHoaDonBan.Columns[3].HeaderText = "Khách hàng";
-            dgvHoaDonBan.Columns[4].HeaderText = "Tổng tiền";
+            dgvHoaDonBan.Columns[1].HeaderText = "Mã nhân viên";
+            dgvHoaDonBan.Columns[2].HeaderText = "Nhân viên";
+            dgvHoaDonBan.Columns[3].HeaderText = "Ngày bán";
+            dgvHoaDonBan.Columns[4].HeaderText = "Mã khách hàng";
+            dgvHoaDonBan.Columns[5].HeaderText = "Khách hàng";
+            dgvHoaDonBan.Columns[6].HeaderText = "Tổng tiền (đồng)";
 
             load_NhanVien();
             load_KhachHang();
-
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
 
             refreshInput();
         }
@@ -110,14 +110,15 @@ namespace CSharp_QuanLiBanSanGo
         private void dgvHoaDonBan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtSoHDB.Text = dgvHoaDonBan.CurrentRow.Cells[0].Value.ToString();
-            cboNhanVien.Text = dgvHoaDonBan.CurrentRow.Cells[1].Value.ToString();
-            dtpNgayBan.Text = dgvHoaDonBan.CurrentRow.Cells[2].Value.ToString();
-            cboKhachHang.Text = dgvHoaDonBan.CurrentRow.Cells[3].Value.ToString();
-            txtTongTien.Text = dgvHoaDonBan.CurrentRow.Cells[4].Value.ToString();
+            cboNhanVien.Text = dgvHoaDonBan.CurrentRow.Cells[2].Value.ToString();
+            dtpNgayBan.Text = dgvHoaDonBan.CurrentRow.Cells[3].Value.ToString();
+            cboKhachHang.Text = dgvHoaDonBan.CurrentRow.Cells[5].Value.ToString();
+            txtTongTien.Text = dgvHoaDonBan.CurrentRow.Cells[6].Value.ToString();
 
             txtSoHDB.Enabled = false;
             btnThem.Enabled = false;
             btnSua.Enabled = true;
+            btnChiTiet.Enabled = true;
             btnXoa.Enabled = true;
             btnTimKiem.Enabled = false;
         }
@@ -125,7 +126,7 @@ namespace CSharp_QuanLiBanSanGo
         private void dgvHoaDonBan_DoubleClick(object sender, EventArgs e)
         {
             string soHDB = dgvHoaDonBan.CurrentRow.Cells[0].Value.ToString();
-            string query = "SELECT tChiTietHoaDonBan.SoHDB, TenHangHoa, tChiTietHoaDonBan.SoLuong, GiamGia, ThanhTien FROM tChiTietHoaDonBan JOIN tHoaDonBan ON tChiTietHoaDonBan.SoHDB = tHoaDonBan.SoHDB JOIN tDMHangHoa ON tChiTietHoaDonBan.MaHang = tDMHangHoa.MaHang WHERE tChiTietHoaDonBan.SoHDB = N'" + txtSoHDB.Text + "'";
+            string query = $"SELECT tChiTietHoaDonBan.SoHDB, tChiTietHoaDonBan.MaHang, TenHangHoa, tChiTietHoaDonBan.SoLuong, GiamGia, ThanhTien FROM tChiTietHoaDonBan JOIN tHoaDonBan ON tChiTietHoaDonBan.SoHDB = tHoaDonBan.SoHDB JOIN tDMHangHoa ON tChiTietHoaDonBan.MaHang = tDMHangHoa.MaHang WHERE tChiTietHoaDonBan.SoHDB = N'{txtSoHDB.Text}'";
 
             frmChiTietHDB chiTietHDB = new frmChiTietHDB(soHDB, query);
             chiTietHDB.ShowDialog();
@@ -199,6 +200,11 @@ namespace CSharp_QuanLiBanSanGo
                     }
                 }
             }
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            dgvHoaDonBan_DoubleClick(sender, e);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

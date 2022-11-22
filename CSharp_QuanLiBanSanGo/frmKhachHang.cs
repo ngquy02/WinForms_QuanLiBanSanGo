@@ -88,9 +88,6 @@ namespace CSharp_QuanLiBanSanGo
             dgvKhachHang.Columns[2].HeaderText = "Địa chỉ";
             dgvKhachHang.Columns[3].HeaderText = "Điện thoại";
 
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-
             refreshInput();
         }
 
@@ -158,9 +155,9 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     try
                     {
-                        dtBase.getExcute($"UPDATE tKhachHang SET TenKhach = N'{txtTenKhach.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
-                        dtBase.getExcute($"UPDATE tKhachHang SET DiaChi = N'{txtDiaChi.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
-                        dtBase.getExcute($"UPDATE tKhachHang SET DienThoai = N'{txtDienThoai.Text}' WHERE MaNCC = N'{txtMaKhach.Text}'");
+                        dtBase.getExcute($"UPDATE tKhachHang SET TenKhach = N'{txtTenKhach.Text}' WHERE MaKhach = N'{txtMaKhach.Text}'");
+                        dtBase.getExcute($"UPDATE tKhachHang SET DiaChi = N'{txtDiaChi.Text}' WHERE MaKhach = N'{txtMaKhach.Text}'");
+                        dtBase.getExcute($"UPDATE tKhachHang SET DienThoai = N'{txtDienThoai.Text}' WHERE MaKhach = N'{txtMaKhach.Text}'");
 
                         dgvKhachHang.DataSource = dtBase.getTable(queryLoad);
                         MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

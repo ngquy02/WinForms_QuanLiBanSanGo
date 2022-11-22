@@ -200,11 +200,14 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            var th = new Thread(() => Application.Run(new frmDangNhap()));
-            th.SetApartmentState(ApartmentState.STA);
-            th.Start();
+            if(MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var th = new Thread(() => Application.Run(new frmDangNhap()));
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
 
-            this.Close();
+                this.Close();
+            }    
         }
     }
 }

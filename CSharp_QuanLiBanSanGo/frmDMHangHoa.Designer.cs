@@ -49,10 +49,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtThoiGianBaoHanh = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
@@ -289,10 +285,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtThoiGianBaoHanh);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtSoLuong);
@@ -312,47 +304,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mặt hàng";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(296, 179);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 13);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Năm";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(296, 148);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(34, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Chiếc";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(296, 116);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(33, 13);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Đồng";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(296, 84);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Đồng";
-            // 
             // txtThoiGianBaoHanh
             // 
             this.txtThoiGianBaoHanh.Location = new System.Drawing.Point(134, 176);
             this.txtThoiGianBaoHanh.Name = "txtThoiGianBaoHanh";
-            this.txtThoiGianBaoHanh.Size = new System.Drawing.Size(151, 20);
+            this.txtThoiGianBaoHanh.Size = new System.Drawing.Size(195, 20);
             this.txtThoiGianBaoHanh.TabIndex = 6;
             this.txtThoiGianBaoHanh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThoiGianBaoHanh_KeyPress);
             // 
@@ -361,15 +317,15 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 179);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 13);
+            this.label12.Size = new System.Drawing.Size(82, 13);
             this.label12.TabIndex = 10;
-            this.label12.Text = "Thời gian bảo hành";
+            this.label12.Text = "Bảo hành (năm)";
             // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(134, 145);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(151, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(195, 20);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
@@ -387,7 +343,7 @@
             this.txtDonGiaBan.Enabled = false;
             this.txtDonGiaBan.Location = new System.Drawing.Point(134, 113);
             this.txtDonGiaBan.Name = "txtDonGiaBan";
-            this.txtDonGiaBan.Size = new System.Drawing.Size(151, 20);
+            this.txtDonGiaBan.Size = new System.Drawing.Size(195, 20);
             this.txtDonGiaBan.TabIndex = 4;
             // 
             // label10
@@ -395,15 +351,15 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 116);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 13);
+            this.label10.Size = new System.Drawing.Size(99, 13);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Đơn giá bán";
+            this.label10.Text = "Đơn giá bán (đồng)";
             // 
             // txtDonGiaNhap
             // 
             this.txtDonGiaNhap.Location = new System.Drawing.Point(134, 81);
             this.txtDonGiaNhap.Name = "txtDonGiaNhap";
-            this.txtDonGiaNhap.Size = new System.Drawing.Size(151, 20);
+            this.txtDonGiaNhap.Size = new System.Drawing.Size(195, 20);
             this.txtDonGiaNhap.TabIndex = 3;
             this.txtDonGiaNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGiaNhap_KeyPress);
             // 
@@ -412,9 +368,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 83);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.Size = new System.Drawing.Size(105, 13);
             this.label9.TabIndex = 4;
-            this.label9.Text = "Đơn giá nhập";
+            this.label9.Text = "Đơn giá nhập (đồng)";
             // 
             // txtTenHang
             // 
@@ -648,10 +604,6 @@
         private System.Windows.Forms.ComboBox cboLoaiGo;
         private System.Windows.Forms.ComboBox cboKichThuoc;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtThoiGianBaoHanh;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtSoLuong;

@@ -56,6 +56,23 @@ namespace CSharp_QuanLiBanSanGo
             return true;
         }
 
+        private void chkHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtMatKhau.PasswordChar == '*')
+            {
+                if (txtNhapLaiMK.PasswordChar == '*')
+                {
+                    txtMatKhau.PasswordChar = '\0';
+                    txtNhapLaiMK.PasswordChar = '\0';
+                }
+            }
+            else
+            {
+                txtMatKhau.PasswordChar = '*';
+                txtNhapLaiMK.PasswordChar = '*';
+            }
+        }
+
         private void btnDangKi_Click(object sender, EventArgs e)
         {
             if(checkValidation())
