@@ -84,7 +84,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dtpNgayNhap.Value != date)
             {
-                dk += $" AND NgayNhap LIKE N'%{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}%'";
+                dk += $" AND NgayNhap = '{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}'";
             }
 
             if (txtNCC.Text.Trim() != "")

@@ -231,7 +231,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (txtSoHDN.Text.Trim() != "")
             {
-                dk += $" AND SoHDB LIKE N'{txtSoHDN.Text}%'";
+                dk += $" AND SoHDN LIKE N'{txtSoHDN.Text}%'";
             }
 
             if (cboNhanVien.Text.Trim() != "")
@@ -241,17 +241,17 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dtpNgayNhap.Value != date)
             {
-                dk += $" AND NgayBan LIKE N'%{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}%'";
+                dk += $" AND NgayNhap = N'{dtpNgayNhap.Value.ToString("yyyy-MM-dd")}'";
             }
 
             if (cboNCC.Text.Trim() != "")
             {
-                dk += $" AND SoHDB LIKE N'{cboNCC.Text}%'";
+                dk += $" AND MaNCC LIKE N'{cboNCC.Text}%'";
             }
 
             if (dk != "")
             {
-                string find = queryLoad + " WHERE SoHDN LIKE N'%HDN%'" + dk;
+                string find = queryLoad + " WHERE SoHDN LIKE N'%%'" + dk;
                 dgvHoaDonNhap.DataSource = dtBase.getTable(find);
             }
         }

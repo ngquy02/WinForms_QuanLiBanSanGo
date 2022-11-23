@@ -113,6 +113,12 @@
     <Compile Include="frmNguoiDung.Designer.cs">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQLCongViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLCongViec.Designer.cs">
+      <DependentUpon>frmQLCongViec.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNguoiDung.resx">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLCongViec.resx">
+      <DependentUpon>frmQLCongViec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
@@ -315,6 +324,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\309778948_631588435022179_8677014409467195057_n.jpg" />
+    <None Include="Resources\background.jpg" />
+    <Content Include="SQL_File\CapNhatDuLieu.sql" />
+    <Content Include="SQL_File\QLBanSanGo.sql" />
     <None Include="QLBanSanGoDataSet.xsc">
       <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </None>
@@ -329,7 +342,6 @@
     <None Include="Resources\logo.png" />
     <None Include="Resources\bill01.png" />
     <None Include="Resources\file01.png" />
-    <Content Include="SQL_File\SQL_QLBanSanGo.sql" />
     <None Include="Resources\factory.png" />
     <None Include="Resources\report.png" />
     <None Include="Resources\list.png" />
@@ -366,7 +378,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SQL_File\ChucNang.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

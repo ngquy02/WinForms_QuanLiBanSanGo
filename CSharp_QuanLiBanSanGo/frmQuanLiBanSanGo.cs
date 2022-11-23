@@ -72,6 +72,12 @@ namespace CSharp_QuanLiBanSanGo
             nguoiDung.ShowDialog();
         }
 
+        private void quảnLíCôngViệcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmQLCongViec congViec = new frmQLCongViec();
+            congViec.ShowDialog();
+        }
+
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnLogOut_Click(sender, e);

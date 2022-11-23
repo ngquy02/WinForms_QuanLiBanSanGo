@@ -242,7 +242,7 @@ namespace CSharp_QuanLiBanSanGo
 
             if (dtpNgayBan.Value != date)
             {
-                dk += $" AND NgayBan LIKE N'%{dtpNgayBan.Value.ToString("yyyy-MM-dd")}%'";
+                dk += $" AND NgayBan = N'{dtpNgayBan.Value.ToString("yyyy-MM-dd")}'";
             }
 
             if (cboKhachHang.Text.Trim() != "")
