@@ -562,9 +562,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDMHangHoa";
-            this.Text = "frmDMHangHoa";
+            this.Text = "Danh mục hàng hoá";
             this.Load += new System.EventHandler(this.frmDMHangHoa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

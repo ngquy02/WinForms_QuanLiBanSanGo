@@ -374,9 +374,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHoaDonNhap";
-            this.Text = "frmHoaDonNhap";
+            this.Text = "Hoá đơn nhập";
             this.Load += new System.EventHandler(this.frmHoaDonNhap_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

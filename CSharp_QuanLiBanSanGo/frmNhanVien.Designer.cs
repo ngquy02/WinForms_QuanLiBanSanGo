@@ -36,10 +36,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.rdoNam = new System.Windows.Forms.RadioButton();
             this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboCongViec = new System.Windows.Forms.ComboBox();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtMucLuong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDienThoai = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -58,8 +60,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xoáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMucLuong = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -153,6 +153,15 @@
             this.txtMaNV.Size = new System.Drawing.Size(178, 20);
             this.txtMaNV.TabIndex = 1;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(680, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Mức lương";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -186,6 +195,15 @@
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Họ tên nhân viên";
+            // 
+            // txtMucLuong
+            // 
+            this.txtMucLuong.Enabled = false;
+            this.txtMucLuong.Location = new System.Drawing.Point(785, 72);
+            this.txtMucLuong.Name = "txtMucLuong";
+            this.txtMucLuong.Size = new System.Drawing.Size(178, 20);
+            this.txtMucLuong.TabIndex = 6;
+            this.txtMucLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
             // 
             // label4
             // 
@@ -386,24 +404,6 @@
             this.xoáToolStripMenuItem.Text = "Xoá";
             this.xoáToolStripMenuItem.Click += new System.EventHandler(this.xoáToolStripMenuItem_Click);
             // 
-            // txtMucLuong
-            // 
-            this.txtMucLuong.Enabled = false;
-            this.txtMucLuong.Location = new System.Drawing.Point(785, 72);
-            this.txtMucLuong.Name = "txtMucLuong";
-            this.txtMucLuong.Size = new System.Drawing.Size(178, 20);
-            this.txtMucLuong.TabIndex = 6;
-            this.txtMucLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienThoai_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(680, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Mức lương";
-            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,9 +412,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNhanVien";
-            this.Text = "frmNhanVien";
+            this.Text = "Nhân viên";
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

@@ -309,9 +309,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNCC";
-            this.Text = "frmNCC";
+            this.Text = "Nhà cung cấp";
             this.Load += new System.EventHandler(this.frmNCC_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
