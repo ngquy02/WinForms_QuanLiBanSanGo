@@ -95,7 +95,16 @@ namespace CSharp_QuanLiBanSanGo
             if (dk != "")
             {
                 string find = queryLoad + " WHERE tHoaDonNhap.SoHDN LIKE N'%%'" + dk;
-                dgvChiTietHDN.DataSource = dtBase.getTable(find);
+                DataTable dtTimKiem = dtBase.getTable(find);
+
+                if (dtTimKiem.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    dgvChiTietHDN.DataSource = dtBase.getTable(find);
+                }
             }
         }
     }

@@ -93,14 +93,24 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report1.rdlc";
-                    ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Report1";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report1(N'{cboChonKH.SelectedValue}')");
-                    rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
-                    this.rvBaoCao.RefreshReport();
-                    btnBaoCao.Enabled = false;
-                    cboChonKH.Enabled = false;
+                    string reportQuery = $"SELECT * FROM Report1(N'{cboChonKH.SelectedValue}')";
+                    DataTable dtBaoCao = dtBase.getTable(reportQuery);
+
+                    if (dtBaoCao.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report1.rdlc";
+                        ReportDataSource reportDataSource = new ReportDataSource();
+                        reportDataSource.Name = "Report1";
+                        reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report1(N'{cboChonKH.SelectedValue}')");
+                        rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
+                        this.rvBaoCao.RefreshReport();
+                        btnBaoCao.Enabled = false;
+                        cboChonKH.Enabled = false;
+                    }
                 }    
             }
             
@@ -113,14 +123,24 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report2.rdlc";
-                    ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Report2";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report2({cboChonThang.Text})");
-                    rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
-                    this.rvBaoCao.RefreshReport();
-                    btnBaoCao.Enabled = false;
-                    cboChonThang.Enabled = false;
+                    string reportQuery = $"SELECT * FROM Report2({cboChonThang.Text})";
+                    DataTable dtBaoCao = dtBase.getTable(reportQuery);
+
+                    if (dtBaoCao.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report2.rdlc";
+                        ReportDataSource reportDataSource = new ReportDataSource();
+                        reportDataSource.Name = "Report2";
+                        reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report2({cboChonThang.Text})");
+                        rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
+                        this.rvBaoCao.RefreshReport();
+                        btnBaoCao.Enabled = false;
+                        cboChonThang.Enabled = false;
+                    }
                 }
             } 
             
@@ -133,14 +153,24 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report3.rdlc";
-                    ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Report3";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report3({txtNhapNam.Text})");
-                    rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
-                    this.rvBaoCao.RefreshReport();
-                    btnBaoCao.Enabled = false;
-                    txtNhapNam.Enabled = false;
+                    string reportQuery = $"SELECT * FROM Report3({txtNhapNam.Text})";
+                    DataTable dtBaoCao = dtBase.getTable(reportQuery);
+
+                    if (dtBaoCao.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report3.rdlc";
+                        ReportDataSource reportDataSource = new ReportDataSource();
+                        reportDataSource.Name = "Report3";
+                        reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report3({txtNhapNam.Text})");
+                        rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
+                        this.rvBaoCao.RefreshReport();
+                        btnBaoCao.Enabled = false;
+                        txtNhapNam.Enabled = false;
+                    }
                 }
             }  
             
@@ -153,14 +183,24 @@ namespace CSharp_QuanLiBanSanGo
                 }
                 else
                 {
-                    rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report4.rdlc";
-                    ReportDataSource reportDataSource = new ReportDataSource();
-                    reportDataSource.Name = "Report4";
-                    reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report4('{cboChonThang.Text}')");
-                    rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
-                    this.rvBaoCao.RefreshReport();
-                    btnBaoCao.Enabled = false;
-                    cboChonThang.Enabled = false;
+                    string reportQuery = $"SELECT * FROM Report4_Modify('{cboChonThang.Text}')";
+                    DataTable dtBaoCao = dtBase.getTable(reportQuery);
+
+                    if (dtBaoCao.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        rvBaoCao.LocalReport.ReportEmbeddedResource = "CSharp_QuanLiBanSanGo.Reports.Report4.rdlc";
+                        ReportDataSource reportDataSource = new ReportDataSource();
+                        reportDataSource.Name = "Report4";
+                        reportDataSource.Value = dtBase.getTable($"SELECT * FROM Report4('{cboChonThang.Text}')");
+                        rvBaoCao.LocalReport.DataSources.Add(reportDataSource);
+                        this.rvBaoCao.RefreshReport();
+                        btnBaoCao.Enabled = false;
+                        cboChonThang.Enabled = false;
+                    }
                 }    
             }    
         }

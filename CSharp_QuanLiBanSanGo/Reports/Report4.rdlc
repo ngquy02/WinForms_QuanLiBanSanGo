@@ -375,8 +375,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Report4</DataSetName>
-        <Top>2.40453cm</Top>
-        <Left>3.43521cm</Left>
+        <Top>2.77495cm</Top>
+        <Left>3.43522cm</Left>
         <Height>1.2cm</Height>
         <Width>18.52956cm</Width>
         <Style>
@@ -562,6 +562,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>7a13ee30-0191-4c1e-b18d-27a74d35143a</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="QLBanSanGoDataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ab25e78d-8da1-4e86-815b-1f2ddc36b55c</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>

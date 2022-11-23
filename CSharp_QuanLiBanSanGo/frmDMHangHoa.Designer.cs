@@ -147,6 +147,7 @@
             // 
             this.ptbAnh.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ptbAnh.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ptbAnh.InitialImage = null;
             this.ptbAnh.Location = new System.Drawing.Point(3, 45);
             this.ptbAnh.Name = "ptbAnh";
             this.ptbAnh.Size = new System.Drawing.Size(176, 153);

@@ -127,7 +127,7 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     try
                     {
-                        dtBase.getExcute($"UPDATE tLogin SET Password = {txtMatKhau.Text} WHERE Username = '{txtTenNguoiDung.Text}'");
+                        dtBase.getExcute($"UPDATE tLogin SET Password = '{txtMatKhau.Text}' WHERE Username = N'{txtTenNguoiDung.Text}'");
                         MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         dgvNguoiDung.DataSource = dtBase.getTable(queryLoad);
