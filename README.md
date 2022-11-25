@@ -2,9 +2,12 @@
 Bài tập lớn môn Lập trình trực quan.
 
 ## Mô tả
-Phần mềm quản lí bán sàn gỗ và là bài tập lớn để đánh giá quá trình học tập của môn học.
+Ứng dụng quản lí bán sàn gỗ và là bài tập lớn để đánh giá quá trình học tập của môn học.
+
 Phần mềm được phát triển bằng ngôn ngữ C# và được xây dựng trên nền tảng .NET Framework 4.8.
+
 Phần mềm bao gồm các chức năng chính:
+
   * Thống kê danh mục hàng hoá.
   * Lập hoá đơn bán và hoá đơn nhập.
   * Quản lí nhân viên.
@@ -39,6 +42,9 @@ Phần mềm bao gồm các chức năng chính:
   ![image](https://user-images.githubusercontent.com/85392867/203989644-27c98a40-0a24-4d0c-a208-9c93b13c21f3.png)
 
 ## Tài liệu tham khảo
+Thông tin hàng hoá làm demo: https://www.floordi.com/san-go-cong-nghiep
+
+Việc xây dựng phần mềm có sự tham khảo từ một số trang web: GitHub, Stack Overflow, Microsoft Learn, ...
 
 ## Credits
 Nhóm 06 - CNTT5 - K61:
