@@ -15,6 +15,8 @@ Phần mềm bao gồm các chức năng chính:
   * Quản lí nhà cung cấp.
   * Quản lí công việc.
   * Lập các báo cáo.
+  
+Hỗ trợ cho Windows 7/8.1/10/11
 
 ## Một số hình ảnh
   * Thống kê danh mục hàng hoá:
