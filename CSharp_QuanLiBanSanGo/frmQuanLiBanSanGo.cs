@@ -129,6 +129,28 @@ namespace CSharp_QuanLiBanSanGo
             about.ShowDialog();
         }
 
+        private void viếtLệnhTruyVấnSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSQL frmSQL = new frmSQL();
+            frmSQL.ShowDialog();
+        }
+
+        private void vềỨngDụngNàyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            btnLogOut_Click(sender, e);
+        }
+
+        private void thoátToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            btnExit_Click(sender, e);
+        }
+
         private void ptbHome_Click(object sender, EventArgs e)
         {
             if (currentFormChild != null)
