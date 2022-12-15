@@ -328,8 +328,6 @@
   <ItemGroup>
     <None Include="Resources\309778948_631588435022179_8677014409467195057_n.jpg" />
     <None Include="Resources\background.jpg" />
-    <Content Include="SQL_File\CapNhatDuLieu.sql" />
-    <Content Include="SQL_File\QLBanSanGo.sql" />
     <None Include="QLBanSanGoDataSet.xsc">
       <DependentUpon>QLBanSanGoDataSet.xsd</DependentUpon>
     </None>
