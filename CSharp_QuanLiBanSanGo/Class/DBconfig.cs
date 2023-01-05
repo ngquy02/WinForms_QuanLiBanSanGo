@@ -13,7 +13,7 @@ namespace CSharp_QuanLiBanSanGo.Class
     {
         private SqlDataAdapter sqlDataAdapter;
         private SqlCommand sqlCommand;
-        public string connectString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLiBanSanGo;Integrated Security=True";
+        public string connectString = @"Data Source=.\SQLEXPRESS;Initial Catalog=CSharp_QuanLiBanSanGo;Integrated Security=True";
 
         public DataTable getTable(string query)
         {
