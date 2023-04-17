@@ -44,7 +44,7 @@ Hệ điều hành được hỗ trợ: Windows 7/8.1/10/11
   ![image](https://user-images.githubusercontent.com/85392867/203989644-27c98a40-0a24-4d0c-a208-9c93b13c21f3.png)
 
 ## Tài liệu tham khảo
-Microsoft: https://learn.microsoft.com/en-us/docs/
+Microsoft: https://learn.microsoft.com/vi-vn/docs/
 
 Thông tin hàng hoá làm demo: https://www.floordi.com/san-go-cong-nghiep
 
