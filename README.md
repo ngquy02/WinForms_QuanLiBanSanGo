@@ -48,7 +48,7 @@ Thông tin hàng hoá làm demo: https://www.floordi.com/san-go-cong-nghiep
 
 Việc xây dựng phần mềm có sự tham khảo từ một số trang web: GitHub, Stack Overflow, Microsoft Learn, ...
 
-## Credits
+## Thành viên
 Nhóm 06 - CNTT5 - K61:
 
   * 201210049
