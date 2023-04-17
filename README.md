@@ -4,7 +4,7 @@ Bài tập lớn môn Lập trình trực quan.
 ## Mô tả
 Ứng dụng quản lí bán sàn gỗ và là bài tập lớn để đánh giá quá trình học tập của môn học.
 
-Phần mềm được phát triển bằng ngôn ngữ C# và được xây dựng trên nền tảng .NET Framework 4.8.
+Phần mềm được phát triển bằng công nghệ .NET Framework và SQL Server của Microsoft.
 
 Phần mềm bao gồm các chức năng chính:
 
@@ -16,7 +16,7 @@ Phần mềm bao gồm các chức năng chính:
   * Quản lí công việc.
   * Lập các báo cáo.
   
-Hỗ trợ cho Windows 7/8.1/10/11
+Hệ điều hành được hỗ trợ: Windows 7/8.1/10/11
 
 ## Một số hình ảnh
   * Thống kê danh mục hàng hoá:
@@ -44,9 +44,9 @@ Hỗ trợ cho Windows 7/8.1/10/11
   ![image](https://user-images.githubusercontent.com/85392867/203989644-27c98a40-0a24-4d0c-a208-9c93b13c21f3.png)
 
 ## Tài liệu tham khảo
+Microsoft: https://learn.microsoft.com/dotnet/csharp/
+Microsoft: https://learn.microsoft.com/dotnet/framework/
 Thông tin hàng hoá làm demo: https://www.floordi.com/san-go-cong-nghiep
-
-Việc xây dựng phần mềm có sự tham khảo từ một số trang web: GitHub, Stack Overflow, Microsoft Learn, ...
 
 ## Thành viên
 Nhóm 06 - CNTT5 - K61:
