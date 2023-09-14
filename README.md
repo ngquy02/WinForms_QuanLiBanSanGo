@@ -4,7 +4,7 @@ Bài tập lớn môn Lập trình trực quan.
 ## Mô tả
 Ứng dụng quản lí bán sàn gỗ và là bài tập lớn để đánh giá quá trình học tập của môn học.
 
-Phần mềm được phát triển bằng công nghệ .NET Framework và SQL Server của Microsoft.
+Phần mềm được phát triển bằng công nghệ .NET Framework 4.8 và SQL Server 2019 của Microsoft.
 
 Phần mềm bao gồm các chức năng chính:
 
