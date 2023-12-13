@@ -237,5 +237,10 @@ namespace CSharp_QuanLiBanSanGo
                 this.Close();
             }    
         }
+
+        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

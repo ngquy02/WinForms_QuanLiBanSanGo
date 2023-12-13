@@ -194,7 +194,7 @@ namespace CSharp_QuanLiBanSanGo
                         MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtSoHDB.Enabled = true;
                     }
-                    catch(Exception ex )
+                    catch(Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

@@ -70,6 +70,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -329,7 +330,7 @@
             this.thoátToolStripMenuItem1});
             this.cmsHeThong.Name = "cmsHeThong";
             this.cmsHeThong.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsHeThong.Size = new System.Drawing.Size(191, 136);
+            this.cmsHeThong.Size = new System.Drawing.Size(191, 114);
             // 
             // quảnLíNgườiDùngToolStripMenuItem1
             // 
@@ -444,7 +445,8 @@
             this.danhSáchNhânViênToolStripMenuItem,
             this.danhSáchKháchHàngToolStripMenuItem,
             this.danhSáchNhàCungCấpToolStripMenuItem,
-            this.lậpBáoCáoToolStripMenuItem});
+            this.lậpBáoCáoToolStripMenuItem,
+            this.resetToolStripMenuItem});
             this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
             this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.chỉnhSửaToolStripMenuItem.Text = "Thao tác";
@@ -537,6 +539,13 @@
             this.pnlBody.Size = new System.Drawing.Size(1046, 584);
             this.pnlBody.TabIndex = 4;
             // 
+            // resetToolStripMenuItem
+            // 
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.resetToolStripMenuItem.Text = "Xoá tất cả";
+            this.resetToolStripMenuItem.Click += new System.EventHandler(this.resetToolStripMenuItem_Click);
+            // 
             // frmQuanLiBanSanGo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,6 +617,7 @@
         private System.Windows.Forms.ToolStripMenuItem devSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLíNgườiDùngToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem quảnLíCôngViệcToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
     }
 }
 
