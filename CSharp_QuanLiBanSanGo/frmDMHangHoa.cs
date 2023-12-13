@@ -18,6 +18,7 @@ namespace CSharp_QuanLiBanSanGo
     {
         DBconfig dtBase = new DBconfig();
         string queryLoad = "SELECT * FROM View_DMHangHoa";
+        string imagePathOld;
 
         public frmDMHangHoa()
         {
@@ -180,6 +181,48 @@ namespace CSharp_QuanLiBanSanGo
             cboXuatXu.DisplayMember = "TenNuocSX";
         }
 
+        private string getImageName(string path)
+        {
+            string fileName = Path.GetFileName(path);
+            return fileName;
+        }
+
+        private void saveImage(string path)
+        {
+            try
+            {
+                string imagePath = path;
+                string projectFolder = Path.GetDirectoryName(Application.ExecutablePath);
+                string productsFolder = Path.Combine(projectFolder, "Assets", "ProductImages");
+
+                if (!Directory.Exists(productsFolder))
+                {
+                    Directory.CreateDirectory(productsFolder);
+                }
+
+                string destinationPath = Path.Combine(productsFolder, Path.GetFileName(imagePath));
+                File.Copy(imagePath, destinationPath, true);
+
+                ptbAnh.ImageLocation = Path.Combine(projectFolder, "Assets", "ProductImages", Path.GetFileName(imagePath));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi nhập ảnh: {ex.Message}");
+            }
+        }
+
+        private void deleteImage(string path)
+        {
+            try
+            {
+                File.Delete(path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void txtDonGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -253,18 +296,12 @@ namespace CSharp_QuanLiBanSanGo
             txtDonGiaBan.Text = arrDonGiaBan[0];
             txtThoiGianBaoHanh.Text = dgvDMHangHoa.CurrentRow.Cells[11].Value.ToString();
 
-            string path = dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString();
-            if (!File.Exists(path))
-            {
-                ptbAnh.Image = null;
-            }
-            else
-            {
-                ptbAnh.ImageLocation = path;
-            }
+            string imageName = dgvDMHangHoa.CurrentRow.Cells[12].Value.ToString();
+            string projectFolder = Path.GetDirectoryName(Application.ExecutablePath);
+            ptbAnh.ImageLocation = Path.Combine(projectFolder, "Assets", "ProductImages", Path.GetFileName(imageName));
+            imagePathOld = ptbAnh.ImageLocation;
 
             rtbGhiChu.Text = dgvDMHangHoa.CurrentRow.Cells[13].Value.ToString();
-
             txtMaHang.Enabled = false;
             btnThem.Enabled = false;
             btnSua.Enabled = true;
@@ -283,6 +320,7 @@ namespace CSharp_QuanLiBanSanGo
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptbAnh.ImageLocation = openFileDialog.FileName;
+
             }
         }
 
@@ -300,7 +338,21 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string queryAdd = $"INSERT INTO tDMHangHoa (MaHang, TenHangHoa, MaLoaiGo, MaKichThuoc, MaDacDiem, MaCongDung, MaMau, MaNuocSX, SoLuong, DonGiaNhap, ThoiGianBaoHanh, Anh, GhiChu) VALUES(N'{txtMaHang.Text}', N'{txtTenHang.Text}', N'{cboLoaiGo.SelectedValue}', N'{cboKichThuoc.SelectedValue}', N'{cboDacDiem.SelectedValue}', N'{cboCongDung.SelectedValue}', N'{cboMauSac.SelectedValue}', N'{cboXuatXu.SelectedValue}', {txtSoLuong.Text}, {txtDonGiaNhap.Text}, {txtThoiGianBaoHanh.Text}, '{ptbAnh.ImageLocation}', N'{rtbGhiChu.Text}')";
+            string imageName = getImageName(ptbAnh.ImageLocation);
+            string queryAdd = $"INSERT INTO tDMHangHoa (MaHang, TenHangHoa, MaLoaiGo, MaKichThuoc, MaDacDiem, MaCongDung, MaMau, MaNuocSX, SoLuong, DonGiaNhap, ThoiGianBaoHanh, Anh, GhiChu) VALUES(" +
+                $"N'{txtMaHang.Text}', " +
+                $"N'{txtTenHang.Text}', " +
+                $"N'{cboLoaiGo.SelectedValue}', " +
+                $"N'{cboKichThuoc.SelectedValue}', " +
+                $"N'{cboDacDiem.SelectedValue}', " +
+                $"N'{cboCongDung.SelectedValue}', " +
+                $"N'{cboMauSac.SelectedValue}', " +
+                $"N'{cboXuatXu.SelectedValue}', " +
+                $"N'{txtSoLuong.Text}', " +
+                $"N'{txtDonGiaNhap.Text}', " +
+                $"N'{txtThoiGianBaoHanh.Text}', " +
+                $"N'{imageName}', " +
+                $"N'{rtbGhiChu.Text}')";
 
             if (checkValidation())
             {
@@ -319,6 +371,7 @@ namespace CSharp_QuanLiBanSanGo
                             dtBase.getExcute(queryAdd);
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
+                            saveImage(ptbAnh.ImageLocation);
                         }
                         catch(Exception ex)
                         {
@@ -331,7 +384,21 @@ namespace CSharp_QuanLiBanSanGo
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string queryUpdate = $"UPDATE tDMHangHoa SET TenHangHoa = N'{txtTenHang.Text}', MaLoaiGo = N'{cboLoaiGo.SelectedValue}', MaKichThuoc = N'{cboKichThuoc.SelectedValue}', MaDacDiem = N'{cboDacDiem.SelectedValue}', MaCongDung = N'{cboCongDung.SelectedValue}', MaMau = N'{cboMauSac.SelectedValue}', MaNuocSX = N'{cboXuatXu.SelectedValue}', SoLuong = {txtSoLuong.Text}, DonGiaNhap = {txtDonGiaNhap.Text}, ThoiGianBaoHanh = {txtThoiGianBaoHanh.Text}, Anh = '{ptbAnh.ImageLocation}', GhiChu = N'{rtbGhiChu.Text}' WHERE MaHang = N'{txtMaHang.Text}'";
+            string imageName = getImageName(ptbAnh.ImageLocation);
+            string queryUpdate = $"UPDATE tDMHangHoa SET " +
+                $"TenHangHoa = N'{txtTenHang.Text}', " +
+                $"MaLoaiGo = N'{cboLoaiGo.SelectedValue}', " +
+                $"MaKichThuoc = N'{cboKichThuoc.SelectedValue}', " +
+                $"MaDacDiem = N'{cboDacDiem.SelectedValue}', " +
+                $"MaCongDung = N'{cboCongDung.SelectedValue}', " +
+                $"MaMau = N'{cboMauSac.SelectedValue}', " +
+                $"MaNuocSX = N'{cboXuatXu.SelectedValue}', " +
+                $"SoLuong = {txtSoLuong.Text}, " +
+                $"DonGiaNhap = {txtDonGiaNhap.Text}, " +
+                $"ThoiGianBaoHanh = {txtThoiGianBaoHanh.Text}, " +
+                $"Anh = '{imageName}', " +
+                $"GhiChu = N'{rtbGhiChu.Text}' " +
+                $"WHERE MaHang = N'{txtMaHang.Text}'";
 
             if (checkValidation())
             {
@@ -342,6 +409,8 @@ namespace CSharp_QuanLiBanSanGo
                         dtBase.getExcute(queryUpdate);
                         MessageBox.Show("Bạn đã sửa thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dgvDMHangHoa.DataSource = dtBase.getTable(queryLoad);
+                        deleteImage(imagePathOld);
+                        saveImage(ptbAnh.ImageLocation);
                         txtMaHang.Enabled = true;
                         refreshInput();
                     }

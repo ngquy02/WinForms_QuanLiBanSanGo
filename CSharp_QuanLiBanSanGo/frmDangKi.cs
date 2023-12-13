@@ -83,7 +83,14 @@ namespace CSharp_QuanLiBanSanGo
                 {
                     MessageBox.Show("Tên người dùng này đã được sử dụng, vui lòng chọn tên khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtTenDangNhap.Focus();
-                }    
+                }   
+                else if (txtMatKhau.Text.Trim() != txtNhapLaiMK.Text.Trim())
+                {
+                    MessageBox.Show("Mật khẩu không trung khớp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMatKhau.Text = "";
+                    txtNhapLaiMK.Text = "";
+                    txtMatKhau.Focus();
+                }
                 else
                 {
                     try

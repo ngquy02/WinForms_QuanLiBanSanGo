@@ -29,33 +29,31 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCopyright = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(152, 61);
+            this.label2.Location = new System.Drawing.Point(203, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(220, 152);
+            this.label2.Size = new System.Drawing.Size(118, 133);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Thực hiện: Nhóm 6\r\n\r\nThành viên\r\nChu Mạnh Cường  -  201210049\r\nPhạm Tiến Đức - 20" +
-    "1200094\r\nNguyễn Tuấn Giang - 201200100\r\nNguyễn Đình Quý - 201200304\r\nĐinh Quang " +
-    "Thắng - 201200336\r\n";
+            this.label2.Text = "06 - CNTT5 - K61\r\n\r\n201210049\r\n201200094\r\n201200100\r\n201200304\r\n201200336\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblCopyright
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 274);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "2022. Đại học Giao thông Vận tải";
+            this.lblCopyright.AutoSize = true;
+            this.lblCopyright.Location = new System.Drawing.Point(13, 274);
+            this.lblCopyright.Name = "lblCopyright";
+            this.lblCopyright.Size = new System.Drawing.Size(50, 13);
+            this.lblCopyright.TabIndex = 2;
+            this.lblCopyright.Text = "copyright";
             // 
             // button1
             // 
@@ -79,23 +77,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "      Phần mềm quản lí bán sàn gỗ";
             // 
-            // label4
+            // lblVersion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Phiên bản 1.0";
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(13, 252);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(41, 13);
+            this.lblVersion.TabIndex = 4;
+            this.lblVersion.Text = "version";
             // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 299);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -116,8 +114,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblVersion;
     }
 }

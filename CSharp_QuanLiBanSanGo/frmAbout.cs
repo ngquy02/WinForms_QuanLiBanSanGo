@@ -15,6 +15,8 @@ namespace CSharp_QuanLiBanSanGo
         public frmAbout()
         {
             InitializeComponent();
+            lblVersion.Text = "Phiên bản 1.1";
+            lblCopyright.Text = "2022. Đại học Giao thông Vận tải";
         }
 
         private void button1_Click(object sender, EventArgs e)
